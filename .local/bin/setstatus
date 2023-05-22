@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# battery
+# brightness
+# volume
+
+bar_network () {
+		if [ $(cat /sys/class/net/e*/operstate) == "up" ]; then 
+				echo "[ 󰈀 ]"
+		fi
+ 	  # grep "^\s*w" /proc/net/wireless | awk '{ print " , int($3 * 100 / 70) "%" }'
+		# up speed
+		# down speed
+}
+
+bar_date () {
+	date "+%H:%M %a, %b %d"
+}
+
+while	xsetroot -name " $(bar_network) $(bar_date) "
+do
+	sleep 1
+done

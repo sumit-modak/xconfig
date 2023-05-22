@@ -1,0 +1,11 @@
+#!/usr/bin/sh
+
+ssh-keygen -t rsa -b 4096 -C "sumit.modak.solves@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+echo "#####################################################"
+echo "#                                                   #"
+echo "#                Your Public SSH Key                #"
+echo "#                                                   #"
+echo "#####################################################"
+cat ~/.ssh/id_rsa.pub

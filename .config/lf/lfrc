@@ -1,0 +1,209 @@
+# Basic vars
+set cleaner '~/.config/lf/lf_kitty_clean'
+set previewer '~/.config/lf/lf_kitty_preview'
+set hiddenfiles true
+set icons true
+set ifs "\n"
+set shellopts '-eu'
+set scrolloff 10
+set period 1
+set autoquit true
+
+# cmds/functions
+
+cmd delete ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "delete?[y/N]"
+	read ans
+	[ $ans = "y" ] && rm -rf -- $fx
+}}
+
+# cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
+
+cmd mkdir ${{
+  printf "Directory Name: "
+  read ans
+  mkdir $ans
+}}
+
+cmd mkfile ${{
+  printf "File Name: "
+  read ans
+  $EDITOR $ans
+}}
+
+cmd extract ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "extract?[y/N]"
+	read ans
+	[ $ans = "y" ] && aunpack $fx
+}}
+
+
+cmd moveto ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	clear; echo "Move to where?"
+	dest="$(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed 's|~|$HOME|')" &&
+	for x in $fx; do
+		eval mv -iv \"$x\" \"$dest\"
+	done &&
+	notify-send "🚚 File(s) moved." "File(s) moved to $dest."
+}}
+
+cmd copyto ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	clear; echo "Copy to where?"
+	dest="$(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed 's|~|$HOME|')" &&
+	for x in $fx; do
+		eval cp -ivr \"$x\" \"$dest\"
+	done &&
+	notify-send "📋 File(s) copied." "File(s) copies to $dest."
+}}
+ 
+##########################
+##		 Unmapped 		##
+##########################
+
+# map   toggle			# Toggle the selection of the current file or files given as arguments.
+# map   invert-below	# Reverse the selection (i.e. 'toggle') of all files at or after the current file in the current directory.
+# map   glob-select		# Select files that match the given glob
+# map   glob-unselect   # Unselect files that match the given glob
+# map   calcdirsize		# Calculate the total size for each of the selected directories. Option 'info' should include 'size' and option 'dircounts' should be disabled to show this size. 
+# map   sync			# Synchronize copied/cut files with server. This command is automatically called when required.
+# map   draw            # Draw the screen. This command is automatically called when required.
+# map   redraw			# Synchronize the terminal and redraw the screen.
+# map   load			# Load modified files and directories. This command is automatically called when required.
+# map   reload			# Flush the cache and reload all files and directories.
+# map   echo			# Print given arguments to the message line at the bottom.
+# map   echomsg			# Print given arguments to the message line at the bottom and also to the log file.
+# map   echoerr			# Print given arguments to the message line at the bottom as 'errorfmt' and also to the log file.
+# map   cd 				# Change the working directory to the given argument.
+# map   source 			# Read the configuration file given in the argument.
+# map   push 			# Stimulate key pushes given in the argument.
+# map   filter			# Command 'filter' reads a pattern to filter out and only view files matching the pattern.
+# map   setfilter		# Command 'setfilter' does the same but uses an argument to set the filter immediately. 
+# map   tag 			# Tag a file with '*' or a single width character given in the argument. You can define a new tag clearing command by combining 'tag' with 'tag-toggle' (i.e. 'cmd tag-clear :tag; tag-toggle').
+
+
+# map H high
+# map M middle
+# map L low
+# map : read			# Read a command to evaluate.
+# map $ shell			# Read a command to execute.
+# map % shell-pipe		# Read a shell command to execute piping its standard I/O to the bottom statline.
+# map ! shell-wait      # Read a shell command to execute and wait for a key press in the end.
+# map & shell-async		# Read a shell command to execute asynchronously without standard I/O.
+# map m mark-save		# Save the current directory as a bookmark assigned to the given key.
+# map ' mark-load       # Change the current directory to the bookmark assigned to the given key. A special bookmark "'" holds the previous directory after a 'mark-load', 'cd', or 'select' command.
+# map " mark-remove		# Remove a bookmark assigned to the given key.
+# map t tag-toggle		# Tag a file with '*' or a single width character given in the argument if the file is untagged, otherwise remove the tag.
+
+
+
+##########################
+##		 Bindings 		##
+##########################
+
+map w up
+map W top
+# map <c-u> half-up
+# map <c-b> page-up
+# map <c-y> scroll-up
+map r down
+map R bottom
+# map <c-d> half-down
+# map <c-f> page-down
+# map <c-e> scroll-down
+map a updir
+map s open
+
+# map q quit
+map c copy
+map x cut
+# map p paste
+map X clear
+# map [ jump-prev
+# map ] jump-next
+# map <space> select
+# map u unselect
+# map v invert
+map d delete
+map m rename
+# map f find			# Read key(s) to find the appropriate file name match in the forward/backward direction and jump to the next/previous match.
+# map F find-back
+# map ; find-next
+# map , find-prev
+# map / search			# Read a pattern to search for a file name match in the forward/backward direction and jump to the next/previous match.
+# map ? search-back
+# map n search-next
+# map N search-prev
+
+
+
+##########################
+##		  New-Fn 		##
+##########################
+
+map E extract
+map C copyto
+map M moveto
+map - mkfile
+map _ mkdir
+map <enter> lfcd
+
+# ------------------------------------------------------ #
+
+# cmd open ${{
+#     case $(file --mime-type "$(readlink -f $f)" -b) in
+# 	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
+# 	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
+#         text/*|application/json|inode/x-empty|application/x-subrip) $EDITOR $fx;;
+# 	image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
+# 	image/svg+xml) display -- $f ;;
+# 	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|avif\|tif\|ico\)\(_large\)*$" |
+# 		setsid -f sxiv -aio 2>/dev/null | while read -r file; do
+# 			[ -z "$file" ] && continue
+# 			lf -remote "send select \"$file\""
+# 			lf -remote "send toggle"
+# 		done &
+# 		;;
+# 	audio/*|video/x-ms-asf) mpv --audio-display=no $f ;;
+# 	video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
+# 	application/pdf|application/vnd.djvu|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
+# 	application/pgp-encrypted) $EDITOR $fx ;;
+# 	application/vnd.openxmlformats-officedocument.wordprocessingml.document|application/vnd.oasis.opendocument.text|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|application/octet-stream|application/vnd.oasis.opendocument.spreadsheet|application/vnd.oasis.opendocument.spreadsheet-template|application/vnd.openxmlformats-officedocument.presentationml.presentation|application/vnd.oasis.opendocument.presentation-template|application/vnd.oasis.opendocument.presentation|application/vnd.ms-powerpoint|application/vnd.oasis.opendocument.graphics|application/vnd.oasis.opendocument.graphics-template|application/vnd.oasis.opendocument.formula|application/vnd.oasis.opendocument.database) setsid -f libreoffice $fx >/dev/null 2>&1 ;;
+#         *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
+#     esac
+# }}
+
+# cmd setbg "$1"
+# cmd bulkrename $vidir
+
+# map <c-f> $lf -remote "send $id select \"$(fzf)\""
+# map J $lf -remote "send $id cd $(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
+# map <c-n> push :mkdir<space>
+# map <c-r> reload
+# map <c-h> set hidden!
+# map <enter> shell
+# map x $$f
+# map X !$f
+# map o &mimeopen "$f"
+# map O $mimeopen --ask "$f"
+
+# map c push A<c-u> # new rename
+# map I push A<c-a> # at the very beginning
+# map i push A<a-b><a-b><a-f> # before extension
+# map a push A<a-b> # after extension
+# map B bulkrename
+# map b $setbg $f
+
+# map V push :!nvim<space>
+# map W $setsid -f $TERMINAL >/dev/null 2>&1
+# map Y $printf "%s" "$fx" | xclip -selection clipboard
+# source "~/.config/lf/shortcutrc" # Source Bookmarks

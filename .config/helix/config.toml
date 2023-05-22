@@ -1,0 +1,14 @@
+theme = "dark_plus_mdf"
+# theme = "snazzy"
+# theme = "heisenberg"
+# theme = "mellow"
+# theme = "github_dark"
+# theme = "onedarker"
+# theme = "ayu_dark"
+# theme = "onedark"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+

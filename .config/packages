@@ -1,0 +1,36 @@
+shell                           zsh							bash, fish
+display_render			x							wayland
+compositor			picom							xcompmgr, compton
+window_manager                  dwm							i3, bspwm, sway, xmonad, awesome, qtile
+bar                             dwm_bar + xsetroot   					dwmblocks, slstatus
+terminal                        kitty							alacritty, st, gnome-terminal
+application_launcher            dmenu							rofi
+text_editor			helix				            		vscode, neovim, emacs
+file_explorer                   lf      						ranger, nnn, xplr, pcmanfm, thunar_file_mgr, gnome_file_exp
+fonts                           nerd-fonts						adobe-source-code-pro-fonts, jetbrains-mono-fonts, fontawesome-fonts
+screenshot 			maim							flameshot, gnome-screenshot, shutter, sharex
+background                      xwallpaper                      			nitrogen
+terminal_image_preview		kitty-kitten-icat					sixel, ueberzug
+sound_drivers			pulse_audio						alsa_mixer
+sound_controller		pavucontrol						pamix
+display manager                 slock                           			ly, loginx, console tdm, tbsm, emptty, lemurs, lightdm, gdm, sddm
+
+image_viewer			sxiv							feh, imagemagick
+video_player			mpv 							
+audio_player			mpd
+
+music_visualizer		ncmpcpp							mpc, cava, rainbow, spectrum_stereo
+
+----------------------------------------------- config changes
+
+helix config
+lf config
+dwm patching
+dwmblocks + xsetroot
+	battery, brightness, volume, wifi / ethernet, time
+display locker - ly / slock
+
+sxhkd - keyboard map
+pywal setup
+st patch and config
+
