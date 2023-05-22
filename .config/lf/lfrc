@@ -1,13 +1,19 @@
-# Basic vars
-set cleaner '~/.config/lf/lf_kitty_clean'
-set previewer '~/.config/lf/lf_kitty_preview'
-set hiddenfiles true
-set icons true
-set ifs "\n"
+set shell sh
 set shellopts '-eu'
+set ifs "\n"
+set icons
+set mouse
+
 set scrolloff 10
-set period 1
-set autoquit true
+set drawbox
+set ignorecase true
+set hiddenfiles true
+
+set cleaner '~/.config/lf/lfclean_kitty'
+set previewer '~/.config/lf/lfpreview_kitty'
+
+# set period 1
+# set autoquit true
 
 # cmds/functions
 
@@ -65,7 +71,9 @@ cmd copyto ${{
 	done &&
 	notify-send "📋 File(s) copied." "File(s) copies to $dest."
 }}
- 
+
+
+
 ##########################
 ##		 Unmapped 		##
 ##########################
@@ -155,7 +163,6 @@ map C copyto
 map M moveto
 map - mkfile
 map _ mkdir
-map <enter> lfcd
 
 # ------------------------------------------------------ #
 
