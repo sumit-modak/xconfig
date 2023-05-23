@@ -16,6 +16,7 @@ sudo dnf install helix
 # file explorer
 sudo dnf copr enable pennbauman/ports
 sudo dnf install lf
+sudo dnf install bat poppler-utils
 
 # screenshot utility
 sudo dnf install maim

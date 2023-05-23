@@ -8,12 +8,10 @@ set scrolloff 10
 set drawbox
 set ignorecase true
 set hiddenfiles true
+set cursorpreviewfmt "\033[7m"
 
 set cleaner '~/.config/lf/lfclean_kitty'
 set previewer '~/.config/lf/lfpreview_kitty'
-
-# set period 1
-# set autoquit true
 
 # cmds/functions
 
@@ -165,6 +163,9 @@ map - mkfile
 map _ mkdir
 
 # ------------------------------------------------------ #
+
+# set period 1
+# set autoquit true
 
 # cmd open ${{
 #     case $(file --mime-type "$(readlink -f $f)" -b) in

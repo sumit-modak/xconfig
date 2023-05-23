@@ -1,5 +1,5 @@
 shell                           zsh							bash, fish
-display_render			x							wayland
+display_server			x							wayland
 compositor			picom							xcompmgr, compton
 window_manager                  dwm							i3, bspwm, sway, xmonad, awesome, qtile
 bar                             dwm_bar + xsetroot   					dwmblocks, slstatus

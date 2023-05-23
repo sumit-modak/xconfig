@@ -6,7 +6,7 @@ These repository contains scripts and configuration files of those applications 
 | Applications            | Packages                |
 | :---------------------- | :---------------------- |
 | shell                   | zsh                     |
-| display_render		      | x                       |
+| display_server		      | x                       |
 | compositor			        | picom                   |
 | window_manager          | dwm                     |
 | statusbar               | dwm_bar + xsetroot      |

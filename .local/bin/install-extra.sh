@@ -13,9 +13,6 @@ sudo dnf install brave-browser
 # GIMP
 # Minecraft
 
-sudo dnf install bat
-sudo dnf remove less ImageMagick nano
-
 # ncmpcpp - music visualizer
 # neofetch - system comfiguration
 # cmatrix - flying text animation
