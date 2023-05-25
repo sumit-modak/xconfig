@@ -26,7 +26,7 @@ sudo dnf copr enable linuxredneck/xwallpaper
 sudo dnf install xwallpaper
 
 # sound drivers, sound emulator
-sudo dnf install pulseaudio pavucontrol
+sudo dnf install pavucontrol
 # for bluetooth : install pulseaudio-bluetooth
 
 # shell
@@ -39,14 +39,9 @@ chsh -s /usr/bin/zsh
 sudo dnf install sxiv mpv
 
 # compilers
-sudo dnf install gcc g++ python3 python3-pip make xsetroot
+sudo dnf install gcc g++ python3 python3-pip make cmake xsetroot
 pip install openai
 
-mv .config/ ~
-mv .local/bin ~
-mv multimedia ~
-mv .xinitrc ~
-mv .zshenv ~
 mkdir -p .local/src/
 cd .local/src/
 
@@ -63,6 +58,7 @@ cd ~/.local/src/dmenu && sudo make clean install
 cd ~/.local/src/slock && sudo make clean install
 
 # Fonts installation
+mkdir -p ~/.local/share/fonts
 cd ~/.local/share/fonts
 mkdir Hack FiraCode
 

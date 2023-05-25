@@ -20,17 +20,3 @@ video_player			mpv
 audio_player			mpd
 
 music_visualizer		ncmpcpp							mpc, cava, rainbow, spectrum_stereo
-
------------------------------------------------ config changes
-
-helix config
-lf config
-dwm patching
-dwmblocks + xsetroot
-	battery, brightness, volume, wifi / ethernet, time
-display locker - ly / slock
-
-sxhkd - keyboard map
-pywal setup
-st patch and config
-

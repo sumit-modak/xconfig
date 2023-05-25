@@ -4,20 +4,63 @@
 # brightness
 # volume
 
+battery() {
+# Loop through all attached batteries and format the info
+for battery in /sys/class/power_supply/BAT?*; do
+	# If non-first battery, print a space separator.
+	[ -n "${capacity+x}" ] && printf " "
+	# Sets up the status and capacity
+	case "$(cat "$battery/status" 2>&1)" in
+		"Full") status="⚡" ;;
+		"Discharging") status="🔋" ;;
+		"Charging") status="🔌" ;;
+		"Not charging") status="🛑" ;;
+		"Unknown") status="♻️" ;;
+		*) exit 1 ;;
+	esac
+	capacity="$(cat "$battery/capacity" 2>&1)"
+	# Will make a warn variable if discharging and low
+	[ "$status" = "🔋" ] && [ "$capacity" -le 25 ] && warn="❗"
+	# Prints the info
+	printf "%s%s%d%%" "$status" "$warn" "$capacity"; unset warn
+done && printf "\\n"
+}
+
+update() {
+    sum=0
+    for arg; do
+        read -r i < "$arg"
+        sum=$(( sum + i ))
+    done
+    cache=/tmp/${1##*/}
+    [ -f "$cache" ] && read -r old < "$cache" || old=0
+    printf %d\\n "$sum" > "$cache"
+    printf %d\\n $(( sum - old ))
+}
+
+nettraffic() {
+		rx=$(update /sys/class/net/[ew]*/statistics/rx_bytes)
+		tx=$(update /sys/class/net/[ew]*/statistics/tx_bytes)
+
+		printf "%4sB %4sB\\n" $(numfmt --to=iec $rx $tx)
+}
+
 bar_network () {
 		if [ $(cat /sys/class/net/e*/operstate) == "up" ]; then 
-				echo "[ 󰈀 ]"
+				echo " 󰈀 "
 		fi
  	  # grep "^\s*w" /proc/net/wireless | awk '{ print " , int($3 * 100 / 70) "%" }'
-		# up speed
-		# down speed
+}
+
+memory() {
+		free --mebi | sed -n '2{p;q}' | awk '{printf ("󰍛 %2.2fG / %2.2fG\n", ( $3 / 1024), ($2 / 1024))}'	
 }
 
 bar_date () {
-	date "+%H:%M %a, %b %d"
+	date "+%a, %b %d, %H:%M"
 }
 
-while	xsetroot -name " $(bar_network) $(bar_date) "
+while	xsetroot -name " $(nettraffic) |$(bar_network)| $(memory) | $(bar_date) "
 do
 	sleep 1
 done
