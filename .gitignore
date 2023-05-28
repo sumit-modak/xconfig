@@ -24,7 +24,6 @@ computer/
 multimedia/screenshots/
 multimedia/extra_bgs/
 projects/
-.Xauthority
 .gitconfig
 .serverauth.*
 .wget-hsts

@@ -9,7 +9,7 @@ These repository contains scripts and configuration files of those applications 
 | display_server		      | x                       |
 | compositor			        | picom                   |
 | window_manager          | dwm                     |
-| statusbar               | dwm_bar + xsetroot      |
+| statusbar               | slstatus                |
 | terminal                | kitty                   |
 | application_launcher    | dmenu                   |
 | text_editor			        | helix                   |
@@ -50,9 +50,6 @@ Yes, you definately can if you want to switch with my configuration. But if you 
 
 ## Why fedora is used instead of Arch?
 First of all, Fedora is more secure than other linux distributions which led me to use Fedora instead of Arch. Second of all, there are very less rices on fedora because of security restrictions and different package name. So, I have chosen fedora which can work as a guide for others.
-
-## Future Updates
-I will update the install scripts so it can install the same packages in arch, debian/ubuntu, gentoo, void linux, etc.
 
 ## Searching for alternative package names
 https://github.com/sumit-modak/linux-rice/tree/master/.config/packages 

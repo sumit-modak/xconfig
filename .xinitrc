@@ -1,6 +1,11 @@
 #!/usr/bin/sh
 
-picom --config ~/.config/picom/picom.conf -b &
 ~/.local/bin/setbg &
-~/.local/bin/setstatus &
-exec dwm
+picom --config ~/.config/picom/picom.conf -b &
+while true; do
+    # Log stderror to a file 
+    dwm 2> ~/.cache/.dwm.log
+    # No error logging
+    # dwm >/dev/null 2>&1
+done &
+slstatus

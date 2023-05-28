@@ -36,10 +36,10 @@ chsh -s /usr/bin/zsh
 # sxiv - image viewer
 # mpv - video player
 # mpd - music player
-sudo dnf install sxiv mpv
+sudo dnf install sxiv mpv fontawesome-fonts
 
 # compilers
-sudo dnf install gcc g++ python3 python3-pip make cmake xsetroot
+sudo dnf install gcc g++ python3 python3-pip make cmake
 pip install openai
 
 mkdir -p .local/src/
@@ -67,3 +67,6 @@ unzip Hack.zip && rm Hack.zip && cd ..
 
 cd FiraCode && wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/FiraCode.zip
 unzip FiraCode.zip && rm FiraCode.zip && cd ..
+
+cd JetBrainsMono && wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/JetBrainsMono.zip
+unzip JetBrainsMono.zip && rm JetBrainsMono.zip && cd ..
