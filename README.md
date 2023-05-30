@@ -30,7 +30,7 @@ These repository contains scripts and configuration files of those applications 
 Install latest release of fedora server version and run
 ```
 sudo dnf install git &&
-git clone https://github.com/sumit-modak/linux-rice ~ &&
+git clone --depth=1 https://github.com/sumit-modak/linux-rice ~ &&
 chmod +x ~/.local/bin/install.sh &&
 ~/.local/bin/install.sh
 ```

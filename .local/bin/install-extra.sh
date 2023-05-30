@@ -17,4 +17,5 @@ sudo dnf install brave-browser
 # neofetch - system comfiguration
 # cmatrix - flying text animation
 # figlet - ascii to ascii art
-sudo dnf install neofetch htop cmatrix figlet
+# htop, glances, nmon - status monitor
+sudo dnf install neofetch htop cmatrix figlet glances nmon

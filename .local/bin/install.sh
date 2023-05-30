@@ -1,45 +1,45 @@
 #!/usr/bin/bash
 
 sudo dnf update -y
-sudo dnf install git wget curl
+sudo dnf install git wget curl -y
 
 # display render: x, compositor: picom
-sudo dnf install @base-x picom
+sudo dnf install @base-x picom -y
 
 # terminal
-sudo dnf install kitty
+sudo dnf install kitty -y
 
 # text editor
 sudo dnf copr enable varlad/helix
-sudo dnf install helix
+sudo dnf install helix -y
 
 # file explorer
 sudo dnf copr enable pennbauman/ports
-sudo dnf install lf
-sudo dnf install bat poppler-utils
+sudo dnf install lf -y
+sudo dnf install bat poppler-utils -y
 
 # screenshot utility
-sudo dnf install maim
+sudo dnf install maim -y
 
 # wallpaper application
 sudo dnf copr enable linuxredneck/xwallpaper
-sudo dnf install xwallpaper
+sudo dnf install xwallpaper -y
 
 # sound drivers, sound emulator
-sudo dnf install pavucontrol
+sudo dnf install pavucontrol -y
 # for bluetooth : install pulseaudio-bluetooth
 
 # shell
-sudo dnf install zsh
+sudo dnf install zsh -y
 chsh -s /usr/bin/zsh
 
 # sxiv - image viewer
 # mpv - video player
 # mpd - music player
-sudo dnf install sxiv mpv fontawesome-fonts
+sudo dnf install sxiv mpv fontawesome-fonts -y
 
 # compilers
-sudo dnf install gcc g++ python3 python3-pip make cmake
+sudo dnf install gcc g++ python3 python3-pip make cmake -y
 pip install openai
 
 mkdir -p .local/src/
@@ -47,15 +47,14 @@ cd .local/src/
 
 # window manager, application launcher
 git clone https://github.com/sumit-modak/dwm
-git clone https://github.com/sumit-modak/dmenu
-git clone https://github.com/sumit-modak/slock
+git clone https://github.com/sumit-modak/suckless
 
 # suckless software dependencies
-sudo dnf install libX11-devel libXft-devel libXinerama-devel libXrandr-devel
+sudo dnf install libX11-devel libXft-devel libXinerama-devel libXrandr-devel -y
 
 cd ~/.local/src/dwm && sudo make clean install 
-cd ~/.local/src/dmenu && sudo make clean install
-cd ~/.local/src/slock && sudo make clean install
+cd ~/.local/src/suckless/dmenu && sudo make clean install
+cd ~/.local/src/suckless/slock && sudo make clean install
 
 # Fonts installation
 mkdir -p ~/.local/share/fonts
