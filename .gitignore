@@ -3,8 +3,11 @@
 .config/Code/
 .config/gtk-3.0/
 .config/htop/
+.config/libfm/
+.config/pcmanfm/
 .config/neofetch/
 .config/pulse/
+.config/systemd/
 .config/zsh/plugins/
 .config/zsh/.zsh_history
 .config/pavucontrol.ini
@@ -23,6 +26,7 @@ Downloads/
 computer/
 multimedia/screenshots/
 multimedia/extra_bgs/
+multimedia/complete-networking-fundamentals*/
 projects/
 .gitconfig
 .serverauth.*

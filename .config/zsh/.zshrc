@@ -61,8 +61,6 @@ zsh_add_plugin "zsh-users/zsh-completions"
 # for more info visit https://arjanvandergaag.nl/blog/customize-zsh-prompt-with-vcs-info.html
 
 autoload -U colors && colors
-
-# format our main prompt for hostname current folder, and permissions.
 PROMPT="[%{$fg[cyan]%}%~%{$reset_color%}]%(?:%{$fg_bold[green]%} $:%{$fg_bold[red]%} $) "
 
 
