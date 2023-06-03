@@ -43,7 +43,7 @@ chmod +x ~/.local/bin/install-extra.sh &&
 
 ## Screenshots
 ![image](multimedia/rice-ss/Screenshot_2023-05-21_14:55:42.png)
-![image](multimedia/rice-ss/Screenshot_2023-05-21_16:57:56.png)
+![image](multimedia/rice-ss/Screenshot_2023-06-02_18:07:42.png)
 
 ## Can I install this config with other desktop environment?
 Yes, you definately can if you want to switch with my configuration. But if you want to use both, its better to create a backup of your current configuration because things should definately break. My recommendation will be to create a new virtual machine with fedora server version and test with my configuration tweaking it according your choice.
