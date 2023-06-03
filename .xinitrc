@@ -1,8 +1,8 @@
 #!/usr/bin/sh
 
-/usr/bin/pipewire &
-/usr/bin/pipewire-pulse &
-/usr/bin/pipewire-media-session &
+# /usr/bin/pipewire &
+# /usr/bin/pipewire-pulse &
+# /usr/bin/pipewire-media-session &
 ~/.local/bin/setbg &
 picom --config ~/.config/picom/picom.conf -b &
 slstatus &
