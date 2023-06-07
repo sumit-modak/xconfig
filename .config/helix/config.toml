@@ -10,5 +10,7 @@ theme = "dark_plus_mdf"
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
-select = "underline"
+select = "hidden"
 
+[editor.statusline]
+right = ["diagnostics", "selections", "position", "file-encoding"]

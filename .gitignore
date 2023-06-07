@@ -1,6 +1,8 @@
 .cache/
 .config/BraveSoftware/
 .config/Code/
+.config/GIMP/
+.config/gtk-2.0/
 .config/gtk-3.0/
 .config/htop/
 .config/libfm/
@@ -9,6 +11,7 @@
 .config/pulse/
 .config/systemd/
 .config/zsh/plugins/
+.config/zsh/.zcompdump
 .config/zsh/.zsh_history
 .config/pavucontrol.ini
 .dotnet/
@@ -27,7 +30,8 @@ computer/
 multimedia/screenshots/
 multimedia/extra_bgs/
 multimedia/complete-networking-fundamentals*/
-projects/
+multimedia/Hacking_Exposed/
+repos/
 .gitconfig
 .serverauth.*
 .wget-hsts
