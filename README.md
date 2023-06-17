@@ -19,7 +19,7 @@ These repository contains scripts and configuration files of those applications 
 | background              | xwallpaper              |
 | cli_image_preview       | kitty-kitten-icat       |
 | sound_server			      | pipewire                |
-| sound_controller		    | pavucontrol             |
+| sound_controller		    | alsamixer               |
 | display manager         | slock                   |
 | image_viewer			      | sxiv                    |
 | video_player			      | mpv 			              |

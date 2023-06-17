@@ -71,6 +71,6 @@ PROMPT="[%{$fg[cyan]%}%~%{$reset_color%}]%(?:%{$fg_bold[green]%} $:%{$fg_bold[re
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
 alias imgcat="kitty +kitten icat"
 alias lfcd="~/.config/lf/lfcd.sh"
-alias ls="ls -lAGv --color --group-directories-first"
+alias ls="ls -lAGhv --color --group-directories-first"
 alias pipes="~/.local/bin/pipes"
 alias chat-gpt="cd ~/.local/bin && python3 ~/.local/bin/chat-gpt.py && cd $OLDPWD"
