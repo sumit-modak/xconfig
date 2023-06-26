@@ -1,11 +1,13 @@
 .cache/
 .config/BraveSoftware/
 .config/Code/
+.config/dconf/
 .config/GIMP/
 .config/gtk-2.0/
 .config/gtk-3.0/
 .config/htop/
 .config/libfm/
+.config/libvirt/
 .config/pcmanfm/
 .config/neofetch/
 .config/pulse/
@@ -17,7 +19,8 @@
 .dotnet/
 .local/lib/
 .local/share/
-.local/src/
+.local/src/dwm/
+.local/src/pyenv/
 .local/state/
 .local/bin/openai_api_key.txt
 .pki/
