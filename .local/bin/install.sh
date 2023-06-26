@@ -45,16 +45,16 @@ pip install openai
 mkdir -p .local/src/
 cd .local/src/
 
-# window manager, application launcher
+# window manager
 git clone https://github.com/sumit-modak/dwm
-git clone https://github.com/sumit-modak/suckless
 
 # suckless software dependencies
 sudo dnf install libX11-devel libXft-devel libXinerama-devel libXrandr-devel -y
 
 cd ~/.local/src/dwm && sudo make clean install 
-cd ~/.local/src/suckless/dmenu && sudo make clean install
-cd ~/.local/src/suckless/slock && sudo make clean install
+cd ~/.local/src/dmenu && sudo make clean install
+cd ~/.local/src/slock && sudo make clean install
+cd ~/.local/src/slstatus && sudo make clean install
 
 # Fonts installation
 mkdir -p ~/.local/share/fonts

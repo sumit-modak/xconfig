@@ -35,12 +35,6 @@ chmod +x ~/.local/bin/install.sh &&
 ~/.local/bin/install.sh
 ```
 
-For extra installation like (web-browser, system-status, etc) run
-```
-chmod +x ~/.local/bin/install-extra.sh &&
-~/.local/bin/install-extra.sh
-```
-
 ## Screenshots
 ![image](multimedia/rice-ss/Screenshot_2023-05-21_14:55:42.png)
 ![image](multimedia/rice-ss/Screenshot_2023-06-02_18:07:42.png)
