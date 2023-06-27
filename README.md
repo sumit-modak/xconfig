@@ -30,7 +30,7 @@ Install latest release of debian and run
 sudo apt install git &&
 rm .bash* .profile &&
 git clone --depth=1 https://github.com/sumit-modak/linux-rice ~ &&
-~/.local/bin/install.sh
+cd .local/bin && chmod +x install.sh && ./install.sh
 ```
 
 ## Screenshots
