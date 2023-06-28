@@ -1,5 +1,5 @@
 
-# Linux-Rice
+# Linux X-Server Setup Config & Scripts
 
 These repository contains scripts and configuration files of those applications which I used to rice linux:
 
@@ -15,7 +15,7 @@ These repository contains scripts and configuration files of those applications 
 | background              | xwallpaper              |
 | screenshot_tool		      | maim                    |
 | terminal                | kitty                   |
-| text_editor			        | helix                   |
+| text_editor			        | helix + neovim          |
 | file_explorer           | lf                      |
 | cli_image_preview       | kitty-kitten-icat       |
 | fonts                   | hack-nerd-fonts         |
@@ -29,7 +29,7 @@ Install latest release of debian and run
 ```
 sudo apt install git &&
 rm .bash* .profile &&
-git clone --depth=1 https://github.com/sumit-modak/linux-rice ~ &&
+git clone --depth=1 https://github.com/sumit-modak/xconfig ~ &&
 cd .local/bin && chmod +x install.sh && ./install.sh
 ```
 
@@ -38,4 +38,4 @@ cd .local/bin && chmod +x install.sh && ./install.sh
 ![image](multimedia/rice-ss/Screenshot_2023-06-02_18:07:42.png)
 
 ## Searching for alternative package names
-https://github.com/sumit-modak/linux-rice/tree/master/.config/packages 
+https://github.com/sumit-modak/xconfig/tree/master/.config/packages 

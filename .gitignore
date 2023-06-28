@@ -26,6 +26,7 @@
 .local/share/icons/
 .local/share/images/
 .local/share/lf/
+.local/share/nvim/
 .local/share/xorg/
 .local/share/mimeapps.list
 .local/share/recently-used.xbel
