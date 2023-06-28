@@ -58,3 +58,4 @@ repos/
 .gitconfig
 .serverauth.*
 .wget-hsts
+.xsel.log

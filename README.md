@@ -1,5 +1,5 @@
 
-# Linux X-Server Setup Config & Scripts
+# Linux X-Server Setup, Config & Scripts
 
 These repository contains scripts and configuration files of those applications which I used to rice linux:
 
@@ -21,7 +21,7 @@ These repository contains scripts and configuration files of those applications 
 | fonts                   | hack-nerd-fonts         |
 | image_viewer			      | sxiv                    |
 | video_player			      | mpv 			              |
-| audio_player			      | mpd (not included)      |
+| audio_player			      | mpd                     |
 
 # Installation
 

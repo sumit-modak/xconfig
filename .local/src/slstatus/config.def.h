@@ -65,14 +65,13 @@ static const char unknown_str[] = "";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-//	{ netspeed_rx, 	"^d^ ^b#d79921^^c#1d2021^  ^b#fabd2f^ %sB ",				"enp3s0"	}, yellow
 //  { vol_perc,			"^c#98c379^ 󰕾 %s%% ",				NULL				},
 //	{ run_command,	"[%2s]  ", 				"~/.local/bin/net_traffic" },
-	{ netspeed_tx, 	"^d^ ^b#1e222a^^c#fb4934^  ^b#1e222a^ %sB ",				"enp3s0"	},
-	{ netspeed_rx, 	"^d^ ^b#1e222a^^c#fb4934^  ^b#1e222a^ %sB ",				"enp3s0"	},
-	{ uptime,   		"^d^ ^b#282c34^^c#d3869b^  ^b#1d2021^ %s ",				NULL			},
-	{ cpu_perc, 		"^d^ ^b#83a598^^c#1d2021^  ^b#282c34^^c#83a598^ %s%% ",			NULL	    },
-	{ ram_used, 		"^d^ ^b#7eca9c^^c#1d2021^  ^b#282c34^^c#7eca9c^ %sB ",				NULL 			},
-	{ datetime,     "^d^ ^b#7aa2f7^^c#1d2021^ 󰸘 ^b#282c34^^c#7aacf7^ %s ",				"%a, %b %d" },
-	{ datetime, 		"^d^ ^b#668ee3^^c#1d2021^  ^b#7aa2f7^ %s ",				"%H:%M:%S"  },
+	{ netspeed_rx, 	"^d^ ^b#59c9c5^^c#1d2021^  ^b#1e222a^^c#6afff3^ %sB ",			"enp3s0"	},
+	{ netspeed_tx, 	"^d^ ^b#ac68e6^^c#1d2021^  ^b#1e222a^^c#bf71ff^ %sB ",			"enp3s0"	},
+	{ uptime,   		"^d^ ^b#282c34^^c#f27009^  ^b#1d2021^ %s ",								NULL			},
+	{ cpu_perc, 		"^d^ ^b#ffc704^^c#1d2021^  ^b#282c34^^c#ffc704^ %s%% ",		NULL	    },
+	{ ram_used, 		"^d^ ^b#35ab55^^c#1d2021^  ^b#282c34^^c#35ab55^ %sB ",			NULL 			},
+	{ datetime,     "^d^ ^b#1baae4^^c#1d2021^ 󰸘 ^b#1cbfff^ %s ",								"%a, %b %d" },
+	{ datetime, 		"^d^ ^b#668ee3^^c#1d2021^  ^b#7aa2f7^ %s ",								"%H:%M:%S"  },
 };
