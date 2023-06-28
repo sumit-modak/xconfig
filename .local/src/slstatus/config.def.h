@@ -68,11 +68,11 @@ static const struct arg args[] = {
 //	{ netspeed_rx, 	"^d^ ^b#d79921^^c#1d2021^  ^b#fabd2f^ %sB ",				"enp3s0"	}, yellow
 //  { vol_perc,			"^c#98c379^ 󰕾 %s%% ",				NULL				},
 //	{ run_command,	"[%2s]  ", 				"~/.local/bin/net_traffic" },
-	{ uptime,   	"^d^ ^b#b16286^^c#1d2021^  ^b#d3869b^ %s ",				NULL		},
-	{ netspeed_tx, 	"^d^ ^b#cc241d^^c#1d2021^  ^b#fb4934^ %sB ",				"enp3s0"	},
-	{ netspeed_rx, 	"^d^ ^b#d65d0e^^c#1d2021^  ^b#fe8019^ %sB ",				"enp3s0"	},
-	{ cpu_perc, 	"^d^ ^b#458588^^c#1d2021^  ^b#83a598^ %s%% ",				NULL	    },
-	{ ram_used, 	"^d^ ^b#689d6a^^c#1d2021^  ^b#8ec07c^ %sB ",				NULL 		},
-	{ datetime,     "^d^ ^b#98971a^^c#1d2021^ 󰸘 ^b#b8bb26^ %s ",				 "%a, %b %d" },
-	{ datetime, 	"^d^ ^b#668ee3^^c#1d2021^  ^b#7aa2f7^ %s ",				"%H:%M:%S"  },
+	{ netspeed_tx, 	"^d^ ^b#1e222a^^c#fb4934^  ^b#1e222a^ %sB ",				"enp3s0"	},
+	{ netspeed_rx, 	"^d^ ^b#1e222a^^c#fb4934^  ^b#1e222a^ %sB ",				"enp3s0"	},
+	{ uptime,   		"^d^ ^b#282c34^^c#d3869b^  ^b#1d2021^ %s ",				NULL			},
+	{ cpu_perc, 		"^d^ ^b#83a598^^c#1d2021^  ^b#282c34^^c#83a598^ %s%% ",			NULL	    },
+	{ ram_used, 		"^d^ ^b#7eca9c^^c#1d2021^  ^b#282c34^^c#7eca9c^ %sB ",				NULL 			},
+	{ datetime,     "^d^ ^b#7aa2f7^^c#1d2021^ 󰸘 ^b#282c34^^c#7aacf7^ %s ",				"%a, %b %d" },
+	{ datetime, 		"^d^ ^b#668ee3^^c#1d2021^  ^b#7aa2f7^ %s ",				"%H:%M:%S"  },
 };

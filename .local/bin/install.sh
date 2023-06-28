@@ -21,7 +21,7 @@ fi
 ## Virtualization Packages ##
 read -n1 -rep 'Would you like to install virtualization packages? [y/n]' VIRT
 if [[ $VIRT == "Y" || $VIRT == "y" ]]; then
-  sudo apt install -yy qemu qemu-kvm virt-manager bridge-utils
+  sudo apt install -yy qemu-utils qemu-system-x86 qemu-system-gui virt-manager bridge-utils
   sudo useradd -G $USER libvirt
   sudo useradd -G $USER libvirt-kvm
   sudo systemctl enable libvirtd.service
@@ -34,10 +34,10 @@ if [[ $BRO == "Y" || $BRO == "y" ]]; then
   sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
   echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
   sudo apt update
-  sudo apt install brave-browser
+  sudo apt install -yy brave-browser
 fi
 
-pip install openai
+# pip install openai
 
 chsh -s /usr/bin/zsh
 

@@ -31,6 +31,16 @@
 .local/share/mimeapps.list
 .local/share/recently-used.xbel
 .local/src/dwm/
+.local/src/slock/*.o
+.local/src/slock/slock
+.local/src/dmenu/*.o
+.local/src/dmenu/dmenu
+.local/src/dmenu/dmenu_run
+.local/src/dmenu/dmenu_path
+.local/src/dmenu/stest
+.local/src/slstatus/*.o
+.local/src/slstatus/slstatus
+.local/src/slstatus/components/*.o
 .local/src/pyenv/
 .local/state/
 .local/bin/openai_api_key.txt
