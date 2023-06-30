@@ -35,8 +35,6 @@
 .local/src/slock/slock
 .local/src/dmenu/*.o
 .local/src/dmenu/dmenu
-.local/src/dmenu/dmenu_run
-.local/src/dmenu/dmenu_path
 .local/src/dmenu/stest
 .local/src/slstatus/*.o
 .local/src/slstatus/slstatus
