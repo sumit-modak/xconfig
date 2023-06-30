@@ -54,8 +54,10 @@ computer/
 multimedia/screenshots/
 multimedia/extra_bgs/
 multimedia/movies/
+passwd/
 repos/
 .gitconfig
 .serverauth.*
+.sudo_as_admin_successful
 .wget-hsts
 .xsel.log
