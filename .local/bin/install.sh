@@ -3,14 +3,15 @@
 sudo apt update && sudo apt upgrade -yy
 
 sudo apt install -yy git zsh \
-kitty neovim lf bat sxiv mpv mpd \
+kitty neovim lf sxiv mpv mpd \
 gcc g++ python3 python3-pip make cmake
 
 ## GUI Packages ##
 read -n1 -rep 'Would you like to install standard system utilities? [y/n]' SYS
 if [[ $SYS == "Y" || $SYS == "y" ]]; then
   sudo apt install -yy sudo man zip unzip patch curl wget \
-  network-manager brightnessctl shutdown reboot poweroff psmisc
+  network-manager brightnessctl shutdown reboot poweroff \
+  psmisc bat
 fi
 
 ## GUI Packages ##

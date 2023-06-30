@@ -15,6 +15,7 @@
 .config/zsh/plugins/
 .config/zsh/.zcompdump
 .config/zsh/.zsh_history
+.config/mimeapps.list
 .config/pavucontrol.ini
 .dotnet/
 .local/lib/
@@ -28,6 +29,7 @@
 .local/share/lf/
 .local/share/nvim/
 .local/share/xorg/
+.local/share/lesshst
 .local/share/mimeapps.list
 .local/share/recently-used.xbel
 .local/src/dwm/
