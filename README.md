@@ -37,5 +37,8 @@ git clone --depth=1 https://github.com/sumit-modak/xconfig ~ &&
 ![image](multimedia/rice-ss/Screenshot_2023-05-21_14:55:42.png)
 ![image](multimedia/rice-ss/Screenshot_2023-06-02_18:07:42.png)
 
+## Debian 12 minimal & expert installation guide
+https://www.youtube.com/watch?v=MoWApyUb5w8
+
 ## Searching for alternative package names
 https://github.com/sumit-modak/xconfig/tree/master/.config/packages 

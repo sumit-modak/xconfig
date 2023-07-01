@@ -6,12 +6,21 @@ sudo apt install -yy git zsh \
 kitty neovim lf sxiv mpv mpd \
 gcc g++ python3 python3-pip make cmake
 
-## GUI Packages ##
+## Standard System Packages ##
 read -n1 -rep 'Would you like to install standard system utilities? [y/n]' SYS
 if [[ $SYS == "Y" || $SYS == "y" ]]; then
   sudo apt install -yy sudo man zip unzip patch curl wget \
-  network-manager brightnessctl shutdown reboot poweroff \
-  psmisc bat
+  network-manager brightnessctl psmisc tree bat
+fi
+
+## Sound Controls and Utilities ##
+read -n1 -rep 'Would you like to install sound controls & utilities? [y/n]' SOUND
+if [[ $SOUND == "Y" || $SOUND == "y" ]]; then
+  sudo apt install -yy pipewire pipewire-pulse \
+  alsa-utils alsa-oss wireplumber pulseaudio-utils
+  sudo systemctl --user --now enable wireplumber.service
+  sudo systemctl --user --now enable pipewire.service
+  sudo systemctl --user --now enable pipewire-pulse.service
 fi
 
 ## GUI Packages ##
