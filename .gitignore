@@ -7,6 +7,7 @@
 .config/gtk-3.0/
 .config/htop/
 .config/libfm/
+.config/libreoffice/
 .config/libvirt/
 .config/pcmanfm/
 .config/neofetch/

@@ -27,9 +27,10 @@ These repository contains scripts and configuration files of those applications 
 
 Install latest release of debian and run
 ```
-rm -rf .bash* .profile .sudo* .local/ &&
-sudo apt install git &&
-git clone --depth=1 https://github.com/sumit-modak/xconfig ~ &&
+su 
+rm -rf .bash* .profile .sudo* .local/
+apt install git
+git clone --depth=1 https://github.com/sumit-modak/xconfig ~
 ~/.local/bin/install.sh
 ```
 

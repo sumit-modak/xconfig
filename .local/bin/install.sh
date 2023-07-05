@@ -16,11 +16,11 @@ fi
 ## Sound Controls and Utilities ##
 read -n1 -rep 'Would you like to install sound controls & utilities? [y/n]' SOUND
 if [[ $SOUND == "Y" || $SOUND == "y" ]]; then
-  sudo apt install -yy pipewire pipewire-pulse \
-  alsa-utils alsa-oss wireplumber pulseaudio-utils
-  sudo systemctl --user --now enable wireplumber.service
-  sudo systemctl --user --now enable pipewire.service
-  sudo systemctl --user --now enable pipewire-pulse.service
+  sudo apt install -yy pipewire wireplumber pipewire-pulse \
+  pulseaudio-utils
+  systemctl --user --now enable wireplumber.service
+  systemctl --user --now enable pipewire.service
+  systemctl --user --now enable pipewire-pulse.service
 fi
 
 ## GUI Packages ##
@@ -38,7 +38,8 @@ fi
 ## Virtualization Packages ##
 read -n1 -rep 'Would you like to install virtualization packages? [y/n]' VIRT
 if [[ $VIRT == "Y" || $VIRT == "y" ]]; then
-  sudo apt install -yy qemu-utils qemu-system-x86 qemu-system-gui virt-manager libvirt-dev bridge-utils
+  sudo apt install -yy qemu-utils qemu-system-x86 qemu-system-gui \
+  virt-manager libvirt-dev bridge-utils
   sudo useradd -G $USER libvirt
   sudo useradd -G $USER libvirt-kvm
   sudo systemctl enable libvirtd.service
