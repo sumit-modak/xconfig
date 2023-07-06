@@ -1,0 +1,56 @@
+keycode 49 = grave				asciitilde
+keycode 10 = 1					exclam
+keycode 11 = 2					at
+keycode 12 = 3					numbersign
+keycode 13 = 4					dollar
+keycode 14 = 5					percent
+keycode 15 = slash				question
+keycode 16 = equal				plus
+keycode 17 = 6					asciicircum
+keycode 18 = 7					ampersand
+keycode 19 = 8					asterisk
+keycode 20 = 9					parenleft
+keycode 21 = 0					parenright
+keycode 22 = Caps_Lock			Caps_Lock
+
+keycode 24 = q 					Q
+keycode 25 = w					W
+keycode 26 = c					C
+keycode 27 = p					P
+keycode 28 = b					B
+keycode 29 = z					Z
+keycode 30 = j					J
+keycode 31 = l					L
+keycode 32 = u					U
+keycode 33 = y					y
+keycode 34 = apostrophe			quotedbl
+keycode 35 = minus				underscore
+keycode 51 = semicolon			colon
+
+keycode 66 = BackSpace			BackSpace
+keycode 38 = a					A
+keycode 39 = r					R
+keycode 40 = s					S
+keycode 41 = t					T
+keycode 43 = backslash			bar
+keycode 44 = m					M
+keycode 45 = n					N
+keycode 46 = e					E
+keycode 47 = i					I
+keycode 48 = o					O
+
+keycode 52 = x					X
+keycode 53 = f					F
+keycode 54 = d					D
+keycode 55 = k					K
+keycode 56 = bracketleft		braceleft
+keycode 57 = bracketright		braceright
+keycode 58 = v					V
+keycode 59 = h					H
+keycode 60 = comma				less
+keycode 61 = period				greater
+
+keycode 65 = space 				space
+keycode 37 = Alt_L
+keycode 133 = Control_L
+keycode 64 = Super_L
