@@ -17,7 +17,7 @@ fi
 read -n1 -rep 'Would you like to install sound controls & utilities? [y/n]' SOUND
 if [[ $SOUND == "Y" || $SOUND == "y" ]]; then
   sudo apt install -yy pipewire wireplumber pipewire-pulse \
-  pulseaudio-utils
+  pulseaudio-utils pavucontrol
   systemctl --user --now enable wireplumber.service
   systemctl --user --now enable pipewire.service
   systemctl --user --now enable pipewire-pulse.service
