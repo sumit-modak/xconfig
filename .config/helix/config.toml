@@ -14,3 +14,33 @@ select = "hidden"
 
 [editor.statusline]
 right = ["diagnostics", "selections", "position", "file-encoding"]
+
+[keys.insert]
+"A-[" = "normal_mode"
+
+[keys.normal]
+# commands
+C-w = ":w"
+C-q = ":q"
+# movement
+w = "move_visual_line_up"
+a = "move_char_left"
+r = "move_visual_line_down"
+s = "move_char_right"
+W = "page_up"
+A = "goto_line_start"
+R = "page_down"
+S = "goto_line_end"
+m = "move_prev_word_start"
+M = "move_prev_long_word_start"
+n = "move_next_word_start"
+N = "move_next_long_word_start"
+e	= "move_next_word_end"
+E = "move_next_long_word_end"
+# changes
+c = "yank"
+C = "change_selection"
+p = "paste_before"
+P = "paste_after"
+u = "undo"
+U = "redo"

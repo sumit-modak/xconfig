@@ -2,8 +2,7 @@
 
 sudo apt update && sudo apt upgrade -yy
 
-sudo apt install -yy git zsh \
-kitty neovim lf sxiv mpv mpd \
+sudo apt install -yy git zsh kitty lf sxiv mpv mpd \
 gcc g++ python3 python3-pip make cmake
 
 ## Standard System Packages ##
