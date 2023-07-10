@@ -10,7 +10,7 @@ gcc g++ python3 python3-pip make cmake
 read -n1 -rep 'Would you like to install standard system utilities? [y/n]' SYS
 if [[ $SYS == "Y" || $SYS == "y" ]]; then
   sudo apt install -yy sudo man zip unzip patch curl wget \
-  network-manager brightnessctl psmisc tree bat
+  network-manager brightnessctl psmisc bat exa espeak-ng
 fi
 
 ## Sound Controls and Utilities ##
