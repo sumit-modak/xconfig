@@ -2,14 +2,14 @@
 
 sudo apt update && sudo apt upgrade -yy
 
-sudo apt install -yy git zsh kitty lf sxiv mpv mpd \
+sudo apt install -yy zsh kitty lf sxiv mpv mpd \
 gcc g++ python3 python3-pip make cmake
 
 ## Standard System Packages ##
 read -n1 -rep 'Would you like to install standard system utilities? [y/n]' SYS
 if [[ $SYS == "Y" || $SYS == "y" ]]; then
   sudo apt install -yy sudo man zip unzip patch curl wget \
-  network-manager brightnessctl psmisc bat exa espeak-ng
+  network-manager brightnessctl psmisc bat exa 
 fi
 
 ## Sound Controls and Utilities ##
@@ -63,7 +63,8 @@ fi
 ## System Utilities ##
 read -n1 -rep 'Would you like to install random system utilities? [y/n]' UTIL
 if [[ $UTIL == "Y" || $UTIL == "y" ]]; then
-  sudo apt install -yy htop cmatrix neofetch figlet
+  sudo apt install -yy htop cmatrix neofetch figlet \
+  espeak-ng yt-dlp
 fi
 
 # pip install openai

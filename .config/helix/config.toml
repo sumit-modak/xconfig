@@ -1,11 +1,9 @@
 theme = "dark_plus_mdf"
-# theme = "snazzy"
-# theme = "heisenberg"
-# theme = "mellow"
-# theme = "github_dark"
-# theme = "onedarker"
-# theme = "ayu_dark"
-# theme = "onedark"
+# "snazzy" "heisenberg" "mellow" "github_dark" "onedarker" "ayu_dark" "onedark"
+
+[editor]
+bufferline = "always"
+shell = ["zsh", "-c"]
 
 [editor.cursor-shape]
 insert = "bar"
@@ -20,8 +18,9 @@ right = ["diagnostics", "selections", "position", "file-encoding"]
 
 [keys.normal]
 # commands
-C-w = ":w"
-C-q = ":q"
+q = ":w"
+Q = ":q!"
+C-f = [":new", ":insert-output ~/.config/lf/lf-pick", ":theme default", "select_all", "split_selection_on_newline", "goto_file", "goto_last_modified_file", ":buffer-close!", ":theme default"]
 # movement
 w = "move_visual_line_up"
 a = "move_char_left"

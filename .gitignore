@@ -44,7 +44,7 @@
 .local/src/slstatus/components/*.o
 .local/src/pyenv/
 .local/state/
-.local/bin/openai_api_key.txt
+.local/bin/openai_api_key
 .pki/
 .ssh/
 .var/
@@ -55,6 +55,7 @@ computer/
 multimedia/screenshots/
 multimedia/extra_bgs/
 multimedia/movies/
+multimedia/youtube/
 passwd/
 repos/
 .gitconfig

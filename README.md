@@ -27,6 +27,7 @@ These repository contains scripts and configuration files of those applications 
 
 Install latest release of debian and run
 ```
+cd
 su 
 rm -rf .bash* .profile .sudo* .local/
 apt install git
