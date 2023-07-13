@@ -64,7 +64,7 @@ fi
 read -n1 -rep 'Would you like to install random system utilities? [y/n]' UTIL
 if [[ $UTIL == "Y" || $UTIL == "y" ]]; then
   sudo apt install -yy htop cmatrix neofetch figlet \
-  espeak-ng yt-dlp
+  espeak-ng yt-dlp ncdu
 fi
 
 # pip install openai
