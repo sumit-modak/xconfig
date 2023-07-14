@@ -15,9 +15,10 @@ right = ["diagnostics", "selections", "position", "file-encoding"]
 
 [keys.normal]
 # commands
-q = ":w"
-Q = ":q!"
-C-f = [":new", ":insert-output ~/.config/lf/lf-pick", ":theme default", "select_all", "split_selection_on_newline", "goto_file", "goto_last_modified_file", ":buffer-close!", ":theme dark_plus_mdf"]
+q = ":buffer-close"
+Q = ":w"
+C-q = ":buffer-close!"
+# C-o = [":new", ":insert-output ~/.config/lf/lf-pick", "select_all", "split_selection_on_newline", "goto_file", "goto_last_modified_file", ":buffer-close!" ]
 # movement
 w = "move_visual_line_up"
 a = "move_char_left"
@@ -33,19 +34,62 @@ n = "move_next_word_start"
 N = "move_next_long_word_start"
 e	= "move_next_word_end"
 E = "move_next_long_word_end"
+C-w = "page_up"
+C-r = "page_down"
 # changes
-c = "yank"
-C = "change_selection"
-p = "paste_before"
+c = "yank" # copy
+C-c = ":clipboard-yank" # copy to clipboard
+x = "delete_selection" # cut
+C-x = [ ":clipboard-yank", "delete_selection_noyank" ] # cut to clipboard
+p = "paste_before" # paste
+C-p = ":clipboard-paste-before" # paste from clipboard
 P = "paste_after"
-x = "delete_selection"
-d = "delete_selection_noyank"
+d = "delete_selection_noyank" # delete_selection
+D = "replace_with_yanked" # delete_selection_and_paste_yanked
 u = "undo"
 U = "redo"
-# search
+y = "open_below"
+Y = "open_above"
+i = "insert_mode"
+I = "select_textobject_inner"
+o = "select_mode"
+O = "select_textobject_around"
+# find
 f = "search"
 F = "rsearch"
-"\\" = "search_next"
-"|" = "search_prev"
+C-f = "search_selection"
 t = "find_next_char"
 T = "find_prev_char"
+# selection
+"|" = "shell_pipe"
+"\\" = "shell_insert_output"
+l = "extend_line_below"
+L = "extend_line_up"
+C-l = "select_all"
+
+"[" = { d = "goto_prev_diag", D = "goto_first_diag", f = "goto_prev_function", c = "goto_prev_comment", a = "goto_prev_parameter", t = "goto_prev_class", p = "goto_prev_paragraph", T = "goto_prev_test", g = "goto_prev_change", G = "goto_first_change", space = "add_newline_above", o = "search_prev", b = "goto_previous_buffer", s = "shrink_selection", S = "select_prev_sibling" , F = "goto_file_start" }
+"]" = { d = "goto_next_diag", D = "goto_last_diag",  f = "goto_next_function", c = "goto_next_comment", a = "goto_next_parameter", t = "goto_next_class", p = "goto_next_paragraph", T = "goto_next_test", g = "goto_next_change", G = "goto_last_change",  space = "add_newline_below", o = "search_next", b = "goto_next_buffer"    , s = "expand_selection", S = "select_next_sibling" , F = "goto_last_line"  }
+
+#   "match_brackets"
+#   "surround_add"
+#   "surround_delete"
+#   "surround_replace"
+# s	"goto_first_nonwhitespace"
+# d	"goto_definition"
+# y	"goto_type_definition"
+# r	"goto_reference"
+# i	"goto_implementation"
+# a	"goto_last_accessed_file"
+# m	"goto_last_modified_file"
+# .	"goto_last_modification"
+
+# t	"goto_window_top"
+# c "goto_window_center"
+# b	"goto_window_bottom"
+#   "align_view_top"
+#   "align_view_center"
+#   "align_view_bottom"
+
+[keys.select]
+f = "select_regex"
+F = "split_selection"
