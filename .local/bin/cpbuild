@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+file="$1"
+
+basenameNoExt=$(basename "$file" | sed "s/\.cpp//g" | sed "s/\.c//g")
+baseDir=$(pwd | sed "s/cp\/.*/cp/g")
+
+g++ -fdiagnostics-color=always -Wall -g $file -o $baseDir/.exe/$basenameNoExt
+$baseDir/.exe/$basenameNoExt

@@ -45,6 +45,7 @@
 .local/src/pyenv/
 .local/state/
 .local/bin/openai_api_key
+.mozilla/
 .pki/
 .ssh/
 .var/

@@ -6,23 +6,23 @@ bufferline = "always"
 line-number = "relative"
 shell = ["zsh", "-c"]
 
-[editor.lsp]
-enable = true
-
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
 select = "hidden"
-
+  
 [editor.statusline]
 right = ["diagnostics", "selections", "position", "file-encoding"]
+
+[editor.lsp]
+enable = true
 
 [keys.normal]
 # commands
 q = ":buffer-close"
 Q = ":buffer-close!"
 z = ":write"
-Z = ":quit"
+Z = ":write-quit"
 "{" = ":buffer-previous"
 "}" = ":buffer-next"
 v = "select_mode"
@@ -66,8 +66,8 @@ C-d = [ ":clipboard-yank", "delete_selection_noyank" ] # copy to clipboard and d
 D = "delete_selection_noyank" # delete_selection
 u = "undo"
 U = "redo"
-i = "insert_mode"
-o = "append_mode"
+i = [ "collapse_selection", "insert_mode" ]
+o = [ "move_char_right", "insert_mode" ]
 I = "select_textobject_inner"
 O = "select_textobject_around"
 y = [ "add_newline_below", "move_visual_line_down" ] # yield newline below
@@ -130,7 +130,7 @@ space.c = "toggle_comments"
 q = ":buffer-close"
 Q = ":buffer-close!"
 z = ":write"
-Z = ":quit"
+Z = ":write-quit"
 "{" = ":buffer-previous"
 "}" = ":buffer-next"
 v = "normal_mode"
@@ -195,8 +195,8 @@ C-d = [ ":clipboard-yank", "delete_selection_noyank" ] # copy to clipboard and d
 D = "delete_selection_noyank" # delete_selection
 u = "undo"
 U = "redo"
-i = "insert_mode"
-o = "append_mode"
+i = [ "collapse_selection", "insert_mode" ]
+o = [ "move_char_right", "insert_mode" ]
 I = "select_textobject_inner"
 O = "select_textobject_around"
 y = [ "add_newline_below", "move_visual_line_down" ] # yield newline below
