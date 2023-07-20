@@ -7,6 +7,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 export XAUTHORITY=$HOME/.cache/.Xauthority
 export BAT_THEME="Dracula"
 export PYENV_ROOT=$HOME/.local/src/pyenv
