@@ -118,28 +118,28 @@ cmd copyto ${{
 
 map w up
 map W top
+map a updir
+map r down
+map R bottom
+map s open
 # map <c-u> half-up
 # map <c-b> page-up
 # map <c-y> scroll-up
-map r down
-map R bottom
 # map <c-d> half-down
 # map <c-f> page-down
 # map <c-e> scroll-down
-map a updir
-map s open
 
-# map q quit
+map q quit
 map c copy
-map x cut
-# map p paste
-map X clear
+map d cut
+map p paste
+map l clear
 # map [ jump-prev
 # map ] jump-next
 # map <space> select
 # map u unselect
 # map v invert
-map d delete
+map D delete
 map m rename
 # map f find			# Read key(s) to find the appropriate file name match in the forward/backward direction and jump to the next/previous match.
 # map F find-back

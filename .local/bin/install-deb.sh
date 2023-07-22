@@ -80,6 +80,12 @@ if [[ $UTIL == "Y" || $UTIL == "y" ]]; then
   espeak-ng yt-dlp ncdu bpytop
 fi
 
+## Hacking Tools ##
+read -n1 -rep 'Would you like to install hacking tools? [y/n]' HACK
+if [[ $HACK == "Y" || $HACK == "y" ]]; then
+  sudo apt install -yy wifite
+fi
+  
 # pip install openai
 
 chsh -s /usr/bin/zsh
