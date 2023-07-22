@@ -1,4 +1,5 @@
 .cache/
+.cargo/
 .config/bpytop/
 .config/BraveSoftware/
 .config/Code/
@@ -40,6 +41,7 @@
 .local/src/dmenu/*.o
 .local/src/dmenu/dmenu
 .local/src/dmenu/stest
+.local/src/helix/
 .local/src/slstatus/*.o
 .local/src/slstatus/slstatus
 .local/src/slstatus/components/*.o
