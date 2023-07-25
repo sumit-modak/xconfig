@@ -77,7 +77,7 @@ fi
 read -n1 -rep 'Would you like to install random CLI system utilities? [y/n]' UTIL
 if [[ $UTIL == "Y" || $UTIL == "y" ]]; then
   sudo apt install -yy htop cmatrix neofetch figlet \
-  espeak-ng yt-dlp ncdu bpytop
+  espeak-ng yt-dlp ncdu bpytop btop
 fi
 
 ## Hacking Tools ##

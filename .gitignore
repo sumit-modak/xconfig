@@ -1,6 +1,7 @@
 .cache/
 .cargo/
 .config/bpytop/
+.config/btop/
 .config/BraveSoftware/
 .config/Code/
 .config/dconf/

@@ -17,6 +17,11 @@ right = ["diagnostics", "selections", "position", "file-encoding"]
 [editor.lsp]
 enable = true
 
+[keys.normal.B]
+r = "surround_replace"
+a = "surround_add"
+d = "surround_delete"
+
 [keys.normal]
 # commands
 q = ":buffer-close"
@@ -49,14 +54,12 @@ m = "move_prev_word_start"
 M = "move_prev_long_word_start"
 n = "move_next_word_start"
 N = "move_next_long_word_start"
-e	= "move_next_word_end"
-E = "move_next_long_word_end"
+h	= "move_next_word_end"
+H = "move_next_long_word_end"
 C-w = "page_up"
 C-a = "goto_first_nonwhitespace"
 C-r = "page_down"
 C-s = "goto_line_end"
-"[" = "goto_prev_paragraph"
-"]" = "goto_next_paragraph"
 b = "match_brackets"
 
 # text-manipulation
@@ -69,35 +72,34 @@ P = "replace_with_yanked" # replace
 d = "delete_selection" # copy and delete
 C-d = [ ":clipboard-yank", "delete_selection_noyank" ] # copy to clipboard and delete
 D = "delete_selection_noyank" # delete_selection
-"backspace" = [ "move_char_left", "delete_selection" ]
+"backspace" = [ "move_char_left", "delete_selection_noyank" ]
 u = "undo"
 U = "redo"
-i = [ "collapse_selection", "insert_mode" ]
-o = [ "move_char_right", "insert_mode" ]
-I = "select_textobject_inner"
-O = "select_textobject_around"
-y = [ "add_newline_below", "move_visual_line_down" ] # yield newline below
-Y = [ "add_newline_above", "move_visual_line_up" ] # yeild newline above
+e = [ "collapse_selection", "insert_mode" ] # edit mode
+E = [ "move_char_right", "insert_mode" ] # edit mode
+i = "select_textobject_inner"
+o = "select_textobject_around"
+"ret" = [ "add_newline_below", "move_visual_line_down" ]
+"S-ret" = [ "add_newline_above", "move_visual_line_up" ]
 k = "copy_selection_on_next_line" # add cursor below
 K = "copy_selection_on_prev_line" # add cursor above
-h = "surround_replace"
-H = "surround_add"
 "~"	= "switch_case"
 "`" =	"switch_to_lowercase"
 "C-`" =	"switch_to_uppercase"
-">" =	"indent"
-"<"	= "unindent"
+"tab" =	"indent"
+"S-tab"	= "unindent"
 "|" = "shell_pipe" # replace output
 "\\" = "shell_insert_output" # pastes new output
 
 # find & selection
-f = "search"
-F = [ "search_selection", "search" ]
-C-f = "split_selection"
-X = "search_prev"
-x = "search_next"
-g = "find_next_char" # goto_next_char
-G = "find_prev_char" # goto_prev_char
+"/" = "search"
+"&" = "select_regex"
+"C-/" = [ "search_selection", "search" ]
+"C-&" = "split_selection"
+"[" = "search_prev"
+"]" = "search_next"
+f = "find_next_char" # find_next_char
+F = "find_prev_char" # find_prev_char
 t = "find_till_char" # till_next_char
 T = "till_prev_char" # till_prev_char
 j = "join_selections"
@@ -112,8 +114,10 @@ C-l = "select_all"
 "minus" = "align_selections"
 "_" = "trim_selections"
 
-"(" = { d = "goto_prev_diag", D = "goto_first_diag", f = "goto_prev_function", c = "goto_prev_comment", a = "goto_prev_parameter", t = "goto_prev_class", s = "select_prev_sibling", T = "goto_prev_test", g = "goto_prev_change", G = "goto_first_change", "[" = "shrink_selection", y = "open_above", l = "goto_file_start" }
-")" = { d = "goto_next_diag", D = "goto_last_diag",  f = "goto_next_function", c = "goto_next_comment", a = "goto_next_parameter", t = "goto_next_class", s = "select_next_sibling", T = "goto_next_test", g = "goto_next_change", G = "goto_last_change",  "]" = "expand_selection", y = "open_below", l = "goto_last_line"  }
+"(" = { d = "goto_prev_diag", D = "goto_first_diag", f = "goto_prev_function", c = "goto_prev_comment", a = "goto_prev_parameter", t = "goto_prev_class", s = "select_prev_sibling", T = "goto_prev_test", g = "goto_prev_change", G = "goto_first_change", "[" = "shrink_selection", y = "open_above", l = "goto_file_start", "(" = "goto_prev_paragraph" }
+")" = { d = "goto_next_diag", D = "goto_last_diag",  f = "goto_next_function", c = "goto_next_comment", a = "goto_next_parameter", t = "goto_next_class", s = "select_next_sibling", T = "goto_next_test", g = "goto_next_change", G = "goto_last_change",  "]" = "expand_selection", y = "open_below", l = "goto_last_line" , ")" = "goto_prev_paragraph" }
+
+[keys.normal."g"]
 space.c = "toggle_comments"
 
 # d	"goto_definition"
@@ -124,7 +128,6 @@ space.c = "toggle_comments"
 # m	"goto_last_modified_file"
 # .	"goto_last_modification"
 # "remove_primary_selection"
-# "surround_delete"
 
 [keys.select]
 # commands
@@ -145,12 +148,14 @@ V.B	= "goto_window_bottom"
 "@" = "replay_macro"
 
 # find & selection
-f = "select_regex"
-C-f = "split_selection"
-X = "search_prev"
-x = "search_next"
-g = "find_next_char" # goto_next_char
-G = "find_prev_char" # goto_prev_char
+"/" = "search"
+"&" = "select_regex"
+"C-/" = [ "search_selection", "search" ]
+"C-&" = "split_selection"
+"[" = "search_prev"
+"]" = "search_next"
+f = "find_next_char" # find_next_char
+F = "find_prev_char" # find_prev_char
 t = "find_till_char" # till_next_char
 T = "till_prev_char" # till_prev_char
 j = "join_selections"
@@ -178,14 +183,12 @@ m = "extend_prev_word_start"
 M = "extend_prev_long_word_start"
 n = "extend_next_word_start"
 N = "extend_next_long_word_start"
-e	= "extend_next_word_end"
-E = "extend_next_long_word_end"
+h	= "extend_next_word_end"
+H = "extend_next_long_word_end"
 C-w = "page_up"
 C-a = "goto_first_nonwhitespace"
 C-r = "page_down"
 C-s = "goto_line_end"
-"[" = "goto_prev_paragraph"
-"]" = "goto_next_paragraph"
 b = "match_brackets"
 
 # text-manipulation
@@ -198,23 +201,21 @@ P = "replace_with_yanked" # replace
 d = "delete_selection" # copy and delete
 C-d = [ ":clipboard-yank", "delete_selection_noyank" ] # copy to clipboard and delete
 D = "delete_selection_noyank" # delete_selection
-"backspace" = [ "move_char_left", "delete_selection" ]
+"backspace" = [ "move_char_left", "delete_selection_noyank" ]
 u = "undo"
 U = "redo"
-i = [ "collapse_selection", "insert_mode" ]
-o = [ "move_char_right", "insert_mode" ]
-I = "select_textobject_inner"
-O = "select_textobject_around"
-y = [ "add_newline_below", "move_visual_line_down" ] # yield newline below
-Y = [ "add_newline_above", "move_visual_line_up" ] # yeild newline above
+e = [ "collapse_selection", "insert_mode" ] # edit mode
+E = [ "move_char_right", "insert_mode" ] # edit mode
+i = "select_textobject_inner"
+o = "select_textobject_around"
+"ret" = [ "add_newline_below", "move_visual_line_down" ]
+"S-ret" = [ "add_newline_above", "move_visual_line_up" ]
 k = "copy_selection_on_next_line" # add cursor below
 K = "copy_selection_on_prev_line" # add cursor above
-h = "surround_replace"
-H = "surround_add"
 "~"	= "switch_case"
 "`" =	"switch_to_lowercase"
 "C-`" =	"switch_to_uppercase"
-">" =	"indent"
-"<"	= "unindent"
+"tab" =	"indent"
+"S-tab"	= "unindent"
 "|" = "shell_pipe" # replace output
 "\\" = "shell_insert_output" # pastes new output
