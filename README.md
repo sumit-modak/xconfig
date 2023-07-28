@@ -25,12 +25,22 @@ These repository contains scripts and configuration files of those applications 
 
 # Installation
 
-Install latest release of debian and run
+## Debian based systems
+Install latest release of debian (minimal install) and run
 ```
 sudo apt install git
 cd && rm -rf .*
 git clone --depth=1 https://github.com/sumit-modak/xconfig ~
 ~/.local/bin/install-deb.sh
+```
+
+## Fedora based systems
+Install latest release of fedora server and run
+```
+sudo dnf install git
+cd && rm -rf .*
+git clone --depth=1 https://github.com/sumit-modak/xconfig ~
+~/.local/bin/install-rpm.sh
 ```
 
 ## Screenshots
