@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+file="$1"
+basenameNoExt=$(basename "$file" | sed "s/\.rs//g")
+
+rustc $file
+./$basenameNoExt
+rm ./$basenameNoExt

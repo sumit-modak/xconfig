@@ -4,8 +4,11 @@ sudo dnf copr enable varlad/helix
 sudo dnf copr enable pennbauman/ports
 sudo dnf update -y
 
+mkdir -p $HOME/multimedia/screenshots
+sudo cp $HOME/.local/share/fonts /usr/share
+
 sudo dnf install -yy zsh lf helix \
-clang rust-all g++ python3 python3-pip cmake
+clang rust cargo g++ python3 python3-pip cmake
 
 ## Standard System Packages ##
 read -n1 -rep 'Would you like to install standard system utilities? [y/n]' SYS
@@ -62,6 +65,15 @@ if [[ $BROW == "Y" || $BROW == "y" ]]; then
   sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
   sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
   sudo dnf install brave-browser brave-keyring
+fi
+
+## VSCodium ##
+read -n1 -rep 'Would you like to install VSCodium? [y/n]' CODIUM
+if [[ $CODIUM == "Y" || $CODIUM == "y" ]]; then
+  sudo rpmkeys --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
+  printf "[gitlab.com_paulcarroty_vscodium_repo]\nname=download.vscodium.com\nbaseurl=https://download.vscodium.com/rpms/\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg\nmetadata_expire=1h"
+    | sudo tee -a /etc/yum.repos.d/vscodium.repo
+  sudo dnf install -yy codium
 fi
 
 ## GIMP ##

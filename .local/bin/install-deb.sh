@@ -2,8 +2,11 @@
 
 sudo apt update && sudo apt upgrade -yy
 
+mkdir -p $HOME/multimedia/screenshots
+sudo cp $HOME/.local/share/fonts /usr/share
+
 sudo apt install -yy zsh lf \
-clang rust-all g++ python3 python3-pip cmake
+clang g++ python3 python3-pip cmake
 
 ## Standard System Packages ##
 read -n1 -rep 'Would you like to install standard system utilities? [y/n]' SYS
@@ -57,9 +60,20 @@ fi
 read -n1 -rep 'Would you like to install Brave Browser? [y/n]' BROW
 if [[ $BROW == "Y" || $BROW == "y" ]]; then
   sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-  echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-  sudo apt update
-  sudo apt install -yy brave-browser
+  echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" 
+    | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+  sudo apt update && sudo apt install -yy brave-browser
+fi
+
+## VSCodium ##
+read -n1 -rep 'Would you like to install VSCodium? [y/n]' CODIUM
+if [[ $CODIUM == "Y" || $CODIUM == "y" ]]; then
+  wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
+    | gpg --dearmor \
+    | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
+  echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' \
+    | sudo tee /etc/apt/sources.list.d/vscodium.list
+  sudo apt update && sudo apt install -yy codium
 fi
 
 ## GIMP ##
@@ -76,6 +90,7 @@ fi
 
 read -n1 -rep 'Would you like to install helix? [y/n]' FP
 if [[ $FP == "Y" || $FP == "y" ]]; then
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   git clone https://github.com/helix-editor/helix ~/.local/src/helix/
   cd ~/.local/src/helix
 fi
