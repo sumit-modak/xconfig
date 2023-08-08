@@ -75,7 +75,7 @@ multimedia/extra_bgs/
 multimedia/movies/
 multimedia/youtube/
 passwd/
-repos/
+dev/
 .gitconfig
 .serverauth.*
 .sudo_as_admin_successful
