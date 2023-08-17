@@ -33,7 +33,7 @@ if [[ $GUI == "Y" || $GUI == "y" ]]; then
   sudo dnf copr enable linuxredneck/xwallpaper
   sudo dnf install -yy @base-x picom xwallpaper maim gcc make \
   libxft-devel libx11-devel libxinerama-devel libxcb1-devel libxrandr-devel \
-  kitty sxiv mpv mpd fontawesome-fonts
+  kitty sxiv mpv mpd fontawesome-fonts xclip
   git clone https://github.com/sumit-modak/dwm $HOME/.local/src/dwm
   cd $HOME/.local/src/dwm && sudo make clean install
   cd $HOME/.local/src/dmenu && sudo make clean install

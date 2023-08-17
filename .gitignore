@@ -18,8 +18,10 @@
 .config/pulse/
 .config/session/
 .config/systemd/
-.config/zsh/plugins/
+.config/Thunar/
 .config/VSCodium/
+.config/xfce4/
+.config/zsh/plugins/
 .config/zsh/.zcompdump
 .config/zsh/.zsh_history
 .config/mimeapps.list
@@ -76,7 +78,6 @@ multimedia/movies/
 multimedia/youtube/
 passwd/
 dev/
-.gitconfig
 .serverauth.*
 .sudo_as_admin_successful
 .wget-hsts

@@ -30,7 +30,7 @@ read -n1 -rep 'Would you like to install GUI packages? [y/n]' GUI
 if [[ $GUI == "Y" || $GUI == "y" ]]; then
   sudo apt install -yy xorg xserver-xorg picom xwallpaper maim \
   libxft-dev libx11-dev libxinerama-dev libxcb1-dev libxrandr-dev \
-  kitty sxiv mpv mpd gcc make fonts-font-awesome
+  kitty sxiv mpv mpd gcc make fonts-font-awesome xclip
   git clone https://github.com/sumit-modak/dwm $HOME/.local/src/dwm
   cd $HOME/.local/src/dwm && sudo make clean install
   cd $HOME/.local/src/dmenu && sudo make clean install
@@ -60,7 +60,7 @@ fi
 read -n1 -rep 'Would you like to install Brave Browser? [y/n]' BROW
 if [[ $BROW == "Y" || $BROW == "y" ]]; then
   sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-  echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" 
+  echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" \
     | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
   sudo apt update && sudo apt install -yy brave-browser
 fi

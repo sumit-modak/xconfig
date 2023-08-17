@@ -1,6 +1,9 @@
 #!/usr/bin/sh
 
-ssh-keygen -t rsa -b 4096 -C "sumit.modak.solves@gmail.com"
+ssh-keygen -t rsa -b 4096 -C $1 2>/dev/null
+if [ $? -ne 0 ]; then
+  ssh-keygen -t rsa -b 4096 -C "96831387+sumit-modak@users.noreply.github.com"
+fi
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 echo "#####################################################"
