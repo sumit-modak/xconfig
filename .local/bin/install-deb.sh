@@ -45,6 +45,15 @@ if [[ $THEME == "Y" || $THEME == "y" ]]; then
   git clone --depth=1 https://github.com/EliverLara/Nordic.git
 fi
 
+## Brave Browser ##
+read -n1 -rep 'Would you like to install Brave Browser? [y/n]' BROW
+if [[ $BROW == "Y" || $BROW == "y" ]]; then
+  sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+  echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" \
+    | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+  sudo apt update && sudo apt install -yy brave-browser
+fi
+
 ## Virtualization Packages ##
 read -n1 -rep 'Would you like to install virtualization packages? [y/n]' VIRT
 if [[ $VIRT == "Y" || $VIRT == "y" ]]; then
@@ -56,13 +65,14 @@ if [[ $VIRT == "Y" || $VIRT == "y" ]]; then
   sudo systemctl start libvirtd.service
 fi
 
-## Brave Browser ##
-read -n1 -rep 'Would you like to install Brave Browser? [y/n]' BROW
-if [[ $BROW == "Y" || $BROW == "y" ]]; then
-  sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-  echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" \
-    | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-  sudo apt update && sudo apt install -yy brave-browser
+## TablePlus ##
+read -n1 -rep 'Would you like to install TablePlus? [y/n]' TABLEPLUS
+if [[ $TABLEPLUS == "Y" || $TABLEPLUS == "y" ]]; then
+  wget -qO - https://deb.tableplus.com/apt.tableplus.com.gpg.key \
+    | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/tableplus-archive.gpg > /dev/null
+  sudo add-apt-repository "deb [arch=amd64] https://deb.tableplus.com/debian/22 tableplus main"
+  sudo apt update
+  sudo apt install tableplus
 fi
 
 ## VSCodium ##

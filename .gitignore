@@ -27,6 +27,7 @@
 .config/mimeapps.list
 .config/pavucontrol.ini
 .dotnet/
+.local/bin/pip*
 .local/lib/
 .local/share/applications/
 .local/share/CMakeTools/
@@ -66,6 +67,7 @@
 .mozilla/
 .pki/
 .ssh/
+.tableplus/
 .var/
 .vscode/
 .vscode-cli/

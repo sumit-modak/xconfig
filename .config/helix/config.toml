@@ -117,7 +117,8 @@ C-l = "select_all"
 "(" = { d = "goto_prev_diag", D = "goto_first_diag", f = "goto_prev_function", c = "goto_prev_comment", a = "goto_prev_parameter", t = "goto_prev_class", s = "select_prev_sibling", T = "goto_prev_test", g = "goto_prev_change", G = "goto_first_change", "[" = "shrink_selection", y = "open_above", l = "goto_file_start", "(" = "goto_prev_paragraph" }
 ")" = { d = "goto_next_diag", D = "goto_last_diag",  f = "goto_next_function", c = "goto_next_comment", a = "goto_next_parameter", t = "goto_next_class", s = "select_next_sibling", T = "goto_next_test", g = "goto_next_change", G = "goto_last_change",  "]" = "expand_selection", y = "open_below", l = "goto_last_line" , ")" = "goto_prev_paragraph" }
 
-[keys.normal."g"]
+space.f = "file_picker_in_current_directory"
+space.F = "file_picker"
 space.c = "toggle_comments"
 
 # d	"goto_definition"

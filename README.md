@@ -15,7 +15,7 @@ These repository contains scripts and configuration files of those applications 
 | background              | xwallpaper              |
 | screenshot_tool		      | maim                    |
 | terminal                | kitty                   |
-| text_editor			        | helix + neovim          |
+| text_editor			        | helix + codium          |
 | file_explorer           | lf                      |
 | cli_image_preview       | kitty-kitten-icat       |
 | fonts                   | hack-nerd-fonts         |
@@ -30,7 +30,7 @@ Install latest release of debian (minimal install) and run
 ```
 sudo apt install git
 cd && rm -rf .*
-git clone --depth=1 https://github.com/sumit-modak/xconfig ~
+git clone --depth=1 https://github.com/real-sumit/xconfig ~
 ~/.local/bin/install-deb.sh
 ```
 
@@ -39,7 +39,7 @@ Install latest release of fedora server and run
 ```
 sudo dnf install git
 cd && rm -rf .*
-git clone --depth=1 https://github.com/sumit-modak/xconfig ~
+git clone --depth=1 https://github.com/real-sumit/xconfig ~
 ~/.local/bin/install-rpm.sh
 ```
 
