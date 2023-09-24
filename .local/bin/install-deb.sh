@@ -11,7 +11,7 @@ clang g++ python3 python3-pip cmake
 ## Standard System Packages ##
 read -n1 -rep 'Would you like to install standard system utilities? [y/n]' SYS
 if [[ $SYS == "Y" || $SYS == "y" ]]; then
-  sudo apt install -yy sudo man zip unzip patch curl wget \
+  sudo apt install -yy sudo man zip unzip patch curl wget unrar \
   network-manager brightnessctl psmisc bat exa imagemagick
 fi
 

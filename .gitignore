@@ -28,6 +28,8 @@
 .config/pavucontrol.ini
 .dotnet/
 .local/bin/pip*
+.local/bin/django-admin
+.local/bin/sqlformat
 .local/lib/
 .local/share/applications/
 .local/share/CMakeTools/
@@ -38,6 +40,7 @@
 .local/share/images/
 .local/share/lf/
 .local/share/nvim/
+.local/share/Trash/
 .local/share/xorg/
 .local/share/lesshst
 .local/share/mimeapps.list
