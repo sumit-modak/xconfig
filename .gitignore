@@ -67,7 +67,9 @@
 .local/src/pyenv/
 .local/state/
 .local/bin/openai_api_key
+.minecraft/
 .mozilla/
+.npm/
 .pki/
 .ssh/
 .tableplus/
@@ -80,6 +82,7 @@ computer/
 multimedia/screenshots/
 multimedia/extra_bgs/
 multimedia/movies/
+multimedia/recordings/
 multimedia/youtube/
 passwd/
 dev/
