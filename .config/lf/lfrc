@@ -116,12 +116,12 @@ cmd copyto ${{
 ##		 Bindings 		##
 ##########################
 
-map w up
-map W top
-map a updir
-map r down
-map R bottom
-map s open
+map y up
+map Y top
+map e updir
+map i down
+map I bottom
+map o open
 # map <c-u> half-up
 # map <c-b> page-up
 # map <c-y> scroll-up
