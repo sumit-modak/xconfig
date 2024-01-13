@@ -74,8 +74,9 @@ alias tell="espeak-ng"
 alias ls="exa -aFl --group-directories-first --icons"
 alias lsa="exa -aF --group-directories-first --icons"
 alias lst="exa -aFlT --group-directories-first --icons"
+alias tmux="zellij"
+alias pipes="~/.local/bin/pipes"
+
 alias kbdmap="setxkbmap us; xmodmap $HOME/.config/xmodmap/xmodmap && xset r 66"
 alias kbdreset="setxkbmap us; xset -r 66"
-
-alias pipes="~/.local/bin/pipes"
 alias gpt="cd ~/.local/bin/ && python3 ~/.local/bin/chat-gpt.py && cd $OLDPWD"

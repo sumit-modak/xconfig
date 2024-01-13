@@ -2,7 +2,6 @@ theme = "dark_plus_mdf"
 # "snazzy" "heisenberg" "mellow" "github_dark" "onedarker" "ayu_dark" "onedark"
 
 [editor]
-bufferline = "always"
 line-number = "relative"
 shell = ["zsh", "-c"]
 
@@ -23,90 +22,73 @@ a = "surround_add"
 d = "surround_delete"
 
 [keys.normal]
-# commands
-q = ":buffer-close"
-Q = ":buffer-close!"
+q = ":quit"
+Q = ":quit!"
 z = ":write"
-Z = ":quit"
-"{" = ":buffer-previous"
-"}" = ":buffer-next"
-v = "select_mode"
-V.t = "align_view_top"
-V.m = "align_view_center"
-V.b = "align_view_bottom"
-V.T	= "goto_window_top"
-V.M = "goto_window_center"
-V.B	= "goto_window_bottom"
-"#" = "record_macro"
-"@" = "replay_macro"
-# C-o = [":new", ":insert-output ~/.config/lf/lf-pick", "select_all", "split_selection_on_newline", "goto_file", "goto_last_modified_file", ":buffer-close!" ]
+Z = ":write-quit"
+a = [ "collapse_selection", "insert_mode" ] # edit mode
+A = [ "move_char_right", "insert_mode" ] # edit mode
+s = "select_mode"
 
 # movement
-w = "move_visual_line_up"
-a = "move_char_left"
-r = "move_visual_line_down"
-s = "move_char_right"
-W = "half_page_up"
-A = "goto_line_start"
-R = "half_page_down"
-S = [ "goto_line_end", "move_char_right" ]
+y = "move_visual_line_up"
+e = "move_char_left"
+i = "move_visual_line_down"
+o = "move_char_right"
+Y = "half_page_up"
+E = "goto_first_nonwhitespace"
+I = "half_page_down"
+O = [ "goto_line_end", "move_char_right" ]
 m = "move_prev_word_start"
 M = "move_prev_long_word_start"
 n = "move_next_word_start"
 N = "move_next_long_word_start"
-h	= "move_next_word_end"
-H = "move_next_long_word_end"
-C-w = "page_up"
-C-a = "goto_first_nonwhitespace"
-C-r = "page_down"
-C-s = "goto_line_end"
+w	= "move_next_word_end"
+W = "move_next_long_word_end"
 b = "match_brackets"
 
 # text-manipulation
 c = "yank" # copy
-C-c = ":clipboard-yank" # copy to clipboard
-C = "replace" # change selection to given character
+C = ":clipboard-yank" # copy to clipboard
 p = "paste_before" # paste
-C-p = "paste_clipboard_before" # paste from clipboard
-P = "replace_with_yanked" # replace
+P = "paste_clipboard_before" # paste from clipboard
 d = "delete_selection" # copy and delete
 C-d = [ ":clipboard-yank", "delete_selection_noyank" ] # copy to clipboard and delete
 D = "delete_selection_noyank" # delete_selection
+r = "replace" # replace character
+R = "replace_with_yanked" # replace
 "backspace" = [ "move_char_left", "delete_selection_noyank" ]
 u = "undo"
 U = "redo"
-e = [ "collapse_selection", "insert_mode" ] # edit mode
-E = [ "move_char_right", "insert_mode" ] # edit mode
-i = "select_textobject_inner"
-o = "select_textobject_around"
-"ret" = [ "add_newline_below", "move_visual_line_down" ]
-"S-ret" = [ "add_newline_above", "move_visual_line_up" ]
 k = "copy_selection_on_next_line" # add cursor below
 K = "copy_selection_on_prev_line" # add cursor above
+"tab" =	"indent"
+"S-tab"	= "unindent"
+"ret" = [ "add_newline_below", "move_visual_line_down" ]
+"S-ret" = [ "add_newline_above", "move_visual_line_up" ]
 "~"	= "switch_case"
 "`" =	"switch_to_lowercase"
 "C-`" =	"switch_to_uppercase"
-"tab" =	"indent"
-"S-tab"	= "unindent"
-"|" = "shell_pipe" # replace output
-"\\" = "shell_insert_output" # pastes new output
 
 # find & selection
-"/" = "search"
-"&" = "select_regex"
-"C-/" = [ "search_selection", "search" ]
-"C-&" = "split_selection"
-"[" = "search_prev"
-"]" = "search_next"
+"S" = "search"
+"X" = "search_prev"
+"x" = "search_next"
+"h" = "select_textobject_inner"
+"H" = "select_textobject_around"
 f = "find_next_char" # find_next_char
 F = "find_prev_char" # find_prev_char
 t = "find_till_char" # till_next_char
 T = "till_prev_char" # till_prev_char
-j = "join_selections"
-J = "join_selections_space"
 l = "extend_line_below"
 L = "extend_line_up"
 C-l = "select_all"
+
+"&" = "select_regex"
+"*" = ["search_selection", "search"]
+"C-&" = "split_selection"
+j = "join_selections"
+J = "join_selections_space"
 "'" = "flip_selections" # toggle selection cursor
 "." = "collapse_selection"
 "," = "keep_primary_selection" # collapse multiple cursors
@@ -114,9 +96,56 @@ C-l = "select_all"
 "minus" = "align_selections"
 "_" = "trim_selections"
 
-"(" = { d = "goto_prev_diag", D = "goto_first_diag", f = "goto_prev_function", c = "goto_prev_comment", a = "goto_prev_parameter", t = "goto_prev_class", s = "select_prev_sibling", T = "goto_prev_test", g = "goto_prev_change", G = "goto_first_change", "[" = "shrink_selection", y = "open_above", l = "goto_file_start", "(" = "goto_prev_paragraph" }
-")" = { d = "goto_next_diag", D = "goto_last_diag",  f = "goto_next_function", c = "goto_next_comment", a = "goto_next_parameter", t = "goto_next_class", s = "select_next_sibling", T = "goto_next_test", g = "goto_next_change", G = "goto_last_change",  "]" = "expand_selection", y = "open_below", l = "goto_last_line" , ")" = "goto_prev_paragraph" }
+# view
+v.t = "align_view_top"
+v.m = "align_view_center"
+v.b = "align_view_bottom"
+v.T	= "goto_window_top"
+v.M = "goto_window_center"
+v.B	= "goto_window_bottom"
 
+# ---------------- unused ----------------
+"[".d = "goto_prev_diag"  
+"[".D = "goto_first_diag"
+"[".f = "goto_prev_function"
+"[".c = "goto_prev_comment"
+"[".a = "goto_prev_parameter"
+"[".t = "goto_prev_class"
+"[".s = "select_prev_sibling"
+"[".T = "goto_prev_test"
+"[".g = "goto_prev_change"
+"[".G = "goto_first_change"
+"["."[" = "shrink_selection"
+"[".y = "open_above"
+"[".l = "goto_file_start"
+"["."(" = "goto_prev_paragraph"
+
+"]".d = "goto_next_diag"
+"]".D = "goto_last_diag"
+"]".f = "goto_next_function"
+"]".c = "goto_next_comment"
+"]".a = "goto_next_parameter"
+"]".t = "goto_next_class"
+"]".s = "select_next_sibling"
+"]".T = "goto_next_test"
+"]".g = "goto_next_change"
+"]".G = "goto_last_change"
+"]"."]" = "expand_selection"
+"]".y = "open_below"
+"]".l = "goto_last_line"
+"]".")" = "goto_prev_paragraph"
+
+"{" = ":buffer-previous"
+"}" = ":buffer-next"
+"#" = "record_macro"
+"@" = "replay_macro"
+"|" = "shell_pipe" # replace output
+"\\" = "shell_insert_output" # pastes new output
+# C-o = [":new", ":insert-output ~/.config/lf/lf-pick", "select_all", "split_selection_on_newline", "goto_file", "goto_last_modified_file", ":buffer-close!" ]
+C-y = "page_up"
+C-e = "goto_line_start"
+C-i = "page_down"
+C-o = "goto_line_end"
 space.f = "file_picker_in_current_directory"
 space.F = "file_picker"
 space.c = "toggle_comments"
@@ -131,39 +160,73 @@ space.c = "toggle_comments"
 # "remove_primary_selection"
 
 [keys.select]
-# commands
-q = ":buffer-close"
-Q = ":buffer-close!"
+q = ":quit"
+Q = ":quit!"
 z = ":write"
-Z = ":quit"
-"{" = ":buffer-previous"
-"}" = ":buffer-next"
-v = "normal_mode"
-V.t = "align_view_top"
-V.m = "align_view_center"
-V.b = "align_view_bottom"
-V.T	= "goto_window_top"
-V.M = "goto_window_center"
-V.B	= "goto_window_bottom"
-"#" = "record_macro"
-"@" = "replay_macro"
+Z = ":write-quit"
+a = [ "collapse_selection", "insert_mode" ] # edit mode
+A = [ "move_char_right", "insert_mode" ] # edit mode
+s = "select_mode"
+
+# movement
+y = "move_visual_line_up"
+e = "move_char_left"
+i = "move_visual_line_down"
+o = "move_char_right"
+Y = "half_page_up"
+E = "goto_first_nonwhitespace"
+I = "half_page_down"
+O = [ "goto_line_end", "move_char_right" ]
+m = "move_prev_word_start"
+M = "move_prev_long_word_start"
+n = "move_next_word_start"
+N = "move_next_long_word_start"
+w	= "move_next_word_end"
+W = "move_next_long_word_end"
+b = "match_brackets"
+
+# text-manipulation
+c = "yank" # copy
+C = ":clipboard-yank" # copy to clipboard
+p = "paste_before" # paste
+P = "paste_clipboard_before" # paste from clipboard
+d = "delete_selection" # copy and delete
+C-d = [ ":clipboard-yank", "delete_selection_noyank" ] # copy to clipboard and delete
+D = "delete_selection_noyank" # delete_selection
+r = "replace" # replace character
+R = "replace_with_yanked" # replace
+"backspace" = [ "move_char_left", "delete_selection_noyank" ]
+u = "undo"
+U = "redo"
+k = "copy_selection_on_next_line" # add cursor below
+K = "copy_selection_on_prev_line" # add cursor above
+"tab" =	"indent"
+"S-tab"	= "unindent"
+"ret" = [ "add_newline_below", "move_visual_line_down" ]
+"S-ret" = [ "add_newline_above", "move_visual_line_up" ]
+"~"	= "switch_case"
+"`" =	"switch_to_lowercase"
+"C-`" =	"switch_to_uppercase"
 
 # find & selection
-"/" = "search"
-"&" = "select_regex"
-"C-/" = [ "search_selection", "search" ]
-"C-&" = "split_selection"
-"[" = "search_prev"
-"]" = "search_next"
+"S" = "search"
+"X" = "search_prev"
+"x" = "search_next"
+"h" = "select_textobject_inner"
+"H" = "select_textobject_around"
 f = "find_next_char" # find_next_char
 F = "find_prev_char" # find_prev_char
 t = "find_till_char" # till_next_char
 T = "till_prev_char" # till_prev_char
-j = "join_selections"
-J = "join_selections_space"
 l = "extend_line_below"
 L = "extend_line_up"
 C-l = "select_all"
+
+"&" = "select_regex"
+"*" = ["search_selection", "search"]
+"C-&" = "split_selection"
+j = "join_selections"
+J = "join_selections_space"
 "'" = "flip_selections" # toggle selection cursor
 "." = "collapse_selection"
 "," = "keep_primary_selection" # collapse multiple cursors
@@ -171,52 +234,10 @@ C-l = "select_all"
 "minus" = "align_selections"
 "_" = "trim_selections"
 
-# movement
-w = "extend_visual_line_up"
-a = "extend_char_left"
-r = "extend_visual_line_down"
-s = "extend_char_right"
-W = "half_page_up"
-A = "goto_line_start"
-R = "half_page_down"
-S = [ "goto_line_end", "extend_char_right" ]
-m = "extend_prev_word_start"
-M = "extend_prev_long_word_start"
-n = "extend_next_word_start"
-N = "extend_next_long_word_start"
-h	= "extend_next_word_end"
-H = "extend_next_long_word_end"
-C-w = "page_up"
-C-a = "goto_first_nonwhitespace"
-C-r = "page_down"
-C-s = "goto_line_end"
-b = "match_brackets"
-
-# text-manipulation
-c = "yank" # copy
-C-c = ":clipboard-yank" # copy to clipboard
-C = "replace" # change selection to given character
-p = "paste_before" # paste
-C-p = "paste_clipboard_before" # paste from clipboard
-P = "replace_with_yanked" # replace
-d = "delete_selection" # copy and delete
-C-d = [ ":clipboard-yank", "delete_selection_noyank" ] # copy to clipboard and delete
-D = "delete_selection_noyank" # delete_selection
-"backspace" = [ "move_char_left", "delete_selection_noyank" ]
-u = "undo"
-U = "redo"
-e = [ "collapse_selection", "insert_mode" ] # edit mode
-E = [ "move_char_right", "insert_mode" ] # edit mode
-i = "select_textobject_inner"
-o = "select_textobject_around"
-"ret" = [ "add_newline_below", "move_visual_line_down" ]
-"S-ret" = [ "add_newline_above", "move_visual_line_up" ]
-k = "copy_selection_on_next_line" # add cursor below
-K = "copy_selection_on_prev_line" # add cursor above
-"~"	= "switch_case"
-"`" =	"switch_to_lowercase"
-"C-`" =	"switch_to_uppercase"
-"tab" =	"indent"
-"S-tab"	= "unindent"
-"|" = "shell_pipe" # replace output
-"\\" = "shell_insert_output" # pastes new output
+# view
+v.t = "align_view_top"
+v.m = "align_view_center"
+v.b = "align_view_bottom"
+v.T	= "goto_window_top"
+v.M = "goto_window_center"
+v.B	= "goto_window_bottom"
