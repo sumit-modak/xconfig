@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+if [ "$1" == "-" ]; then
+	git config --global user.email "142516692+sumit-modak@users.noreply.github.com"
+	echo "email changed to sumit-modak"
+else 
+	git config --global user.email "152054612+notSumitGG@users.noreply.github.com"
+	echo "email changed to notsumitGG"
+fi

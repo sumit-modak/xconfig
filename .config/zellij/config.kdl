@@ -16,12 +16,12 @@ keybinds clear-defaults=true {
         bind "p" { SwitchFocus; SwitchToMode "Normal"; }
         bind "n" { NewPane; SwitchToMode "Normal"; }
         bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
-        bind "t" { TogglePaneFrames; SwitchToMode "Normal"; }
         bind "f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
         bind "q" { CloseFocus; SwitchToMode "Normal"; }
+        bind "m" { Run "hx" "."; SwitchToMode "Normal"; }
 
         bind "Space" { ToggleFloatingPanes; SwitchToMode "Normal"; }
-        bind "T" { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
+        bind "t" { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
         bind "D" { NewPane "Down"; SwitchToMode "Normal"; }
         bind "R" { NewPane "Right"; SwitchToMode "Normal"; }
     }
@@ -57,7 +57,9 @@ keybinds clear-defaults=true {
         bind "o" { GoToNextTab; }
         bind "n" { NewTab; SwitchToMode "Normal"; }
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
+        bind "f" { TogglePaneFrames; SwitchToMode "Normal"; }
         bind "q" { CloseTab; SwitchToMode "Normal"; }
+        bind "m" { NewTab; Run "hx" "."; SwitchFocus; CloseFocus; SwitchToMode "Normal"; }
         bind "1" { GoToTab 1; SwitchToMode "Normal"; }
         bind "2" { GoToTab 2; SwitchToMode "Normal"; }
         bind "3" { GoToTab 3; SwitchToMode "Normal"; }

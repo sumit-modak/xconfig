@@ -22,7 +22,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "B1", "B2", "B3", "B4" };
 
 /* layout(s) */
 static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
@@ -64,10 +64,10 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_q,      				killclient,     {0} },					// kill focused window
 	{ MODKEY|ShiftMask,             XK_q,             quit,           {0} },					// quits dwm
 	{ MODKEY|ShiftMask,             XK_b,      				togglebar,      {0} },					// toggles the dwm bar
-	{ MODKEY,                       XK_d,      				focusstack,     {.i = +1 } },			// shifts focus to next window below stack
-	{ MODKEY,                       XK_h,      				focusstack,     {.i = -1 } },			// shifts focus to next window above stack
-	{ MODKEY|ShiftMask,             XK_d,      				movestack,      {.i = +1 } }, 			// move window downwards the stack
-	{ MODKEY|ShiftMask,             XK_h,      				movestack,      {.i = -1 } },			// move window upwards the stack
+	{ MODKEY,                       XK_x,      				focusstack,     {.i = +1 } },			// shifts focus to next window below stack
+	{ MODKEY,                       XK_f,      				focusstack,     {.i = -1 } },			// shifts focus to next window above stack
+	{ MODKEY|ShiftMask,             XK_x,      				movestack,      {.i = +1 } }, 			// move window downwards the stack
+	{ MODKEY|ShiftMask,             XK_f,      				movestack,      {.i = -1 } },			// move window upwards the stack
 	{ MODKEY,                       XK_r,      				setmfact,       {.f = -0.05} }, 		// resize window - makes master windows smaller
 	{ MODKEY,                       XK_s,      				setmfact,       {.f = +0.05} },			// resize window - makes slave windows smaller
 	{ MODKEY|ShiftMask,             XK_r,   					incnmaster,     {.i = +1 } },			// brings adjacent slave window on master stack
@@ -118,7 +118,7 @@ static const Key keys[] = {
 	{ MODKEY,												XK_l,             spawn, 					SHCMD("slock -m \"Locked at  $(date \"+%a %d, %H:%M:%S\")\"")},
 	{ MODKEY, 											XK_v,							spawn, 					SHCMD("virt-manager")},
 	{ MODKEY,												XK_b,							spawn,					SHCMD("brave-browser")},
-	{ MODKEY,												XK_o,							spawn,					SHCMD("dmenu_run")}
+	{ MODKEY,												XK_d,							spawn,					SHCMD("dmenu_run")}
 };
 
 /* button definitions */
