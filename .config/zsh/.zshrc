@@ -1,4 +1,5 @@
 
+stty -ixon # Disable Ctrl-s and Ctrl-q
 HISTFILE=$XDG_CONFIG_HOME/zsh/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
@@ -13,11 +14,7 @@ unsetopt BEEP
 autoload -Uz compinit
 compinit
 
-# End of lines added by compinstall
-# ==================================================================== #
-# ----------------------------- plugins ------------------------------ #
-# ==================================================================== #
-
+# ============================= plugins ============================== #
 function zsh_add_file() {
     [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
 }
@@ -33,50 +30,28 @@ function zsh_add_plugin() {
     fi
 }
 
-function zsh_add_completion() {
-    PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
-    if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then 
-        # For completions
-		completion_file_path=$(ls $ZDOTDIR/plugins/$PLUGIN_NAME/_*)
-		fpath+="$(dirname "${completion_file_path}")"
-        zsh_add_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh"
-    else
-        git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
-		fpath+=$(ls $ZDOTDIR/plugins/$PLUGIN_NAME/_*)
-		rm $ZDOTDIR/.zccompdump
-    fi
-	completion_file="$(basename "${completion_file_path}")"
-	if [ "$2" = true ] && compinit "${completion_file:1}"
-}
-
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+# ============================= ////// ============================== #
 
 
-# =================================================================== #
-# ----------------------------- prompt ------------------------------ #
-# =================================================================== #
-
-# for more info visit https://arjanvandergaag.nl/blog/customize-zsh-prompt-with-vcs-info.html
-
+# ============================= prompt ============================== #
 autoload -U colors && colors
 PROMPT="[%{$fg[cyan]%}%~%{$reset_color%}]%(?:%{$fg_bold[green]%} $:%{$fg_bold[red]%} $) "
+# ============================= ////// ============================== #
 
 
-# ==================================================================== #
-# ----------------------------- aliases ------------------------------ #
-# ==================================================================== #
-
+# ============================= aliases ============================== #
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
-alias imgcat="kitty +kitten icat"
-alias tell="espeak-ng"
 # alias l="ls -lAGhv --color --group-directories-first"
 alias ls="exa -aFl --group-directories-first --icons"
 alias lsa="exa -aF --group-directories-first --icons"
-alias lst="exa -aFlT --group-directories-first --icons"
+alias lst="exa -aFT --group-directories-first --icons"
 alias tmux="zellij"
 alias pipes="~/.local/bin/pipes"
 
+alias imgcat="kitty +kitten icat"
+alias tell="espeak-ng"
+alias gpt="cd ~/.local/bin/ && python3 ~/.local/bin/chat-gpt.py && cd -"
 alias kbdmap="setxkbmap us; xmodmap $HOME/.config/xmodmap/xmodmap && xset r 66"
 alias kbdreset="setxkbmap us; xset -r 66"
-alias gpt="cd ~/.local/bin/ && python3 ~/.local/bin/chat-gpt.py && cd $OLDPWD"

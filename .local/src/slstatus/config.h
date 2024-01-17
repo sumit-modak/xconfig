@@ -65,11 +65,11 @@ static const char unknown_str[] = "";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-//  { vol_perc,			"^c#98c379^ 󰕾 %s%% ",				NULL				},
-//	{ run_command,	"[%2s]  ", 				"~/.local/bin/net_traffic" },
+  // { vol_perc,			"^c#98c379^ 󰕾 %s%% ",				NULL				},
+	// { run_command,	"[%2s]  ", 				"~/.local/bin/net_traffic" },
+	// { battery_perc, "^d^ ^b#1d2021^^c#d4d4d4^  ^b#1d2021^^c#d4d4d4^ %s%% ", 		"BAT0"	},
 	{ netspeed_rx, 	"^d^ ^b#59c9c5^^c#1d2021^  ^b#1e222a^^c#6afff3^ %sB ",			"enp3s0"	},
 	{ netspeed_tx, 	"^d^ ^b#ac68e6^^c#1d2021^  ^b#1e222a^^c#bf71ff^ %sB ",			"enp3s0"	},
-	{ battery_perc, "^d^ ^b#1d2021^^c#d4d4d4^  ^b#1d2021^^c#d4d4d4^ %s%% ", 		"BAT0"			},
 	{ uptime,   		"^d^ ^b#282c34^^c#f27009^  ^b#1d2021^ %s ",								NULL			},
 	{ cpu_perc, 		"^d^ ^b#ffc704^^c#1d2021^  ^b#282c34^^c#ffc704^ %s%% ",		NULL	    },
 	{ ram_used, 		"^d^ ^b#35ab55^^c#1d2021^  ^b#282c34^^c#35ab55^ %sB ",			NULL 			},

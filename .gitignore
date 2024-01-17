@@ -5,6 +5,7 @@
 .config/BraveSoftware/
 .config/Code/
 .config/dconf/
+.config/fish/
 .config/GIMP/
 .config/gtk-2.0/
 .config/gtk-3.0/
@@ -36,6 +37,7 @@
 .local/lib/
 .local/share/applications/
 .local/share/CMakeTools/
+.local/share/fish/
 .local/share/flatpak/
 .local/bin/fonttools
 .local/share/gegl-0.4/
