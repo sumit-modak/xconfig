@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 
 stty -ixon # Disable Ctrl-s and Ctrl-q
 HISTFILE=$XDG_CONFIG_HOME/zsh/.zsh_history
