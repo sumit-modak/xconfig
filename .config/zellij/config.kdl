@@ -159,7 +159,7 @@ keybinds clear-defaults=true {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
     }
     shared_except "tab" "locked" {
-        bind "Ctrl a" "Esc" { SwitchToMode "Tab"; }
+        bind "Ctrl a" { SwitchToMode "Tab"; }
     }
     shared_except "move" "locked" {
         bind "Ctrl w" { SwitchToMode "Move"; }

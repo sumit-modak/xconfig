@@ -94,11 +94,7 @@ computer/
 Downloads/
 grs/
 gsm/
-multimedia/screenshots/
-multimedia/extra_bgs/
-multimedia/movies/
-multimedia/recordings/
-multimedia/youtube/
+multimedia/
 passwd/
 .serverauth.*
 .sudo_as_admin_successful
