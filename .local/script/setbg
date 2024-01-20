@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
 # gets a random wallpaper
-rand_wall=$(find ~/multimedia/backgrounds/ -type f -name "*.jpg" -o -name "*.png" | shuf -n 1)
+rand_wall=$(find ~/.local/share/backgrounds/ -type f -name "*.jpg" -o -name "*.png" | shuf -n 1)
 # sets the random wallpaper as background
 xwallpaper --zoom $rand_wall

@@ -45,11 +45,10 @@ PROMPT="[%{$fg[cyan]%}%~%{$reset_color%}]%(?:%{$fg_bold[green]%} $:%{$fg_bold[re
 # ============================= aliases ============================== #
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
 # alias l="ls -lAGhv --color --group-directories-first"
-alias ls="exa -aFl --group-directories-first --icons"
-alias lsa="exa -aF --group-directories-first --icons"
-alias lst="exa -aFT --group-directories-first --icons"
+alias ls="eza -aFl --group-directories-first --icons"
+alias lsa="eza -aF --group-directories-first --icons"
+alias lst="eza -aFT --group-directories-first --icons"
 alias tmux="zellij"
-alias pipes="~/.local/bin/pipes"
 
 alias imgcat="kitty +kitten icat"
 alias tell="espeak-ng"

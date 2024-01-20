@@ -22,7 +22,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "B1", "B2", "B3", "B4" };
+static const char *tags[] = { "1", "2", "T", "4", "5", "B1", "B2", "B3", "B4" };
 
 /* layout(s) */
 static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
@@ -110,7 +110,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,							XK_m,        			spawn,					{.v = mute_vol } },			// toggles mute and last set volume
   { MODKEY|ShiftMask, 						XK_u,							spawn, 					{.v = brighter } },			// increases brightness
   { MODKEY|ShiftMask,							XK_y,							spawn, 					{.v = dimmer } },			// decreases brightness
-	{ MODKEY,				             		XK_w,             spawn,          SHCMD("~/.local/bin/setbg")}, // sets or changes background
+	{ MODKEY,				             		XK_w,             spawn,          SHCMD("setbg")},      // sets or changes background
 	{ MODKEY,                       XK_comma,         spawn,          SHCMD("maim ~/multimedia/screenshots/\"Screenshot_$(date +%Y-%m-%d_%T).png\"")}, // gets screenhot of full window
 	{ MODKEY|ShiftMask,             XK_comma,         spawn,          SHCMD("maim | xclip -selection clipboard -t image/png")}, // gets screenshots of full window and stores in clipboard
   { MODKEY,                       XK_period,        spawn,          SHCMD("maim --select ~/multimedia/screenshots/\"Screenshot_$(date +%Y-%m-%d_%T).png\"")}, // enable user to select screenshot
