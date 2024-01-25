@@ -38,7 +38,7 @@ o = "move_char_right"
 Y = "half_page_up"
 E = "goto_first_nonwhitespace"
 I = "half_page_down"
-O = [ "goto_line_end", "move_char_right" ]
+O = "goto_line_end"
 m = "move_prev_word_start"
 M = "move_prev_long_word_start"
 n = "move_next_word_start"
@@ -46,18 +46,16 @@ N = "move_next_long_word_start"
 w	= "move_next_word_end"
 W = "move_next_long_word_end"
 b = "match_brackets"
-B.r = "surround_replace"
-B.a = "surround_add"
-B.d = "surround_delete"
 
 # text-manipulation
 c = "yank" # copy
 C = ":clipboard-yank" # copy to clipboard
 p = "paste_before" # paste
 P = "paste_clipboard_before" # paste from clipboard
-d = "delete_selection" # copy and delete
-C-d = [ ":clipboard-yank", "delete_selection_noyank" ] # copy to clipboard and delete
-D = "delete_selection_noyank" # delete_selection
+d = "change_selection" # delete selection & insert 
+D = "delete_selection_noyank" # delete selection
+x = "delete_selection" # copy and delete
+X = [ ":clipboard-yank", "delete_selection_noyank" ] # copy to clipboard and delete
 r = "replace" # replace character
 R = "replace_with_yanked" # replace
 "backspace" = [ "move_char_left", "delete_selection_noyank" ]
@@ -69,27 +67,20 @@ K = "copy_selection_on_prev_line" # add cursor and selection above
 "S-tab"	= "unindent"
 H = [ "add_newline_below", "move_visual_line_down" ]
 J = [ "add_newline_above", "move_visual_line_up" ]
-"~"	= "switch_case"
-"`" =	"switch_to_lowercase"
-"C-`" =	"switch_to_uppercase"
 
 # find & selection
 S = "search"
-X = "search_prev"
-x = "search_next"
-a = "select_textobject_inner"
-A = "select_textobject_around"
+G = "search_prev" # goto_prev_occurance
+g = "search_next" # goto_next_occurance
+A = "shrink_selection"
+a = "expand_selection"
 f = "find_next_char" # find_next_char
 F = "find_prev_char" # find_prev_char
 t = "find_till_char" # till_next_char
 T = "till_prev_char" # till_prev_char
 l = "extend_line_below"
 L = "extend_line_up"
-C-l = "select_all"
 
-"^" = "select_regex"
-"*" = ["search_selection", "search"]
-"C-^" = "split_selection"
 "," = "keep_primary_selection" # collapse multiple cursors
 ";" = "split_selection_on_newline"
 # "." = repeat_last_insert
@@ -103,15 +94,69 @@ C-l = "select_all"
 
 # view
 v.t = "align_view_top"
-v.m = "align_view_center"
+v.c = "align_view_center"
 v.b = "align_view_bottom"
-v.T	= "goto_window_top"
-v.M = "goto_window_center"
-v.B	= "goto_window_bottom"
 
-# ---------------- unused ----------------
+# V B
+# ---------------- currently unmanaged ----------------
+space.f = "file_picker_in_current_directory"
+space.F = "goto_file"
+space.b = "buffer_picker"
+space."/" = "global_search"
+# space.a = "goto_last_accessed_file"
+# space.m = "goto_last_modified_file"
+
+space.l = "select_all"
+space.s = "goto_file_start"
+space.e = "goto_file_end"
+space."." = "goto_last_modification"
+# space.e = "goto_line_start"
+# space.o = [ "goto_line_end", "move_char_right" ]
+# space.t = "goto_window_top"
+# space.c = "goto_window_center"
+# space.b = "goto_window_bottom"
+
+space.c = "toggle_comments"
+# space.d = # "goto_definition" ## Go to definition (LSP)
+# space.D = # "goto_type_definition" ## Go to type definition (LSP)
+# space.r = # "goto_reference" ## Go to references (LSP)
+space.i = "no_op" # "goto_implementation" ## Go to implementation (LSP)
+space.k =	"no_op" # "hover" ## Show documentation for item under cursor in a popup (LSP)
+# space.s =	# "symbol_picker" ## Open document symbol picker (LSP)
+space.S =	"no_op" # "workspace_symbol_picker" ## Open workspace symbol picker (LSP)
+space.d =	"no_op" # "diagnostics_picker" ## Open document diagnostics picker (LSP)
+space.D =	"no_op" # "workspace_diagnostics_picker" ## Open workspace diagnostics picker (LSP)
+space.r =	"no_op" # "rename_symbol" ## Rename symbol (LSP)
+space.a =	"no_op" # "code_action" ## Apply code action (LSP)
+space.h =	"no_op" # "select_references_to_symbol_under_cursor" ## Select symbol references (LSP)
+
+# "~"	= "switch_case"
+# "`" =	"switch_to_lowercase"
+# "C-`" =	"switch_to_uppercase"
+# B.r = "surround_replace"
+# B.a = "surround_add"
+# B.d = "surround_delete"
+# a = "select_textobject_inner"
+# A = "select_textobject_around"
+# "^" = "select_regex"
+# "*" = ["search_selection", "search"]
+# "C-^" = "split_selection"
+# "#" = "record_macro"
+# "@" = "replay_macro"
+
+# space.g	Debug (experimental)
+# space.w	Enter window mode
+space."?" = "no_op"
+space."'" = "no_op"
+space.y = "no_op"
+space.Y = "no_op"
+space.R = "no_op"
+space.p = "no_op"
+space.P = "no_op"
+
 "[".d = "goto_prev_diag"  
 "[".D = "goto_first_diag"
+"[".p = "goto_prev_paragraph"
 "[".f = "goto_prev_function"
 "[".c = "goto_prev_comment"
 "[".a = "goto_prev_parameter"
@@ -120,13 +165,11 @@ v.B	= "goto_window_bottom"
 "[".T = "goto_prev_test"
 "[".g = "goto_prev_change"
 "[".G = "goto_first_change"
-"["."[" = "shrink_selection"
 "[".y = "open_above"
-"[".l = "goto_file_start"
-"["."(" = "goto_prev_paragraph"
 
 "]".d = "goto_next_diag"
 "]".D = "goto_last_diag"
+"]".p = "goto_next_paragraph"
 "]".f = "goto_next_function"
 "]".c = "goto_next_comment"
 "]".a = "goto_next_parameter"
@@ -135,34 +178,19 @@ v.B	= "goto_window_bottom"
 "]".T = "goto_next_test"
 "]".g = "goto_next_change"
 "]".G = "goto_last_change"
-"]"."]" = "expand_selection"
 "]".y = "open_below"
-"]".l = "goto_last_line"
-"]".")" = "goto_prev_paragraph"
 
 "{" = ":buffer-previous"
 "}" = ":buffer-next"
-"#" = "record_macro"
-"@" = "replay_macro"
+# C-o = [":new", ":insert-output ~/.config/lf/lf-pick", "select_all", "split_selection_on_newline", "goto_file", "goto_last_modified_file", ":buffer-close!" ]
+# space.F = "file_picker"
 # "|" = "shell_pipe" # replace output
 # "\\" = "shell_insert_output" # pastes new output
-# C-o = [":new", ":insert-output ~/.config/lf/lf-pick", "select_all", "split_selection_on_newline", "goto_file", "goto_last_modified_file", ":buffer-close!" ]
 # C-y = "page_up"
-# C-e = "goto_line_start"
 # C-i = "page_down"
-# C-o = "goto_line_end"
-space.f = "file_picker_in_current_directory"
-space.F = "file_picker"
-space.c = "toggle_comments"
-
+# "last_picker"
+# "command_palette"
 # "join_selections"
-# d	"goto_definition"
-# y	"goto_type_definition"
-# r	"goto_reference"
-# i	"goto_implementation"
-# a	"goto_last_accessed_file"
-# m	"goto_last_modified_file"
-# .	"goto_last_modification"
 # "remove_primary_selection"
 
 [keys.select]
@@ -188,7 +216,7 @@ o = "extend_char_right"
 Y = "half_page_up"
 E = "goto_first_nonwhitespace"
 I = "half_page_down"
-O = [ "goto_line_end", "extend_char_right" ]
+O = "goto_line_end"
 m = "extend_prev_word_start"
 M = "extend_prev_long_word_start"
 n = "extend_next_word_start"
@@ -205,9 +233,10 @@ c = "yank" # copy
 C = ":clipboard-yank" # copy to clipboard
 p = "paste_before" # paste
 P = "paste_clipboard_before" # paste from clipboard
-d = "delete_selection" # copy and delete
-C-d = [ ":clipboard-yank", "delete_selection_noyank" ] # copy to clipboard and delete
-D = "delete_selection_noyank" # delete_selection
+d = "change_selection" # delete selection & insert 
+D = "delete_selection_noyank" # delete selection
+x = "delete_selection" # copy and delete
+X = [ ":clipboard-yank", "delete_selection_noyank" ] # copy to clipboard and delete
 r = "replace" # replace character
 R = "replace_with_yanked" # replace
 "backspace" = [ "move_char_left", "delete_selection_noyank" ]
@@ -219,23 +248,19 @@ K = "copy_selection_on_prev_line" # add cursor and selection above
 "S-tab"	= "unindent"
 H = [ "add_newline_below", "move_visual_line_down" ]
 J = [ "add_newline_above", "move_visual_line_up" ]
-"~"	= "switch_case"
-"`" =	"switch_to_lowercase"
-"C-`" =	"switch_to_uppercase"
 
 # find & selection
 S = "search"
-X = "search_prev"
-x = "search_next"
-a = "select_textobject_inner"
-A = "select_textobject_around"
+G = "search_prev" # goto_prev_occurance
+g = "search_next" # goto_next_occurance
+A = "shrink_selection"
+a = "expand_selection"
 f = "find_next_char" # find_next_char
 F = "find_prev_char" # find_prev_char
 t = "find_till_char" # till_next_char
 T = "till_prev_char" # till_prev_char
 l = "extend_line_below"
 L = "extend_line_up"
-C-l = "select_all"
 
 "^" = "select_regex"
 "*" = ["search_selection", "search"]

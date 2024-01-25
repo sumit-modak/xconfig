@@ -22,7 +22,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "T", "4", "5", "B1", "B2", "B3", "B4" };
+static const char *tags[] = { "1", "2", "~ $", "4", "5", "B1", "B2", "B3", "B4" };
 
 /* layout(s) */
 static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */

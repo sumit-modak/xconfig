@@ -1,3 +1,5 @@
+layout_dir "~/.config/zellij/layouts/"
+
 keybinds clear-defaults=true {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
@@ -22,8 +24,7 @@ keybinds clear-defaults=true {
         bind "Ctrl g" { SwitchToMode "Locked"; }
         bind "Ctrl q" { CloseFocus; SwitchToMode "Normal"; }
 
-        bind "Ctrl r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
-        bind "Ctrl t" { NewPane "Right"; SwitchToMode "Normal"; }
+        bind "Ctrl t" { NewPane; SwitchToMode "Normal"; }
         bind "Ctrl n" { Run "hx" "."; SwitchToMode "Normal"; }
         bind "Ctrl f" { ToggleFloatingPanes; SwitchToMode "Normal"; }
 
@@ -39,7 +40,7 @@ keybinds clear-defaults=true {
         bind "Alt -" { Resize "Decrease"; }
 
         // Session Manager
-        bind "Ctrl x" {
+        bind "Ctrl w" {
             LaunchOrFocusPlugin "zellij:session-manager" {
                 floating true
                 move_to_focused_tab true
@@ -49,44 +50,26 @@ keybinds clear-defaults=true {
     }
     tab {
         bind "Ctrl a" { SwitchToMode "Normal"; }
-
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "t" { NewTab; SwitchToMode "Normal"; }
         bind "n" { NewTab; Run "hx" "."; SwitchFocus; CloseFocus; SwitchToMode "Normal"; }
         bind "f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
+
         bind "s" { ToggleActiveSyncTab; SwitchToMode "Normal"; }
         bind "\\" { TogglePaneFrames; SwitchToMode "Normal"; }
         bind "[" { BreakPaneLeft; }
         bind "]" { BreakPaneRight; }
-
-        // Moving focus between tabs
-        bind "e" { GoToPreviousTab; }
-        bind "o" { GoToNextTab; }
-        bind "1" { GoToTab 1; SwitchToMode "Normal"; }
-        bind "2" { GoToTab 2; SwitchToMode "Normal"; }
-        bind "3" { GoToTab 3; SwitchToMode "Normal"; }
-        bind "4" { GoToTab 4; SwitchToMode "Normal"; }
-        bind "5" { GoToTab 5; SwitchToMode "Normal"; }
-        bind "6" { GoToTab 6; SwitchToMode "Normal"; }
-        bind "7" { GoToTab 7; SwitchToMode "Normal"; }
-        bind "8" { GoToTab 8; SwitchToMode "Normal"; }
-        bind "9" { GoToTab 9; SwitchToMode "Normal"; }
     }
-    move {
-        bind "Ctrl w" { SwitchToMode "Normal"; }
+    pane {
+        bind "Ctrl p" { SwitchToMode "Normal"; }
+        bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
+        bind "f" { TogglePaneEmbedOrFloating; }
         
         // Moving panes
         bind "e" { MovePane "Left"; }
         bind "i" { MovePane "Down"; }
         bind "y" { MovePane "Up"; }
         bind "o" { MovePane "Right"; }
-        bind "f" { TogglePaneEmbedOrFloating; }
-
-        // Creating panes
-        bind "l" { NewPane "Left"; SwitchToMode "Normal"; }
-        bind "d" { NewPane "Down"; SwitchToMode "Normal"; }
-        bind "u" { NewPane "Up"; SwitchToMode "Normal"; }
-        bind "r" { NewPane "Right"; SwitchToMode "Normal"; }
     }
     resize {
         bind "Ctrl r" { SwitchToMode "Normal"; }
@@ -111,27 +94,41 @@ keybinds clear-defaults=true {
         bind "c" { SearchToggleOption "CaseSensitivity"; }
         bind "w" { SearchToggleOption "Wrap"; }
         bind "W" { SearchToggleOption "WholeWord"; }
-
-        // bind "u" { HalfPageScrollUp; }
-        // bind "d" { HalfPageScrollDown; }
-        // bind "Enter" { EditScrollback; SwitchToMode "Normal"; }
-        // bind "Ctrl c" { ScrollToBottom; SwitchToMode "Normal"; }
-        // bind "D" { PageScrollDown; }
-        // bind "U" { PageScrollUp; }
-        // bind "i" { ScrollDown; }
-        // bind "y" { ScrollUp; }
-        // bind { SwitchFocus; }
-        // bind "e" { MoveFocus "Left"; }
-        // bind "i" { MoveFocus "Down"; }
-        // bind "y" { MoveFocus "Up"; }
-        // bind "o" { MoveFocus "Right"; }
-        // bind "[" { MovePaneBackwards; }
-        // bind "]" { MovePane; }
-        // bind "b" { BreakPane; SwitchToMode "Normal"; }
-        // bind "'" { ToggleTab; }
-        // bind "q" { CloseTab; SwitchToMode "Normal"; }
-        // bind "q" { Quit; }
     }
+    // bind "e" { GoToPreviousTab; }
+    // bind "o" { GoToNextTab; }
+    // bind "1" { GoToTab 1; SwitchToMode "Normal"; }
+    // bind "2" { GoToTab 2; SwitchToMode "Normal"; }
+    // bind "3" { GoToTab 3; SwitchToMode "Normal"; }
+    // bind "4" { GoToTab 4; SwitchToMode "Normal"; }
+    // bind "5" { GoToTab 5; SwitchToMode "Normal"; }
+    // bind "6" { GoToTab 6; SwitchToMode "Normal"; }
+    // bind "7" { GoToTab 7; SwitchToMode "Normal"; }
+    // bind "8" { GoToTab 8; SwitchToMode "Normal"; }
+    // bind "9" { GoToTab 9; SwitchToMode "Normal"; }
+    // bind "l" { NewPane "Left"; SwitchToMode "Normal"; }
+    // bind "d" { NewPane "Down"; SwitchToMode "Normal"; }
+    // bind "u" { NewPane "Up"; SwitchToMode "Normal"; }
+    // bind "r" { NewPane "Right"; SwitchToMode "Normal"; }
+    // bind "e" { MoveFocus "Left"; }
+    // bind "i" { MoveFocus "Down"; }
+    // bind "y" { MoveFocus "Up"; }
+    // bind "o" { MoveFocus "Right"; }
+    // bind { SwitchFocus; }
+    // bind "[" { MovePaneBackwards; }
+    // bind "]" { MovePane; }
+    // bind "u" { HalfPageScrollUp; }
+    // bind "d" { HalfPageScrollDown; }
+    // bind "Enter" { EditScrollback; SwitchToMode "Normal"; }
+    // bind "Ctrl c" { ScrollToBottom; SwitchToMode "Normal"; }
+    // bind "D" { PageScrollDown; }
+    // bind "U" { PageScrollUp; }
+    // bind "i" { ScrollDown; }
+    // bind "y" { ScrollUp; }
+    // bind "b" { BreakPane; SwitchToMode "Normal"; }
+    // bind "'" { ToggleTab; }
+    // bind "q" { CloseTab; SwitchToMode "Normal"; }
+    // bind "q" { Quit; }
     tmux {
         bind "[" { SwitchToMode "Scroll"; }
         bind "Ctrl b" { Write 2; SwitchToMode "Normal"; }
@@ -161,8 +158,8 @@ keybinds clear-defaults=true {
     shared_except "tab" "locked" {
         bind "Ctrl a" { SwitchToMode "Tab"; }
     }
-    shared_except "move" "locked" {
-        bind "Ctrl w" { SwitchToMode "Move"; }
+    shared_except "pane" "locked" {
+        bind "Ctrl p" { SwitchToMode "Pane"; }
     }
     shared_except "resize" "locked" {
         bind "Ctrl r" { SwitchToMode "Resize"; }

@@ -1,8 +1,10 @@
 #!/usr/bin/bash
 
+# This script is meant to run rust programs which is 
+# not in a crate or a package and has been written as
+# standalone program
+
 file="$1"
 basenameNoExt=$(basename "$file" | sed "s/\.rs//g")
 
-rustc $file
-./$basenameNoExt
-rm ./$basenameNoExt
+rustc $file && ./$basenameNoExt; rm ./$basenameNoExt 2> /dev/null
