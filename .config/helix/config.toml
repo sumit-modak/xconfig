@@ -21,14 +21,10 @@ Q = ":quit!"
 z = ":write"
 Z = ":write-quit"
 h = [ "collapse_selection", "insert_mode" ]
-j = [ "move_char_right", "insert_mode" ]
+j = [ "collapse_selection", "append_mode" ]
 s = "select_mode"
-"C-i" = "no_op"
-"C-o" = "no_op"
-"C-s" = "no_op"
-"C-b" = "no_op"
-"C-f" = "no_op"
-"C-u" = "no_op"
+"#" = "record_macro"
+"@" = "replay_macro"
 
 # movement
 y = "move_visual_line_up"
@@ -52,10 +48,10 @@ c = "yank" # copy
 C = ":clipboard-yank" # copy to clipboard
 p = "paste_before" # paste
 P = "paste_clipboard_before" # paste from clipboard
-d = "change_selection" # delete selection & insert 
-D = "delete_selection_noyank" # delete selection
-x = "delete_selection" # copy and delete
-X = [ ":clipboard-yank", "delete_selection_noyank" ] # copy to clipboard and delete
+d = "delete_selection_noyank" # delete selection
+D = "change_selection" # delete selection & insert 
+x = "delete_selection" # cut
+X = [ ":clipboard-yank", "delete_selection_noyank" ] # cut to clipboard
 r = "replace" # replace character
 R = "replace_with_yanked" # replace
 "backspace" = [ "move_char_left", "delete_selection_noyank" ]
@@ -65,48 +61,73 @@ k = "copy_selection_on_next_line" # add cursor and selection below
 K = "copy_selection_on_prev_line" # add cursor and selection above
 "tab" =	"indent"
 "S-tab"	= "unindent"
-H = [ "add_newline_below", "move_visual_line_down" ]
-J = [ "add_newline_above", "move_visual_line_up" ]
+H = "open_below"
+J = "open_above"
+"*" = "surround_add"
+"=" = "surround_replace"
+"minus" = "surround_delete"
+"^" =	"switch_to_uppercase"
+"+"	= "switch_case"
+"_" =	"switch_to_lowercase"
+"<" = "decrement"
+">" = "increment"
 
 # find & selection
 S = "search"
 G = "search_prev" # goto_prev_occurance
 g = "search_next" # goto_next_occurance
+F = "find_prev_char" # find_prev_char
+f = "find_next_char" # find_next_char
+T = "till_prev_char" # till_prev_char
+t = "find_till_char" # till_next_char
+
 A = "shrink_selection"
 a = "expand_selection"
-f = "find_next_char" # find_next_char
-F = "find_prev_char" # find_prev_char
-t = "find_till_char" # till_next_char
-T = "till_prev_char" # till_prev_char
-l = "extend_line_below"
 L = "extend_line_up"
-
+l = "extend_line_below"
+"%" = "select_all"
+"$" = [ "search_selection", "search" ]
+"/" = "select_regex"
+"&" = "split_selection"
 "," = "keep_primary_selection" # collapse multiple cursors
-";" = "split_selection_on_newline"
+";" = "collapse_selection"
 # "." = repeat_last_insert
 # ":" = command_mode
 "'" = "flip_selections" # toggle selection cursor
 # "\"" = "select_register"
-"minus" = "align_selections"
-"_" = "trim_selections"
 "\\" = "join_selections_space"
-"|" = "collapse_selection"
+"|" = "split_selection_on_newline"
+"?" = "align_selections"
+"!" = "trim_selections"
+"(" = "rotate_selections_backward"
+")" = "rotate_selections_forward"
+"{" = "rotate_selection_contents_backward"
+"}" = "rotate_selection_contents_forward"
 
 # view
 v.t = "align_view_top"
 v.c = "align_view_center"
 v.b = "align_view_bottom"
+v.m = "align_view_middle"
 
-# V B
+"C-i" = "no_op"
+"C-o" = "no_op"
+"C-s" = "no_op"
+"C-b" = "no_op"
+"C-f" = "no_op"
+"C-u" = "no_op"
+"C-w" = "no_op"
+
 # ---------------- currently unmanaged ----------------
 space.f = "file_picker_in_current_directory"
 space.F = "goto_file"
 space.b = "buffer_picker"
+space."[" = ":buffer-previous"
+space."]" = ":buffer-next"
 space."/" = "global_search"
 # space.a = "goto_last_accessed_file"
 # space.m = "goto_last_modified_file"
 
-space.l = "select_all"
 space.s = "goto_file_start"
 space.e = "goto_file_end"
 space."." = "goto_last_modification"
@@ -129,20 +150,7 @@ space.D =	"no_op" # "workspace_diagnostics_picker" ## Open workspace diagnostics
 space.r =	"no_op" # "rename_symbol" ## Rename symbol (LSP)
 space.a =	"no_op" # "code_action" ## Apply code action (LSP)
 space.h =	"no_op" # "select_references_to_symbol_under_cursor" ## Select symbol references (LSP)
-
-# "~"	= "switch_case"
-# "`" =	"switch_to_lowercase"
-# "C-`" =	"switch_to_uppercase"
-# B.r = "surround_replace"
-# B.a = "surround_add"
-# B.d = "surround_delete"
-# a = "select_textobject_inner"
-# A = "select_textobject_around"
-# "^" = "select_regex"
-# "*" = ["search_selection", "search"]
-# "C-^" = "split_selection"
-# "#" = "record_macro"
-# "@" = "replay_macro"
+# space."=" = # "format_selection" ## Format selection (currently nonfunctional/disabled) (LSP)
 
 # space.g	Debug (experimental)
 # space.w	Enter window mode
@@ -153,6 +161,10 @@ space.Y = "no_op"
 space.R = "no_op"
 space.p = "no_op"
 space.P = "no_op"
+# window mode
+# insert mode
+# picker
+# prompt
 
 "[".d = "goto_prev_diag"  
 "[".D = "goto_first_diag"
@@ -165,7 +177,6 @@ space.P = "no_op"
 "[".T = "goto_prev_test"
 "[".g = "goto_prev_change"
 "[".G = "goto_first_change"
-"[".y = "open_above"
 
 "]".d = "goto_next_diag"
 "]".D = "goto_last_diag"
@@ -178,16 +189,22 @@ space.P = "no_op"
 "]".T = "goto_next_test"
 "]".g = "goto_next_change"
 "]".G = "goto_last_change"
-"]".y = "open_below"
 
-"{" = ":buffer-previous"
-"}" = ":buffer-next"
+# "" = "select_textobject_inner"
+# "" = "select_textobject_around"
+# "" = "jump_backward"
+# "" = "jump_forward"
+# "" = "save_selection"
 # C-o = [":new", ":insert-output ~/.config/lf/lf-pick", "select_all", "split_selection_on_newline", "goto_file", "goto_last_modified_file", ":buffer-close!" ]
-# space.F = "file_picker"
-# "|" = "shell_pipe" # replace output
-# "\\" = "shell_insert_output" # pastes new output
-# C-y = "page_up"
-# C-i = "page_down"
+# "earlier"
+# "later"
+# "add_newline_above"
+# "add_newline_below"
+# "file_picker"
+# "shell_pipe" # replace output
+# "shell_insert_output" # pastes new output
+# "page_up"
+# "page_down"
 # "last_picker"
 # "command_palette"
 # "join_selections"
@@ -199,14 +216,10 @@ Q = ":quit!"
 z = ":write"
 Z = ":write-quit"
 h = [ "collapse_selection", "insert_mode" ]
-j = [ "move_char_right", "insert_mode" ]
+j = [ "collapse_selection", "append_mode" ]
 s = "normal_mode"
-"C-i" = "no_op"
-"C-o" = "no_op"
-"C-s" = "no_op"
-"C-b" = "no_op"
-"C-f" = "no_op"
-"C-u" = "no_op"
+"#" = "record_macro"
+"@" = "replay_macro"
 
 # movement
 y = "extend_visual_line_up"
@@ -224,19 +237,16 @@ N = "extend_next_long_word_start"
 w	= "extend_next_word_end"
 W = "extend_next_long_word_end"
 b = "match_brackets"
-B.r = "surround_replace"
-B.a = "surround_add"
-B.d = "surround_delete"
 
 # text-manipulation
 c = "yank" # copy
 C = ":clipboard-yank" # copy to clipboard
 p = "paste_before" # paste
 P = "paste_clipboard_before" # paste from clipboard
-d = "change_selection" # delete selection & insert 
-D = "delete_selection_noyank" # delete selection
-x = "delete_selection" # copy and delete
-X = [ ":clipboard-yank", "delete_selection_noyank" ] # copy to clipboard and delete
+d = "delete_selection_noyank" # delete selection
+D = "change_selection" # delete selection & insert 
+x = "delete_selection" # cut
+X = [ ":clipboard-yank", "delete_selection_noyank" ] # cut to clipboard
 r = "replace" # replace character
 R = "replace_with_yanked" # replace
 "backspace" = [ "move_char_left", "delete_selection_noyank" ]
@@ -246,40 +256,59 @@ k = "copy_selection_on_next_line" # add cursor and selection below
 K = "copy_selection_on_prev_line" # add cursor and selection above
 "tab" =	"indent"
 "S-tab"	= "unindent"
-H = [ "add_newline_below", "move_visual_line_down" ]
-J = [ "add_newline_above", "move_visual_line_up" ]
+H = "open_below"
+J = "open_above"
+"*" = "surround_add"
+"=" = "surround_replace"
+"minus" = "surround_delete"
+"^" =	"switch_to_uppercase"
+"+"	= "switch_case"
+"_" =	"switch_to_lowercase"
+"<" = "decrement"
+">" = "increment"
 
 # find & selection
 S = "search"
 G = "search_prev" # goto_prev_occurance
 g = "search_next" # goto_next_occurance
+F = "find_prev_char" # find_prev_char
+f = "find_next_char" # find_next_char
+T = "till_prev_char" # till_prev_char
+t = "find_till_char" # till_next_char
+
 A = "shrink_selection"
 a = "expand_selection"
-f = "find_next_char" # find_next_char
-F = "find_prev_char" # find_prev_char
-t = "find_till_char" # till_next_char
-T = "till_prev_char" # till_prev_char
-l = "extend_line_below"
 L = "extend_line_up"
-
-"^" = "select_regex"
-"*" = ["search_selection", "search"]
-"C-^" = "split_selection"
+l = "extend_line_below"
+"%" = "select_all"
+"$" = [ "search_selection", "search" ]
+"/" = "select_regex"
+"&" = "split_selection"
 "," = "keep_primary_selection" # collapse multiple cursors
-";" = "split_selection_on_newline"
+";" = "collapse_selection"
 # "." = repeat_last_insert
 # ":" = command_mode
 "'" = "flip_selections" # toggle selection cursor
 # "\"" = "select_register"
-"minus" = "align_selections"
-"_" = "trim_selections"
 "\\" = "join_selections_space"
-"|" = "collapse_selection"
+"|" = "split_selection_on_newline"
+"?" = "align_selections"
+"!" = "trim_selections"
+"(" = "rotate_selections_backward"
+")" = "rotate_selections_forward"
+"{" = "rotate_selection_contents_backward"
+"}" = "rotate_selection_contents_forward"
 
 # view
 v.t = "align_view_top"
-v.m = "align_view_center"
+v.c = "align_view_center"
 v.b = "align_view_bottom"
-v.T	= "goto_window_top"
-v.M = "goto_window_center"
-v.B	= "goto_window_bottom"
+v.m = "align_view_middle"
+
+"C-i" = "no_op"
+"C-o" = "no_op"
+"C-s" = "no_op"
+"C-b" = "no_op"
+"C-f" = "no_op"
+"C-u" = "no_op"
+"C-w" = "no_op"
