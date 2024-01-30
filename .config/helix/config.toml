@@ -21,7 +21,7 @@ Q = ":quit!"
 z = ":write"
 Z = ":write-quit"
 h = [ "collapse_selection", "insert_mode" ]
-j = [ "collapse_selection", "append_mode" ]
+j = [ "move_char_right", "insert_mode" ]
 s = "select_mode"
 "#" = "record_macro"
 "@" = "replay_macro"
@@ -42,6 +42,7 @@ N = "move_next_long_word_start"
 w	= "move_next_word_end"
 W = "move_next_long_word_end"
 b = "match_brackets"
+B = "goto_line_start"
 
 # text-manipulation
 c = "yank" # copy
@@ -104,21 +105,13 @@ l = "extend_line_below"
 "{" = "rotate_selection_contents_backward"
 "}" = "rotate_selection_contents_forward"
 
-# view
+# view mode
 v.t = "align_view_top"
 v.c = "align_view_center"
 v.b = "align_view_bottom"
 v.m = "align_view_middle"
 
-"C-i" = "no_op"
-"C-o" = "no_op"
-"C-s" = "no_op"
-"C-b" = "no_op"
-"C-f" = "no_op"
-"C-u" = "no_op"
-"C-w" = "no_op"
-
-# ---------------- currently unmanaged ----------------
+# space mode
 space.f = "file_picker_in_current_directory"
 space.F = "goto_file"
 space.b = "buffer_picker"
@@ -131,8 +124,6 @@ space."/" = "global_search"
 space.s = "goto_file_start"
 space.e = "goto_file_end"
 space."." = "goto_last_modification"
-# space.e = "goto_line_start"
-# space.o = [ "goto_line_end", "move_char_right" ]
 # space.t = "goto_window_top"
 # space.c = "goto_window_center"
 # space.b = "goto_window_bottom"
@@ -151,20 +142,8 @@ space.r =	"no_op" # "rename_symbol" ## Rename symbol (LSP)
 space.a =	"no_op" # "code_action" ## Apply code action (LSP)
 space.h =	"no_op" # "select_references_to_symbol_under_cursor" ## Select symbol references (LSP)
 # space."=" = # "format_selection" ## Format selection (currently nonfunctional/disabled) (LSP)
-
-# space.g	Debug (experimental)
-# space.w	Enter window mode
-space."?" = "no_op"
-space."'" = "no_op"
-space.y = "no_op"
-space.Y = "no_op"
-space.R = "no_op"
-space.p = "no_op"
-space.P = "no_op"
-# window mode
-# insert mode
-# picker
-# prompt
+# space.g	## Debug (experimental)
+# space.w	## Enter window mode
 
 "[".d = "goto_prev_diag"  
 "[".D = "goto_first_diag"
@@ -190,6 +169,24 @@ space.P = "no_op"
 "]".g = "goto_next_change"
 "]".G = "goto_last_change"
 
+space."?" = "no_op"
+space."'" = "no_op"
+space.y = "no_op"
+space.Y = "no_op"
+space.R = "no_op"
+space.p = "no_op"
+space.P = "no_op"
+"C-i" = "no_op"
+"C-o" = "no_op"
+"C-s" = "no_op"
+"C-b" = "no_op"
+"C-f" = "no_op"
+"C-u" = "no_op"
+"C-w" = "no_op"
+# window mode
+# insert mode
+# picker
+# prompt
 # "" = "select_textobject_inner"
 # "" = "select_textobject_around"
 # "" = "jump_backward"
@@ -216,7 +213,7 @@ Q = ":quit!"
 z = ":write"
 Z = ":write-quit"
 h = [ "collapse_selection", "insert_mode" ]
-j = [ "collapse_selection", "append_mode" ]
+j = [ "move_char_right", "insert_mode" ]
 s = "normal_mode"
 "#" = "record_macro"
 "@" = "replay_macro"
@@ -237,6 +234,7 @@ N = "extend_next_long_word_start"
 w	= "extend_next_word_end"
 W = "extend_next_long_word_end"
 b = "match_brackets"
+B = "goto_line_start"
 
 # text-manipulation
 c = "yank" # copy
@@ -299,16 +297,8 @@ l = "extend_line_below"
 "{" = "rotate_selection_contents_backward"
 "}" = "rotate_selection_contents_forward"
 
-# view
+# view mode
 v.t = "align_view_top"
 v.c = "align_view_center"
 v.b = "align_view_bottom"
 v.m = "align_view_middle"
-
-"C-i" = "no_op"
-"C-o" = "no_op"
-"C-s" = "no_op"
-"C-b" = "no_op"
-"C-f" = "no_op"
-"C-u" = "no_op"
-"C-w" = "no_op"

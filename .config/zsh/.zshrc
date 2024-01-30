@@ -49,6 +49,7 @@ alias ls="eza -aFl --group-directories-first --icons"
 alias lsa="eza -aF --group-directories-first --icons"
 alias lst="eza -aFT --group-directories-first --icons"
 alias tmux="zellij"
+alias ascii="bat ~/.local/share/ascii"
 
 alias imgcat="kitty +kitten icat"
 alias tell="espeak-ng"
