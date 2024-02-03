@@ -131,7 +131,7 @@ map o open
 
 map q quit
 map c copy
-map d cut
+map x cut
 map p paste
 map l clear
 # map [ jump-prev
@@ -139,7 +139,7 @@ map l clear
 # map <space> select
 # map u unselect
 # map v invert
-map D delete
+map d delete
 map m rename
 # map f find			# Read key(s) to find the appropriate file name match in the forward/backward direction and jump to the next/previous match.
 # map F find-back

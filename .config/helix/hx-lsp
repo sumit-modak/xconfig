@@ -5,7 +5,6 @@ vscode-html-language-server
 vscode-css-language-server
 docker-langserver
 bash-language-server
-awk-language-server
 typescript-language-server
 pylsp
 jdtls

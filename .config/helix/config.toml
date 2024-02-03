@@ -1,4 +1,57 @@
-theme = "dark_plus_mdf"
+# theme = "my_dark_plus"
+theme = "my_base16_dark"
+
+# theme = "adwaita-dark"
+# theme = "amberwood"
+# theme = "autumn"
+# theme = "autumn_night"
+# theme = "ayu_dark"
+# theme = "ayu_evolve"
+# theme = "catppuccin_frappe"
+# theme = "catppuccin_macchiato"
+# theme = "catppuccin_mocha"
+# theme = "darcula-solid"
+# theme = "darcula"
+# theme = "dracula_at_night"
+# theme = "everblush"
+# theme = "fleet_dark"
+# theme = "github_dark"
+# theme = "github_dark_colorblind"
+# theme = "github_dark_dimmed"
+# theme = "github_dark_high_contrast"
+# theme = "github_dark_tritanopia"
+# theme = "gruvbox"
+# theme = "gruvbox_dark_hard"
+# theme = "jellybeans"
+# theme = "kanagawa"
+# theme = "kaolin-valley-dark"
+# theme = "material_darker"
+# theme = "material_deep_ocean"
+# theme = "mellow"
+# theme = "molokai"
+# theme = "monokai"
+# theme = "monokai_aqua"
+# theme = "monokai_pro"
+# theme = "monokai_pro_machine"
+# theme = "monokai_pro_octagon"
+# theme = "monokai_pro_ristretto"
+# theme = "monokai_pro_spectrum"
+# theme = "new_moon"
+# theme = "nightfox"
+# theme = "nord-night"
+# theme = "nord"
+# theme = "onedark"
+# theme = "papercolor-dark"
+# theme = "penumbra+"
+# theme = "pop-dark"
+# theme = "rasmus"
+# theme = "snazzy"
+# theme = "solarized_dark"
+# theme = "sonokai"
+# theme = "tokyonight"
+# theme = "varua"
+# theme = "vim_dark_high_contrast"
+# theme = "zed_onedark"
 
 [editor]
 line-number = "relative"
@@ -19,9 +72,9 @@ enable = true
 q = ":quit"
 Q = ":quit!"
 z = ":write"
-Z = ":write-quit"
-h = [ "collapse_selection", "insert_mode" ]
-j = [ "move_char_right", "insert_mode" ]
+Z = ":write!"
+g = [ "collapse_selection", "insert_mode" ]
+h = [ "move_char_right", "insert_mode" ]
 s = "select_mode"
 "#" = "record_macro"
 "@" = "replay_macro"
@@ -41,8 +94,7 @@ n = "move_next_word_start"
 N = "move_next_long_word_start"
 w	= "move_next_word_end"
 W = "move_next_long_word_end"
-b = "match_brackets"
-B = "goto_line_start"
+V = "match_brackets"
 
 # text-manipulation
 c = "yank" # copy
@@ -62,28 +114,31 @@ k = "copy_selection_on_next_line" # add cursor and selection below
 K = "copy_selection_on_prev_line" # add cursor and selection above
 "tab" =	"indent"
 "S-tab"	= "unindent"
-H = "open_below"
-J = "open_above"
+a = "open_above"
+A = [ "add_newline_above", "move_visual_line_up" ]
+b = "open_below"
+B = [ "add_newline_below", "move_visual_line_down" ]
+"<" = "decrement"
+">" = "increment"
+
 "*" = "surround_add"
 "=" = "surround_replace"
 "minus" = "surround_delete"
 "^" =	"switch_to_uppercase"
 "+"	= "switch_case"
 "_" =	"switch_to_lowercase"
-"<" = "decrement"
-">" = "increment"
 
 # find & selection
 S = "search"
-G = "search_prev" # goto_prev_occurance
-g = "search_next" # goto_next_occurance
-F = "find_prev_char" # find_prev_char
-f = "find_next_char" # find_next_char
-T = "till_prev_char" # till_prev_char
-t = "find_till_char" # till_next_char
+J = "search_prev" # goto_prev_occurance
+j = "search_next" # goto_next_occurance
+t = "find_prev_char" # find_char_backward
+f = "find_next_char" # find_char_forward
+T = "till_prev_char" # till_char_backward
+F = "find_till_char" # till_char_forward
 
-A = "shrink_selection"
-a = "expand_selection"
+G = "select_textobject_inner"
+H = "select_textobject_around"
 L = "extend_line_up"
 l = "extend_line_below"
 "%" = "select_all"
@@ -121,26 +176,26 @@ space."/" = "global_search"
 # space.a = "goto_last_accessed_file"
 # space.m = "goto_last_modified_file"
 
-space.s = "goto_file_start"
-space.e = "goto_file_end"
+space.y = "goto_file_start"
+space.i = "goto_file_end"
 space."." = "goto_last_modification"
 # space.t = "goto_window_top"
 # space.c = "goto_window_center"
 # space.b = "goto_window_bottom"
 
 space.c = "toggle_comments"
-# space.d = # "goto_definition" ## Go to definition (LSP)
-# space.D = # "goto_type_definition" ## Go to type definition (LSP)
+space.r =	"hover" ## Show documentation for item under cursor in a popup (LSP)
+space.e =	"diagnostics_picker" ## Open document diagnostics picker (LSP)
+space.E =	"workspace_diagnostics_picker" ## Open workspace diagnostics picker (LSP)
+space.d = "goto_definition" ## Go to definition (LSP)
+space.D = "goto_type_definition" ## Go to type definition (LSP)
+space.s =	"symbol_picker" ## Open document symbol picker (LSP)
+space.S =	"workspace_symbol_picker" ## Open workspace symbol picker (LSP)
 # space.r = # "goto_reference" ## Go to references (LSP)
-space.i = "no_op" # "goto_implementation" ## Go to implementation (LSP)
-space.k =	"no_op" # "hover" ## Show documentation for item under cursor in a popup (LSP)
-# space.s =	# "symbol_picker" ## Open document symbol picker (LSP)
-space.S =	"no_op" # "workspace_symbol_picker" ## Open workspace symbol picker (LSP)
-space.d =	"no_op" # "diagnostics_picker" ## Open document diagnostics picker (LSP)
-space.D =	"no_op" # "workspace_diagnostics_picker" ## Open workspace diagnostics picker (LSP)
-space.r =	"no_op" # "rename_symbol" ## Rename symbol (LSP)
-space.a =	"no_op" # "code_action" ## Apply code action (LSP)
-space.h =	"no_op" # "select_references_to_symbol_under_cursor" ## Select symbol references (LSP)
+# space.i = # "goto_implementation" ## Go to implementation (LSP)
+# space.r =	# "rename_symbol" ## Rename symbol (LSP)
+# space.a =	# "code_action" ## Apply code action (LSP)
+# space.h =	# "select_references_to_symbol_under_cursor" ## Select symbol references (LSP)
 # space."=" = # "format_selection" ## Format selection (currently nonfunctional/disabled) (LSP)
 # space.g	## Debug (experimental)
 # space.w	## Enter window mode
@@ -169,9 +224,10 @@ space.h =	"no_op" # "select_references_to_symbol_under_cursor" ## Select symbol 
 "]".g = "goto_next_change"
 "]".G = "goto_last_change"
 
+space.j = "no_op"
 space."?" = "no_op"
 space."'" = "no_op"
-space.y = "no_op"
+space.k = "no_op"
 space.Y = "no_op"
 space.R = "no_op"
 space.p = "no_op"
@@ -187,16 +243,15 @@ space.P = "no_op"
 # insert mode
 # picker
 # prompt
-# "" = "select_textobject_inner"
-# "" = "select_textobject_around"
+# A = "shrink_selection"
+# T = "expand_selection"
 # "" = "jump_backward"
 # "" = "jump_forward"
 # "" = "save_selection"
 # C-o = [":new", ":insert-output ~/.config/lf/lf-pick", "select_all", "split_selection_on_newline", "goto_file", "goto_last_modified_file", ":buffer-close!" ]
 # "earlier"
 # "later"
-# "add_newline_above"
-# "add_newline_below"
+# T = "goto_line_start"
 # "file_picker"
 # "shell_pipe" # replace output
 # "shell_insert_output" # pastes new output
@@ -211,9 +266,9 @@ space.P = "no_op"
 q = ":quit"
 Q = ":quit!"
 z = ":write"
-Z = ":write-quit"
-h = [ "collapse_selection", "insert_mode" ]
-j = [ "move_char_right", "insert_mode" ]
+Z = ":write!"
+g = [ "collapse_selection", "insert_mode" ]
+h = [ "move_char_right", "insert_mode" ]
 s = "normal_mode"
 "#" = "record_macro"
 "@" = "replay_macro"
@@ -233,8 +288,7 @@ n = "extend_next_word_start"
 N = "extend_next_long_word_start"
 w	= "extend_next_word_end"
 W = "extend_next_long_word_end"
-b = "match_brackets"
-B = "goto_line_start"
+V = "match_brackets"
 
 # text-manipulation
 c = "yank" # copy
@@ -254,28 +308,31 @@ k = "copy_selection_on_next_line" # add cursor and selection below
 K = "copy_selection_on_prev_line" # add cursor and selection above
 "tab" =	"indent"
 "S-tab"	= "unindent"
-H = "open_below"
-J = "open_above"
+a = "open_above"
+A = [ "add_newline_above", "move_visual_line_up" ]
+b = "open_below"
+B = [ "add_newline_below", "move_visual_line_down" ]
+"<" = "decrement"
+">" = "increment"
+
 "*" = "surround_add"
 "=" = "surround_replace"
 "minus" = "surround_delete"
 "^" =	"switch_to_uppercase"
 "+"	= "switch_case"
 "_" =	"switch_to_lowercase"
-"<" = "decrement"
-">" = "increment"
 
 # find & selection
 S = "search"
-G = "search_prev" # goto_prev_occurance
-g = "search_next" # goto_next_occurance
-F = "find_prev_char" # find_prev_char
-f = "find_next_char" # find_next_char
-T = "till_prev_char" # till_prev_char
-t = "find_till_char" # till_next_char
+J = "search_prev" # goto_prev_occurance
+j = "search_next" # goto_next_occurance
+t = "find_prev_char" # find_char_backward
+f = "find_next_char" # find_char_forward
+T = "till_prev_char" # till_char_backward
+F = "find_till_char" # till_char_forward
 
-A = "shrink_selection"
-a = "expand_selection"
+G = "select_textobject_inner"
+H = "select_textobject_around"
 L = "extend_line_up"
 l = "extend_line_below"
 "%" = "select_all"
