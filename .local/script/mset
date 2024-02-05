@@ -5,5 +5,5 @@ if [ "$1" == "-" ]; then
 	echo "email changed to sumit-modak"
 else 
 	git config --global user.email "152054612+notSumitGG@users.noreply.github.com"
-	echo "email changed to notsumitGG"
+	echo "email changed to sumit-GG"
 fi
