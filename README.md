@@ -51,4 +51,4 @@ git clone --depth=1 https://github.com/sumit-modak/xconfig ~
 https://www.youtube.com/watch?v=MoWApyUb5w8
 
 ## Searching for alternative package names
-https://github.com/sumit-modak/xconfig/tree/master/.config/packages 
+https://arewewaylandyet.com/
