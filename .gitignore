@@ -94,6 +94,8 @@ computer/
 Downloads/
 alt/
 main/
+clone/
+priv/
 multimedia/
 passwd/
 .serverauth.*

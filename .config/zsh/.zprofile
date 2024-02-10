@@ -8,4 +8,4 @@ if [ "$(tty)" = "/dev/tty1" ]; then
     pgrep -x dwm || exec startx &&
 fi
 
-rm $HOME/.serverauth.* $HOME/.xsel.log $HOME/.wget-hsts 2> /dev/null
+# rm $HOME/.serverauth.* $HOME/.xsel.log $HOME/.wget-hsts 2> /dev/null

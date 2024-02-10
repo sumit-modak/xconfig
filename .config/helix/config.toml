@@ -73,8 +73,8 @@ q = ":buffer-close"
 Q = ":buffer-close!"
 z = ":write"
 Z = ":write!"
-t = [ "collapse_selection", "insert_mode" ]
-h = [ "move_char_right", "insert_mode" ]
+h = [ "collapse_selection", "insert_mode" ]
+n = [ "move_char_right", "insert_mode" ]
 s = "select_mode"
 "#" = "record_macro"
 "@" = "replay_macro"
@@ -90,9 +90,6 @@ space."/" = "global_search"
 space.y = "goto_file_start"
 space.i = "goto_file_end"
 space."." = "goto_last_modification"
-# space.t = "goto_window_top"
-# space.c = "goto_window_center"
-# space.b = "goto_window_bottom"
 space.c = "toggle_comments"
 space.p =	"hover" ## Show documentation for item under cursor in a popup (LSP)
 space.e =	"diagnostics_picker" ## Open document diagnostics picker (LSP)
@@ -109,23 +106,23 @@ space.a =	"code_action" ## Apply code action (LSP)
 # space."=" = "format_selection" ## Format selection (currently nonfunctional/disabled) (LSP)
 # space.g	## Debug (experimental)
 # space.w	## Enter window mode
-space.m.d = "goto_prev_diag"
-space.m.f = "goto_prev_function"
-space.m.p = "goto_prev_parameter"
-space.m.t = "goto_prev_class"
-space.m.c = "goto_prev_comment"
-space.m.T = "goto_prev_test"
-space.m.P = "goto_prev_paragraph"
-space.m.s = "select_prev_sibling"
-space.m.g = "goto_prev_change"
-space.m.G = "goto_first_change"
+space.h.d = "goto_prev_diag"
+space.h.f = "goto_prev_function"
+space.h.a = "goto_prev_parameter"
+space.h.t = "goto_prev_class"
+space.h.c = "goto_prev_comment"
+space.h.x = "goto_prev_test"
+space.h.p = "goto_prev_paragraph"
+space.h.s = "select_prev_sibling"
+space.h.g = "goto_prev_change"
+space.h.G = "goto_first_change"
 space.n.d = "goto_next_diag"
 space.n.f = "goto_next_function"
-space.n.p = "goto_next_parameter"
+space.n.a = "goto_next_parameter"
 space.n.t = "goto_next_class"
 space.n.c = "goto_next_comment"
-space.n.T = "goto_next_test"
-space.n.P = "goto_next_paragraph"
+space.n.x = "goto_next_test"
+space.n.p = "goto_next_paragraph"
 space.n.s = "select_next_sibling"
 space.n.g = "goto_next_change"
 space.n.G = "goto_last_change"
@@ -135,16 +132,14 @@ y = "move_visual_line_up"
 e = "move_char_left"
 i = "move_visual_line_down"
 o = "move_char_right"
-Y = "half_page_up"
+Y = [ "half_page_up", "align_view_center" ]
 E = "goto_first_nonwhitespace"
-I = "half_page_down"
+I = [ "half_page_down", "align_view_center" ]
 O = "goto_line_end"
-m = "move_prev_word_start"
-M = "move_prev_long_word_start"
-n = "move_next_word_start"
-N = "move_next_long_word_start"
 w	= "move_next_word_end"
 W = "move_next_long_word_end"
+b = "move_prev_word_start"
+B = "move_prev_long_word_start"
 V = "match_brackets"
 
 # text-manipulation
@@ -167,8 +162,8 @@ K = "copy_selection_on_prev_line" # add cursor and selection above
 "S-tab"	= "unindent"
 a = "open_above"
 A = [ "add_newline_above", "move_visual_line_up" ]
-b = "open_below"
-B = [ "add_newline_below", "move_visual_line_down" ]
+g = "open_below"
+G = [ "add_newline_below", "move_visual_line_down" ]
 
 "+" = "surround_add"
 "=" = "surround_replace"
@@ -179,34 +174,33 @@ B = [ "add_newline_below", "move_visual_line_down" ]
 
 # find & selection
 S = "search"
-J = "search_prev" # goto_prev_occurance
-j = "search_next" # goto_next_occurance
-g = "find_prev_char" # find_char_backward
+M = "search_prev" # prev_match
+m = "search_next" # next_match
+F = "find_prev_char" # find_char_backward
 f = "find_next_char" # find_char_forward
-G = "till_prev_char" # till_char_backward
-F = "find_till_char" # till_char_forward
+T = "till_prev_char" # till_char_backward
+t = "find_till_char" # till_char_forward
 
-T = "select_textobject_inner"
-H = "select_textobject_around"
-L = "extend_line_up"
+N = "select_textobject_around"
+H = "select_textobject_inner"
+j = "join_selections_space"
+J = [ "move_visual_line_up", "join_selections_space" ]
+L = [ "extend_line_up", "extend_to_line_bounds" ]
 l = "extend_line_below"
 "%" = "select_all"
 "/" = "select_regex"
 "&" = [ "search_selection", "search" ]
-"," = "keep_primary_selection" # collapse multiple cursors
-";" = "collapse_selection"
+"," = "collapse_selection"
+";" = "split_selection_on_newline"
 # "." = repeat_last_insert
 # ":" = command_mode
-"'" = "flip_selections" # toggle selection cursor
-# "\"" = "select_register"
+"'" = "flip_selections"
+"\"" = "keep_primary_selection"
+"_" = "remove_primary_selection"
 "(" = "rotate_selections_backward"
 ")" = "rotate_selections_forward"
-"_" = "trim_selections"
-"*" = "remove_primary_selection"
+"*" = "trim_selections"
 "^" = "align_selections"
-"\\" = "join_selections_space"
-"|" = "split_selection_on_newline"
-"$" = "split_selection"
 
 # view mode
 v.t = "align_view_top"
@@ -220,7 +214,6 @@ space."'" = "no_op"
 space.k = "no_op"
 space.Y = "no_op"
 space.P = "no_op"
-space.h = "no_op"
 "C-i" = "no_op"
 "C-o" = "no_op"
 "C-s" = "no_op"
@@ -232,39 +225,14 @@ space.h = "no_op"
 # insert mode
 # picker
 # prompt
-# space.a = "goto_last_accessed_file"
-# space.m = "goto_last_modified_file"
-# "[".D = "goto_first_diag"
-# "]".D = "goto_last_diag"
-# "<" = "decrement"
-# ">" = "increment"
-# A = "shrink_selection"
-# T = "expand_selection"
-# "" = "jump_backward"
-# "" = "jump_forward"
-# "" = "save_selection"
-# "<" = "rotate_selection_contents_backward"
-# ">" = "rotate_selection_contents_forward"
-# C-o = [":new", ":insert-output ~/.config/lf/lf-pick", "select_all", "split_selection_on_newline", "goto_file", "goto_last_modified_file", ":buffer-close!" ]
-# "earlier"
-# "later"
-# T = "goto_line_start"
-# "file_picker"
-# "shell_pipe" # replace output
-# "shell_insert_output" # pastes new output
-# "page_up"
-# "page_down"
-# "last_picker"
-# "command_palette"
-# "join_selections"
 
 [keys.select]
 q = ":buffer-close"
 Q = ":buffer-close!"
 z = ":write"
 Z = ":write!"
-t = [ "collapse_selection", "insert_mode" ]
-h = [ "move_char_right", "insert_mode" ]
+h = [ "collapse_selection", "insert_mode" ]
+n = [ "move_char_right", "insert_mode" ]
 s = "normal_mode"
 "#" = "record_macro"
 "@" = "replay_macro"
@@ -280,9 +248,6 @@ space."/" = "global_search"
 space.y = "goto_file_start"
 space.i = "goto_file_end"
 space."." = "goto_last_modification"
-# space.t = "goto_window_top"
-# space.c = "goto_window_center"
-# space.b = "goto_window_bottom"
 space.c = "toggle_comments"
 space.p =	"hover" ## Show documentation for item under cursor in a popup (LSP)
 space.e =	"diagnostics_picker" ## Open document diagnostics picker (LSP)
@@ -299,23 +264,23 @@ space.a =	"code_action" ## Apply code action (LSP)
 # space."=" = "format_selection" ## Format selection (currently nonfunctional/disabled) (LSP)
 # space.g	## Debug (experimental)
 # space.w	## Enter window mode
-space.m.d = "goto_prev_diag"
-space.m.f = "goto_prev_function"
-space.m.p = "goto_prev_parameter"
-space.m.t = "goto_prev_class"
-space.m.c = "goto_prev_comment"
-space.m.T = "goto_prev_test"
-space.m.P = "goto_prev_paragraph"
-space.m.s = "select_prev_sibling"
-space.m.g = "goto_prev_change"
-space.m.G = "goto_first_change"
+space.h.d = "goto_prev_diag"
+space.h.f = "goto_prev_function"
+space.h.a = "goto_prev_parameter"
+space.h.t = "goto_prev_class"
+space.h.c = "goto_prev_comment"
+space.h.x = "goto_prev_test"
+space.h.p = "goto_prev_paragraph"
+space.h.s = "select_prev_sibling"
+space.h.g = "goto_prev_change"
+space.h.G = "goto_first_change"
 space.n.d = "goto_next_diag"
 space.n.f = "goto_next_function"
-space.n.p = "goto_next_parameter"
+space.n.a = "goto_next_parameter"
 space.n.t = "goto_next_class"
 space.n.c = "goto_next_comment"
-space.n.T = "goto_next_test"
-space.n.P = "goto_next_paragraph"
+space.n.x = "goto_next_test"
+space.n.p = "goto_next_paragraph"
 space.n.s = "select_next_sibling"
 space.n.g = "goto_next_change"
 space.n.G = "goto_last_change"
@@ -325,16 +290,14 @@ y = "extend_visual_line_up"
 e = "extend_char_left"
 i = "extend_visual_line_down"
 o = "extend_char_right"
-Y = "half_page_up"
+Y = [ "half_page_up", "align_view_center" ]
 E = "goto_first_nonwhitespace"
-I = "half_page_down"
+I = [ "half_page_down", "align_view_center" ]
 O = "goto_line_end"
-m = "extend_prev_word_start"
-M = "extend_prev_long_word_start"
-n = "extend_next_word_start"
-N = "extend_next_long_word_start"
 w	= "extend_next_word_end"
 W = "extend_next_long_word_end"
+b = "extend_prev_word_start"
+B = "extend_prev_long_word_start"
 V = "match_brackets"
 
 # text-manipulation
@@ -357,8 +320,8 @@ K = "copy_selection_on_prev_line" # add cursor and selection above
 "S-tab"	= "unindent"
 a = "open_above"
 A = [ "add_newline_above", "move_visual_line_up" ]
-b = "open_below"
-B = [ "add_newline_below", "move_visual_line_down" ]
+g = "open_below"
+G = [ "add_newline_below", "move_visual_line_down" ]
 
 "+" = "surround_add"
 "=" = "surround_replace"
@@ -369,34 +332,33 @@ B = [ "add_newline_below", "move_visual_line_down" ]
 
 # find & selection
 S = "search"
-J = "search_prev" # goto_prev_occurance
-j = "search_next" # goto_next_occurance
-g = "find_prev_char" # find_char_backward
+M = "search_prev" # prev_match
+m = "search_next" # next_match
+F = "find_prev_char" # find_char_backward
 f = "find_next_char" # find_char_forward
-G = "till_prev_char" # till_char_backward
-F = "find_till_char" # till_char_forward
+T = "till_prev_char" # till_char_backward
+t = "find_till_char" # till_char_forward
 
-T = "select_textobject_inner"
-H = "select_textobject_around"
-L = "extend_line_up"
+N = "select_textobject_around"
+H = "select_textobject_inner"
+j = "join_selections_space"
+J = [ "move_visual_line_up", "join_selections_space" ]
+L = [ "extend_line_up", "extend_to_line_bounds" ]
 l = "extend_line_below"
 "%" = "select_all"
-"&" = [ "search_selection", "search" ]
 "/" = "select_regex"
-"," = "keep_primary_selection" # collapse multiple cursors
-";" = "collapse_selection"
+"&" = [ "search_selection", "search" ]
+"," = "collapse_selection"
+";" = "split_selection_on_newline"
 # "." = repeat_last_insert
 # ":" = command_mode
-"'" = "flip_selections" # toggle selection cursor
-# "\"" = "select_register"
+"'" = "flip_selections"
+"\"" = "keep_primary_selection"
+"_" = "remove_primary_selection"
 "(" = "rotate_selections_backward"
 ")" = "rotate_selections_forward"
-"_" = "trim_selections"
-"*" = "remove_primary_selection"
+"*" = "trim_selections"
 "^" = "align_selections"
-"\\" = "join_selections_space"
-"|" = "split_selection_on_newline"
-"$" = "split_selection"
 
 # view mode
 v.t = "align_view_top"
@@ -410,7 +372,6 @@ space."'" = "no_op"
 space.k = "no_op"
 space.Y = "no_op"
 space.P = "no_op"
-space.h = "no_op"
 "C-i" = "no_op"
 "C-o" = "no_op"
 "C-s" = "no_op"
@@ -418,3 +379,36 @@ space.h = "no_op"
 "C-f" = "no_op"
 "C-u" = "no_op"
 "C-w" = "no_op"
+
+# "goto_last_accessed_file"
+# "goto_last_modified_file"
+# "goto_window_top"
+# "goto_window_center"
+# "goto_window_bottom"
+#  = "goto_first_diag"
+#  = "goto_last_diag"
+#  = "decrement"
+#  = "increment"
+#  = "select_register"
+#  = "split_selection"
+# "shrink_selection"
+# "expand_selection"
+# "" = "jump_backward"
+# "" = "jump_forward"
+# "" = "save_selection"
+# "rotate_selection_contents_backward"
+# "rotate_selection_contents_forward"
+# C-o = [":new", ":insert-output ~/.config/lf/lf-pick", "select_all", "split_selection_on_newline", "goto_file", "goto_last_modified_file", ":buffer-close!" ]
+# "earlier"
+# "later"
+# "goto_line_start"
+# "file_picker"
+# "shell_pipe" # replace output
+# "shell_insert_output" # pastes new output
+# "page_up"
+# "page_down"
+# "last_picker"
+# "command_palette"
+# "join_selections"
+# "move_next_word_start"
+# "move_next_long_word_start"

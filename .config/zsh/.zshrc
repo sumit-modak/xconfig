@@ -50,9 +50,11 @@ alias lsa="eza -aF --group-directories-first --icons"
 alias lst="eza -aFT --group-directories-first --icons"
 alias tmux="zellij"
 alias ascii="bat ~/.local/share/ascii"
-
 alias imgcat="kitty +kitten icat"
+
 alias tell="espeak-ng"
 alias gpt="cd ~/.local/bin/ && python3 ~/.local/bin/chat-gpt.py && cd -"
 alias kbdmap="setxkbmap us; xmodmap $HOME/.config/xmodmap/xmodmap && xset r 66"
 alias kbdreset="setxkbmap us; xset -r 66"
+
+sed "s/\s*#.*$//g; /^$/d" $HOME/priv/motivation/quotes | shuf -n 1 2> /dev/null
