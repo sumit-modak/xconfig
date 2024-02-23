@@ -57,4 +57,4 @@ alias gpt="cd ~/.local/bin/ && python3 ~/.local/bin/chat-gpt.py && cd -"
 alias kbdmap="setxkbmap us; xmodmap $HOME/.config/xmodmap/xmodmap && xset r 66"
 alias kbdreset="setxkbmap us; xset -r 66"
 
-sed "s/\s*#.*$//g; /^$/d" $HOME/priv/motivation/quotes | shuf -n 1 2> /dev/null
+sed "s/\s*#.*$//g; /^$/d" $HOME/priv/incidents/quotes | shuf -n 1 2> /dev/null | lolcat

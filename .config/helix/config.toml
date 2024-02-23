@@ -75,7 +75,7 @@ z = ":write"
 Z = ":write!"
 h = [ "collapse_selection", "insert_mode" ]
 n = [ "move_char_right", "insert_mode" ]
-s = "select_mode"
+v = "select_mode"
 "#" = "record_macro"
 "@" = "replay_macro"
 "[" = ":buffer-previous"
@@ -106,6 +106,10 @@ space.a =	"code_action" ## Apply code action (LSP)
 # space."=" = "format_selection" ## Format selection (currently nonfunctional/disabled) (LSP)
 # space.g	## Debug (experimental)
 # space.w	## Enter window mode
+space.T = "align_view_top"
+space.C = "align_view_center"
+space.B = "align_view_bottom"
+space.M = "align_view_middle"
 space.h.d = "goto_prev_diag"
 space.h.f = "goto_prev_function"
 space.h.a = "goto_prev_parameter"
@@ -132,9 +136,9 @@ y = "move_visual_line_up"
 e = "move_char_left"
 i = "move_visual_line_down"
 o = "move_char_right"
-Y = [ "half_page_up", "align_view_center" ]
+Y = [ "goto_window_top", "align_view_center" ]
 E = "goto_first_nonwhitespace"
-I = [ "half_page_down", "align_view_center" ]
+I = [ "goto_window_bottom", "align_view_center" ]
 O = "goto_line_end"
 w	= "move_next_word_end"
 W = "move_next_long_word_end"
@@ -173,7 +177,8 @@ G = [ "add_newline_below", "move_visual_line_down" ]
 "<" =	"switch_to_lowercase"
 
 # find & selection
-S = "search"
+s = "search"
+S = [ "search_selection", "search" ]
 M = "search_prev" # prev_match
 m = "search_next" # next_match
 F = "find_prev_char" # find_char_backward
@@ -189,7 +194,6 @@ L = [ "extend_line_up", "extend_to_line_bounds" ]
 l = "extend_line_below"
 "%" = "select_all"
 "/" = "select_regex"
-"&" = [ "search_selection", "search" ]
 "," = "collapse_selection"
 ";" = "split_selection_on_newline"
 # "." = repeat_last_insert
@@ -201,12 +205,6 @@ l = "extend_line_below"
 ")" = "rotate_selections_forward"
 "*" = "trim_selections"
 "^" = "align_selections"
-
-# view mode
-v.t = "align_view_top"
-v.c = "align_view_center"
-v.b = "align_view_bottom"
-v.m = "align_view_middle"
 
 space.j = "no_op"
 space."?" = "no_op"
@@ -233,7 +231,7 @@ z = ":write"
 Z = ":write!"
 h = [ "collapse_selection", "insert_mode" ]
 n = [ "move_char_right", "insert_mode" ]
-s = "normal_mode"
+v = "normal_mode"
 "#" = "record_macro"
 "@" = "replay_macro"
 "[" = ":buffer-previous"
@@ -264,6 +262,10 @@ space.a =	"code_action" ## Apply code action (LSP)
 # space."=" = "format_selection" ## Format selection (currently nonfunctional/disabled) (LSP)
 # space.g	## Debug (experimental)
 # space.w	## Enter window mode
+space.T = "align_view_top"
+space.C = "align_view_center"
+space.B = "align_view_bottom"
+space.M = "align_view_middle"
 space.h.d = "goto_prev_diag"
 space.h.f = "goto_prev_function"
 space.h.a = "goto_prev_parameter"
@@ -290,9 +292,9 @@ y = "extend_visual_line_up"
 e = "extend_char_left"
 i = "extend_visual_line_down"
 o = "extend_char_right"
-Y = [ "half_page_up", "align_view_center" ]
+Y = [ "goto_window_top", "align_view_center" ]
 E = "goto_first_nonwhitespace"
-I = [ "half_page_down", "align_view_center" ]
+I = [ "goto_window_bottom", "align_view_center" ]
 O = "goto_line_end"
 w	= "extend_next_word_end"
 W = "extend_next_long_word_end"
@@ -331,7 +333,8 @@ G = [ "add_newline_below", "move_visual_line_down" ]
 "<" =	"switch_to_lowercase"
 
 # find & selection
-S = "search"
+s = "search"
+S = [ "search_selection", "search" ]
 M = "search_prev" # prev_match
 m = "search_next" # next_match
 F = "find_prev_char" # find_char_backward
@@ -347,7 +350,6 @@ L = [ "extend_line_up", "extend_to_line_bounds" ]
 l = "extend_line_below"
 "%" = "select_all"
 "/" = "select_regex"
-"&" = [ "search_selection", "search" ]
 "," = "collapse_selection"
 ";" = "split_selection_on_newline"
 # "." = repeat_last_insert
@@ -359,12 +361,6 @@ l = "extend_line_below"
 ")" = "rotate_selections_forward"
 "*" = "trim_selections"
 "^" = "align_selections"
-
-# view mode
-v.t = "align_view_top"
-v.c = "align_view_center"
-v.b = "align_view_bottom"
-v.m = "align_view_middle"
 
 space.j = "no_op"
 space."?" = "no_op"
@@ -382,9 +378,9 @@ space.P = "no_op"
 
 # "goto_last_accessed_file"
 # "goto_last_modified_file"
-# "goto_window_top"
+# "half_page_up"
 # "goto_window_center"
-# "goto_window_bottom"
+# "half_page_down"
 #  = "goto_first_diag"
 #  = "goto_last_diag"
 #  = "decrement"

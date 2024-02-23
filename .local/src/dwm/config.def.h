@@ -53,11 +53,11 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *termcmd[]  = { "kitty", NULL };
-static const char *up_vol[]   = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%",   NULL };
-static const char *down_vol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%",   NULL };
-static const char *mute_vol[] = { "pactl", "set-sink-mute",   "@DEFAULT_SINK@", "toggle", NULL };
-static const char *brighter[] = { "brightnessctl", "set", "5%+", NULL };
-static const char *dimmer[]   = { "brightnessctl", "set", "5%-", NULL };
+// static const char *up_vol[]   = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%",   NULL };
+// static const char *down_vol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%",   NULL };
+// static const char *mute_vol[] = { "pactl", "set-sink-mute",   "@DEFAULT_SINK@", "toggle", NULL };
+// static const char *brighter[] = { "brightnessctl", "set", "5%+", NULL };
+// static const char *dimmer[]   = { "brightnessctl", "set", "5%-", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        				function        argument */	
@@ -104,13 +104,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_colon, 				tagmon,         {.i = +1 } },
 	
 	// extra added keyboard shortcuts
-	{ MODKEY,                       XK_Return, 				spawn,          {.v = termcmd } },			// spawns terminal (kitty)
-  { MODKEY, 											XK_u, 						spawn, 					{.v = up_vol } },			// increases volume
-  { MODKEY, 											XK_y, 						spawn, 					{.v = down_vol } },			// decreases volume
-	{ MODKEY|ShiftMask,							XK_m,        			spawn,					{.v = mute_vol } },			// toggles mute and last set volume
-  { MODKEY|ShiftMask, 						XK_u,							spawn, 					{.v = brighter } },			// increases brightness
-  { MODKEY|ShiftMask,							XK_y,							spawn, 					{.v = dimmer } },			// decreases brightness
-	{ MODKEY,				             		XK_w,             spawn,          SHCMD("setbg")},      // sets or changes background
+	{ MODKEY,                       XK_Return, 				spawn,          {.v = termcmd } },		  // spawns terminal (kitty)
+	{ MODKEY,				             		XK_w,             spawn,          SHCMD("setbg")},        // sets or changes background
 	{ MODKEY,                       XK_comma,         spawn,          SHCMD("maim ~/multimedia/screenshots/\"Screenshot_$(date +%Y-%m-%d_%T).png\"")}, // gets screenhot of full window
 	{ MODKEY|ShiftMask,             XK_comma,         spawn,          SHCMD("maim | xclip -selection clipboard -t image/png")}, // gets screenshots of full window and stores in clipboard
   { MODKEY,                       XK_period,        spawn,          SHCMD("maim --select ~/multimedia/screenshots/\"Screenshot_$(date +%Y-%m-%d_%T).png\"")}, // enable user to select screenshot
@@ -118,7 +113,13 @@ static const Key keys[] = {
 	{ MODKEY,												XK_l,             spawn, 					SHCMD("slock -m \"Locked at  $(date \"+%a %d, %H:%M:%S\")\"")},
 	{ MODKEY, 											XK_v,							spawn, 					SHCMD("virt-manager")},
 	{ MODKEY,												XK_b,							spawn,					SHCMD("brave-browser")},
-	{ MODKEY,												XK_d,							spawn,					SHCMD("dmenu_run")}
+	{ MODKEY,												XK_d,							spawn,					SHCMD("dmenu_run")},
+	{ MODKEY,												XK_i,							spawn,					SHCMD("/var/lib/snapd/snap/bin/insomnia")}
+  // { MODKEY, 											XK_u, 						spawn, 					{.v = up_vol } },			// increases volume
+  // { MODKEY, 											XK_y, 						spawn, 					{.v = down_vol } },		// decreases volume
+  // { MODKEY|ShiftMask,						XK_m,        			spawn,					{.v = mute_vol } },		// toggles mute and last set volume
+  // { MODKEY|ShiftMask, 						XK_u,							spawn, 					{.v = brighter } },		// increases brightness
+  // { MODKEY|ShiftMask,						XK_y,							spawn, 					{.v = dimmer } },			// decreases brightness
 };
 
 /* button definitions */

@@ -7,4 +7,5 @@
 file="$1"
 basenameNoExt=$(basename "$file" | sed "s/\.rs//g")
 
+clear;
 rustc $file && ./$basenameNoExt; rm ./$basenameNoExt 2> /dev/null
