@@ -20,30 +20,35 @@
 "ui.bufferline.active" = { fg = "base06", bg = "base01" }
 "ui.help" = { fg = "base06", bg = "base01" }
 
-"comment" = "base03"
 "operator" = "base05"
+"comment" = "base03"
+"comment.block.documentation" = "base0F"
+"string" = "base0B"
 "constant" = "base09"
 "constant.builtin" = "base09"
 "constant.numeric" = "base09"
 "constant.character.escape" = "base0C"
-"keyword" = "base0E"
-"namespace" = "base0E"
-"type.builtin" = "base0E"
+"keyword" = "base10"
+"type.builtin" = "base10"
 "type" = "base0A"
-"attribute" = "base09"
+"type.enum.variant" = "base0B"
+"variable.other.member" = "base0B"
 "variable" = "base08"
 "variable.builtin" = "base08"
-"variable.other.member" = "base0B"
-"string" = "base0B"
 "function" = "base0D"
 "constructor" = "base0D"
+"function.macro" = "base0E"
+"keyword.directive" = "base0E"
+"namespace" = "base11"
+"tag" = "base08"
+"attribute" = "base09"
 "special" = "base0D"
-"label" = "base0E"
+"label" = "base10"
 
 "markup.heading" = "base0D"
 "markup.list" = "base08"
 "markup.bold" = { fg = "base0A", modifiers = ["bold"] }
-"markup.italic" = { fg = "base0E", modifiers = ["italic"] }
+"markup.italic" = { fg = "base10", modifiers = ["italic"] }
 "markup.strikethrough" = { modifiers = ["crossed_out"] }
 "markup.link.url" = { fg = "base09", modifiers = ["underlined"] }
 "markup.link.text" = "base08"
@@ -70,21 +75,16 @@ base04 = "#b8b8b8" # Dark Foreground (Used for status bars)
 base05 = "#d8d8d8" # Default Foreground, Caret, Delimiters, Operators
 base06 = "#e8e8e8" # Light Foreground (Not often used)
 base07 = "#f8f8f8" # Light Background (Not often used)
-base08 = "#ab4642" # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted    # light red
-base09 = "#dc9656" # Integers, Boolean, Constants, XML Attributes, Markup Link Url        # yellowish-orange
-base0A = "#f7ca88" # Classes, Markup Bold, Search Text Background                         # light yellowish-orange
-base0B = "#a1b56c" # Strings, Inherited Class, Markup Code, Diff Inserted                 # light green
-base0C = "#86c1b9" # Support, Regular Expressions, Escape Characters, Markup Quotes       # light cyan
-base0D = "#7cafc2" # Functions, Methods, Attribute IDs, Headings                          # light blue
-base0E = "#ba8baf" # Keywords, Storage, Selector, Markup Italic, Diff Changed             # light magenta
 
-base0F = "#a16946" # Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>    # dull orange
-base10 = "#df9f4f" #                                                                      # orange
-base11 = "#4fc1ff" #                                                                      # blue
-base12 = "#9cdcfe" #                                                                      # bright blue
-base13 = "#264f78" #                                                                      # light brown
+base08 = "#ab4642" # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted    # dark red
+base09 = "#dc9656" # Constants, XML Attributes, Markup Link Url, Diff Modified            # dark orange
+base0A = "#edc677" # Classes, Markup Bold, Search Text Background                         # light yellow
+base0B = "#a1b56c" # Strings, Type Members, Inherited Class, Markup Code, Diff Inserted   # dark green
 
-base14 = "#86c1b9" #                                                                      # light cyan
-base15 = "#7cafc2" #                                                                      # light blue
-base16 = "#ba8baf" #                                                                      # light magenta
-base17 = "#a16946" #                                                                      # dull orange
+base0C = "#8fc7bf" # Support, Escape Characters, Markup Quotes                            # light cyan
+base0D = "#75b7c7" # Functions, Methods, Attribute IDs, Headings                          # light blue
+base0E = "#57afd7" # Macros, Preprocessor Directives                                      # deep blue
+base0F = "#8b9eb7" # Documentation Comment                                                # grayish-blue
+
+base10 = "#ba8baf" # Keywords, Storage, Selector, Markup Italic, Diff Changed             # light magenta
+base11 = "#a576a0" # Namespaces                                                           # dark magenta
