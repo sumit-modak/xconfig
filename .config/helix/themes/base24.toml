@@ -27,7 +27,7 @@
 "constant" = "base09"
 "constant.builtin" = "base09"
 "constant.numeric" = "base09"
-"constant.character.escape" = "base0C"
+"constant.character.escape" = "base08"
 "keyword" = "base10"
 "type.builtin" = "base10"
 "type" = "base0A"
@@ -77,11 +77,12 @@ base06 = "#e8e8e8" # Light Foreground (Not often used)
 base07 = "#f8f8f8" # Light Background (Not often used)
 
 base08 = "#ab4642" # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted    # dark red
+base12 = "#af3c26"
 base09 = "#dc9656" # Constants, XML Attributes, Markup Link Url, Diff Modified            # dark orange
 base0A = "#edc677" # Classes, Markup Bold, Search Text Background                         # light yellow
 base0B = "#a1b56c" # Strings, Type Members, Inherited Class, Markup Code, Diff Inserted   # dark green
 
-base0C = "#8fc7bf" # Support, Escape Characters, Markup Quotes                            # light cyan
+base0C = "#8fc7bf" # Support, Markup Quotes                                               # light cyan
 base0D = "#75b7c7" # Functions, Methods, Attribute IDs, Headings                          # light blue
 base0E = "#57afd7" # Macros, Preprocessor Directives                                      # deep blue
 base0F = "#8b9eb7" # Documentation Comment                                                # grayish-blue

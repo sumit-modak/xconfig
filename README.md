@@ -6,22 +6,22 @@ These repository contains scripts and configuration files of those applications 
 | Applications            | Packages                |
 | :---------------------- | :---------------------- |
 | shell                   | zsh                     |
-| display_server		      | x                       |
-| compositor			        | picom                   |
+| display_server          | x                       |
+| compositor              | picom                   |
 | window_manager          | dwm                     |
 | statusbar               | slstatus                |
 | application_launcher    | dmenu                   |
 | display manager         | slock                   |
 | background              | xwallpaper              |
-| screenshot_tool		      | maim                    |
+| screenshot_tool         | maim                    |
 | terminal                | kitty                   |
-| text_editor			        | helix + codium          |
+| text_editor             | helix + codium          |
 | file_explorer           | lf                      |
 | cli_image_preview       | kitty-kitten-icat       |
 | fonts                   | hack-nerd-fonts         |
-| image_viewer			      | sxiv                    |
-| video_player			      | mpv 			              |
-| audio_player			      | mpd                     |
+| image_viewer            | sxiv                    |
+| video_player            | mpv                     |
+| audio_player            | mpd                     |
 
 # Installation
 

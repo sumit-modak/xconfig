@@ -1,5 +1,5 @@
-theme = "base24"
-# theme = "my_dark_plus"
+# theme = "base24"
+theme = "my_dark_plus"
 
 # theme = "amberwood"
 # theme = "autumn_night"
@@ -49,6 +49,7 @@ theme = "base24"
 [editor]
 line-number = "relative"
 shell = ["zsh", "-c"]
+bufferline = "always"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -64,7 +65,7 @@ enable = true
 [keys.normal]
 q = ":buffer-close"
 Q = ":buffer-close!"
-z = [":write", ":config-reload"]
+z = ":write"
 Z = ":write!"
 h = [ "collapse_selection", "insert_mode" ]
 n = [ "move_char_right", "insert_mode" ]
@@ -330,10 +331,10 @@ s = "search"
 S = [ "search_selection", "search" ]
 M = "search_prev" # prev_match
 m = "search_next" # next_match
-F = "find_prev_char" # find_char_backward
-f = "find_next_char" # find_char_forward
-T = "till_prev_char" # till_char_backward
-t = "find_till_char" # till_char_forward
+F = "extend_prev_char" # find_char_backward
+f = "extend_next_char" # find_char_forward
+T = "extend_till_prev_char" # till_char_backward
+t = "extend_till_char" # till_char_forward
 
 N = "select_textobject_around"
 H = "select_textobject_inner"

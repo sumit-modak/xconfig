@@ -102,7 +102,7 @@ clone/
 priv/
 multimedia/
 passwd/
-snap/
+Videos/
 youtube/
 .serverauth.*
 .sudo_as_admin_successful

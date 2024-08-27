@@ -44,7 +44,6 @@ PROMPT="[%{$fg[cyan]%}%~%{$reset_color%}]%(?:%{$fg_bold[green]%} $:%{$fg_bold[re
 
 # ============================= aliases ============================== #
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
-# alias l="ls -lAGhv --color --group-directories-first"
 alias ls="eza -aFl --group-directories-first --icons"
 alias lsa="eza -aF --group-directories-first --icons"
 alias lst="eza -aFT --group-directories-first --icons"
@@ -53,9 +52,11 @@ alias ascii="bat ~/.local/share/ascii"
 alias imgcat="kitty +kitten icat"
 alias c="clear"
 
-alias tell="espeak-ng"
+# alias l="ls -lAGhv --color --group-directories-first"
+# alias tell="espeak-ng"
 # alias gpt="cd ~/.local/bin/ && python3 ~/.local/bin/chat-gpt.py && cd -"
 # alias kbdmap="setxkbmap us; xmodmap $HOME/.config/xmodmap/xmodmap && xset r 66"
 # alias kbdreset="setxkbmap us; xset -r 66"
 
-sed "s/\s*#.*$//g; /^$/d" $HOME/priv/incidents/quotes | shuf -n 1 2> /dev/null | lolcat
+# for random quotes
+# sed "s/\s*#.*$//g; /^$/d" $HOME/priv/self/quotes | shuf -n 1 2> /dev/null | lolcat

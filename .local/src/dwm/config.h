@@ -22,7 +22,9 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "~ $", "4", "5", "B1", "B2", "B3", "B4" };
+static const char *tags[] = { "</>", "=#=", "***", "[/]", ">O<", "B1", "B2", "B3", "B4", "B5" };
+//                        terminal,wireshark, api_test, file_exp,pavucontrol
+//                        terminal, kdenlive, gimp,   handbrake, pavucontrol
 
 /* layout(s) */
 static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
@@ -33,11 +35,11 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
-	{ "TTT",      htile },   /* master is present on the upper portion of the screen */ /* bottom stack */
-	{ "H*H",      cmaster }, /* master is present on the middle of the screen */ /* centered master */
-	{ "###", 	  	grid },		 /* gapless grid layout */
-	{ "[M]",      monocle },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[M]",      monocle },
+	{ "TTT",      htile },   /* master is present on the upper portion of the screen */ /* bottom stack */
+	// { "H*H",      cmaster }, /* master is present on the middle of the screen */ /* centered master */
+	// { "###", 	   grid },		 /* gapless grid layout */
 };
 
 /* key definitions */
@@ -68,40 +70,33 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_f,      				focusstack,     {.i = -1 } },			// shifts focus to next window above stack
 	{ MODKEY|ShiftMask,             XK_x,      				movestack,      {.i = +1 } }, 			// move window downwards the stack
 	{ MODKEY|ShiftMask,             XK_f,      				movestack,      {.i = -1 } },			// move window upwards the stack
-	{ MODKEY,                       XK_r,      				setmfact,       {.f = -0.05} }, 		// resize window - makes master windows smaller
-	{ MODKEY,                       XK_s,      				setmfact,       {.f = +0.05} },			// resize window - makes slave windows smaller
-	{ MODKEY|ShiftMask,             XK_r,   					incnmaster,     {.i = +1 } },			// brings adjacent slave window on master stack
-	{ MODKEY|ShiftMask,             XK_s,							incnmaster,     {.i = -1 } },			// brings adjacent master window on slave stack
+	{ MODKEY,                       XK_e,      				setmfact,       {.f = -0.05} }, 		// resize window - makes master windows smaller
+	{ MODKEY,                       XK_i,      				setmfact,       {.f = +0.05} },			// resize window - makes slave windows smaller
+	{ MODKEY|ShiftMask,             XK_e,   					incnmaster,     {.i = +1 } },			// brings adjacent slave window on master stack
+	{ MODKEY|ShiftMask,             XK_i,							incnmaster,     {.i = -1 } },			// brings adjacent master window on slave stack
 	{ MODKEY,                  			XK_Tab,    				zoom,           {0} },                  // brings window to the master 
 	{ MODKEY|ShiftMask,             XK_Tab,    				view,           {0} },					// moves to last used tag
-	{ MODKEY,                       XK_t,      				setlayout,      {.v = &layouts[0]} },   // sets vertical tiling layout mode
-	{ MODKEY|ShiftMask,             XK_t,      				setlayout,      {.v = &layouts[1]} },   // sets horizontal tiling layout mode
-	{ MODKEY,                       XK_c,      				setlayout,      {.v = &layouts[2]} },	// sets centered master tiling mode
-	{ MODKEY,												XK_g,							setlayout, 			{.v = &layouts[3]} },	// sets grid layout mode
-	{ MODKEY,                       XK_m,      				setlayout,      {.v = &layouts[4]} },   // sets monocle layout mode
-	{ MODKEY,                       XK_space,  				setlayout,      {.v = &layouts[5]} },   // sets floating layout mode
+	{ MODKEY,                       XK_equal,      		setlayout,      {.v = &layouts[0]} },   // sets vertical tiling layout mode
+	{ MODKEY,                       XK_space,  				setlayout,      {.v = &layouts[1]} },   // sets floating layout mode
+	{ MODKEY,                       XK_m,      				setlayout,      {.v = &layouts[2]} },   // sets monocle layout mode
+	{ MODKEY|ShiftMask,             XK_equal,      		setlayout,      {.v = &layouts[3]} },   // sets horizontal tiling layout mode
+	// { MODKEY|ShiftMask,            XK_c,      			setlayout,      {.v = &layouts[4]} },	// sets centered master tiling mode
+	// { MODKEY|ShiftMask, 						XK_g,						setlayout, 			{.v = &layouts[5]} },	// sets grid layout mode
 	{ MODKEY|ShiftMask,             XK_space,  				togglefloating, {0} },					// toggle between activated layout mode and floating mode for selected window
 	{ MODKEY,                       XK_minus,  				setgaps,        {.i = -1 } },			// decreases window gaps
-	{ MODKEY,                       XK_equal,  				setgaps,        {.i = +1 } },			// increases window gaps
-	{ MODKEY|ShiftMask,             XK_equal,  				setgaps,        {.i = 0  } },			// sets default window gaps
+	{ MODKEY,                       XK_plus,  				setgaps,        {.i = +1 } },			// increases window gaps
+	{ MODKEY|ShiftMask,             XK_plus,  				setgaps,        {.i = 0  } },			// sets default window gaps
 
-	TAGKEYS(                        XK_1,             				        0)
-	TAGKEYS(                        XK_2,                      				1)
-	TAGKEYS(                        XK_3,  				                    2)
-	TAGKEYS(                        XK_4,          				            3)
-	TAGKEYS(                        XK_5,           			          	4)
+	TAGKEYS(                        XK_a,             				        0)
+	TAGKEYS(                        XK_r,                      				1)
+	TAGKEYS(                        XK_s,  				                    2)
+	TAGKEYS(                        XK_t,          				            3)
+	TAGKEYS(                        XK_g,           			          	4)
 	TAGKEYS(                        XK_6,                             5)
 	TAGKEYS(                        XK_7,                             6)
 	TAGKEYS(                        XK_8,                             7)
 	TAGKEYS(                        XK_9,                             8)
-
-	// unused shortcuts
-	{ MODKEY,                       XK_0,      				view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      				tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_apostrophe, 		focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_colon,      		focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_apostrophe,		tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_colon, 				tagmon,         {.i = +1 } },
+	TAGKEYS(                        XK_0,                             9)
 	
 	// extra added keyboard shortcuts
 	{ MODKEY,                       XK_Return, 				spawn,          {.v = termcmd } },		  // spawns terminal (kitty)
@@ -111,15 +106,28 @@ static const Key keys[] = {
   { MODKEY,                       XK_period,        spawn,          SHCMD("maim --select ~/multimedia/screenshots/\"Screenshot_$(date +%Y-%m-%d_%T).png\"")}, // enable user to select screenshot
 	{ MODKEY|ShiftMask,             XK_period,        spawn,          SHCMD("maim --select | xclip -selection clipboard -t image/png")}, // enables user to select screenshot and stores in clipboard
 	{ MODKEY,												XK_l,             spawn, 					SHCMD("slock -m \"Locked at  $(date \"+%a %d, %H:%M:%S\")\"")},
-	{ MODKEY, 											XK_v,							spawn, 					SHCMD("virt-manager")},
-	{ MODKEY,												XK_b,							spawn,					SHCMD("brave-browser")},
-	{ MODKEY,												XK_d,							spawn,					SHCMD("dmenu_run")},
-	{ MODKEY,												XK_i,							spawn,					SHCMD("/var/lib/snapd/snap/bin/insomnia")}
+	{ MODKEY,												XK_b,							spawn,					SHCMD("/usr/bin/brave-browser")},
+	{ MODKEY, 											XK_p,							spawn, 					SHCMD("/usr/bin/pavucontrol")},
+	{ MODKEY|ShiftMask, 						XK_g,							spawn, 					SHCMD("/usr/bin/gimp")},
+	{ MODKEY, 											XK_k,							spawn, 					SHCMD("/usr/bin/kdenlive")},
+	{ MODKEY, 											XK_v,							spawn, 					SHCMD("/usr/bin/virt-manager")},
+	{ MODKEY,												XK_d,							spawn,					SHCMD("/usr/local/bin/dmenu_run")},
+	// { MODKEY,											XK_h,							spawn,					SHCMD("flatpak run fr.handbrake.ghb")},
+	// { MODKEY, 											XK_a,							spawn, 					SHCMD("/usr/bin/audacity")},
+	// { MODKEY, 											XK_o,							spawn, 					SHCMD("/usr/bin/obs")},
   // { MODKEY, 											XK_u, 						spawn, 					{.v = up_vol } },			// increases volume
   // { MODKEY, 											XK_y, 						spawn, 					{.v = down_vol } },		// decreases volume
   // { MODKEY|ShiftMask,						XK_m,        			spawn,					{.v = mute_vol } },		// toggles mute and last set volume
   // { MODKEY|ShiftMask, 						XK_u,							spawn, 					{.v = brighter } },		// increases brightness
   // { MODKEY|ShiftMask,						XK_y,							spawn, 					{.v = dimmer } },			// decreases brightness
+
+	// unused shortcuts
+	{ MODKEY,                       XK_j,      				view,           {.ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_j,      				tag,            {.ui = ~0 } },
+	{ MODKEY,                       XK_apostrophe, 		focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_colon,      		focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_apostrophe,		tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_colon, 				tagmon,         {.i = +1 } }
 };
 
 /* button definitions */
