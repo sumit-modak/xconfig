@@ -51,6 +51,7 @@ alias tmux="zellij"
 alias ascii="bat ~/.local/share/ascii"
 alias imgcat="kitty +kitten icat"
 alias c="clear"
+# alias mcd="mkdir \"$1\"; cd \"$1\""
 
 # alias l="ls -lAGhv --color --group-directories-first"
 # alias tell="espeak-ng"

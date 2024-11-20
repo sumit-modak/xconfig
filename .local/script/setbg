@@ -1,6 +1,10 @@
 #!/usr/bin/bash
 
+# wallpaper_path="~/.local/share/backgrounds/"
+wallpaper_path="$HOME/multimedia/motivation/"
+
 # gets a random wallpaper
-rand_wall=$(find ~/.local/share/backgrounds/ -type f -name "*.jpg" -o -name "*.png" | shuf -n 1)
+rand_wall=$(find $wallpaper_path -type f -name "*.*" -o -name "*.png" | shuf -n 1)
+
 # sets the random wallpaper as background
 xwallpaper --zoom $rand_wall

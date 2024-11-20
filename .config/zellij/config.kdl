@@ -89,8 +89,8 @@ keybinds clear-defaults=true {
         bind "d" { Detach; }
 
         bind "s" { SwitchToMode "EnterSearch"; SearchInput 0; }
-        bind "n" { Search "down"; }
-        bind "p" { Search "up"; }
+        bind "y" { Search "up"; }
+        bind "i" { Search "down"; }
         bind "c" { SearchToggleOption "CaseSensitivity"; }
         bind "w" { SearchToggleOption "Wrap"; }
         bind "W" { SearchToggleOption "WholeWord"; }
