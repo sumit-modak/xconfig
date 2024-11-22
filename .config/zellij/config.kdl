@@ -1,6 +1,9 @@
 layout_dir "~/.config/zellij/layouts/"
 
 keybinds clear-defaults=true {
+    shared_except "normal" "locked" {
+        bind "Enter" "Esc" { SwitchToMode "Normal"; }
+    }
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
@@ -8,24 +11,13 @@ keybinds clear-defaults=true {
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
     }
-    entersearch {
-        bind "Ctrl c" "Esc" { SwitchToMode "Scroll"; }
-        bind "Enter" { SwitchToMode "Search"; }
-    }
-    renametab {
-        bind "Ctrl c" { SwitchToMode "Normal"; }
-        bind "Esc" { UndoRenameTab; SwitchToMode "Tab"; }
-    }
-    renamepane {
-        bind "Ctrl c" { SwitchToMode "Normal"; }
-        bind "Esc" { UndoRenamePane; SwitchToMode "Pane"; }
-    }
     shared_except "locked" {
         bind "Ctrl g" { SwitchToMode "Locked"; }
         bind "Ctrl q" { CloseFocus; SwitchToMode "Normal"; }
+        bind "Ctrl Q" { Quit; }
 
-        bind "Ctrl t" { NewPane; SwitchToMode "Normal"; }
-        bind "Ctrl n" { Run "hx" "."; SwitchToMode "Normal"; }
+        bind "Ctrl n" { NewPane; SwitchToMode "Normal"; }
+        bind "Ctrl N" { Run "hx" "."; SwitchToMode "Normal"; }
         bind "Ctrl f" { ToggleFloatingPanes; SwitchToMode "Normal"; }
 
         // Shifting Focus
@@ -48,17 +40,37 @@ keybinds clear-defaults=true {
             SwitchToMode "Normal"
         }
     }
+    entersearch {
+        bind "Ctrl c" "Esc" { SwitchToMode "Scroll"; }
+        bind "Enter" { SwitchToMode "Search"; }
+    }
+    renametab {
+        bind "Ctrl c" { SwitchToMode "Normal"; }
+        bind "Esc" { UndoRenameTab; SwitchToMode "Tab"; }
+    }
+    renamepane {
+        bind "Ctrl c" { SwitchToMode "Normal"; }
+        bind "Esc" { UndoRenamePane; SwitchToMode "Pane"; }
+    }
+
+    shared_except "tab" "locked" {
+        bind "Ctrl t" { SwitchToMode "Tab"; }
+    }
     tab {
-        bind "Ctrl a" { SwitchToMode "Normal"; }
+        bind "Ctrl t" { SwitchToMode "Normal"; }
+        bind "n" { NewTab; SwitchToMode "Normal"; }
+        bind "N" { NewTab; Run "hx" "."; SwitchFocus; CloseFocus; SwitchToMode "Normal"; }
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
-        bind "t" { NewTab; SwitchToMode "Normal"; }
-        bind "n" { NewTab; Run "hx" "."; SwitchFocus; CloseFocus; SwitchToMode "Normal"; }
         bind "f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
 
         bind "s" { ToggleActiveSyncTab; SwitchToMode "Normal"; }
         bind "\\" { TogglePaneFrames; SwitchToMode "Normal"; }
         bind "[" { BreakPaneLeft; }
         bind "]" { BreakPaneRight; }
+    }
+
+    shared_except "pane" "locked" {
+        bind "Ctrl p" { SwitchToMode "Pane"; }
     }
     pane {
         bind "Ctrl p" { SwitchToMode "Normal"; }
@@ -70,6 +82,10 @@ keybinds clear-defaults=true {
         bind "i" { MovePane "Down"; }
         bind "y" { MovePane "Up"; }
         bind "o" { MovePane "Right"; }
+    }
+
+    shared_except "resize" "locked" {
+        bind "Ctrl r" { SwitchToMode "Resize"; }
     }
     resize {
         bind "Ctrl r" { SwitchToMode "Normal"; }
@@ -83,6 +99,10 @@ keybinds clear-defaults=true {
         bind "I" { Resize "Decrease Down"; }
         bind "Y" { Resize "Decrease Up"; }
         bind "O" { Resize "Decrease Right"; }
+    }
+
+    shared_except "search" "locked" {
+        bind "Ctrl s" { SwitchToMode "Search"; }
     }
     search {
         bind "Ctrl s" { SwitchToMode "Normal"; }
@@ -129,6 +149,9 @@ keybinds clear-defaults=true {
     // bind "'" { ToggleTab; }
     // bind "q" { CloseTab; SwitchToMode "Normal"; }
     // bind "q" { Quit; }
+    shared_except "tmux" "locked" {
+        bind "Ctrl b" { SwitchToMode "Tmux"; }
+    }
     tmux {
         bind "[" { SwitchToMode "Scroll"; }
         bind "Ctrl b" { Write 2; SwitchToMode "Normal"; }
@@ -151,24 +174,6 @@ keybinds clear-defaults=true {
         bind "d" { Detach; }
         bind "Space" { NextSwapLayout; }
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
-    }
-    shared_except "normal" "locked" {
-        bind "Enter" "Esc" { SwitchToMode "Normal"; }
-    }
-    shared_except "tab" "locked" {
-        bind "Ctrl a" { SwitchToMode "Tab"; }
-    }
-    shared_except "pane" "locked" {
-        bind "Ctrl p" { SwitchToMode "Pane"; }
-    }
-    shared_except "resize" "locked" {
-        bind "Ctrl r" { SwitchToMode "Resize"; }
-    }
-    shared_except "search" "locked" {
-        bind "Ctrl s" { SwitchToMode "Search"; }
-    }
-    shared_except "tmux" "locked" {
-        bind "Ctrl b" { SwitchToMode "Tmux"; }
     }
 }
 
