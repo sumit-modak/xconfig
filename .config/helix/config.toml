@@ -80,53 +80,33 @@ space.Q = ":quit!"
 space.l = ":lsp-restart"
 space.o = ":reload-all"
 space.O = ":config-reload"
+space.t = "align_view_top"
+space.m = "align_view_center"
+space.b = "align_view_bottom"
+space.M = "align_view_middle"
 space.f = "file_picker_in_current_directory"
 space.F = "goto_file"
-space.b = "buffer_picker"
 space."/" = "global_search"
 space.y = "goto_file_start"
 space.i = "goto_file_end"
 space."." = "goto_last_modification"
 space.c = "toggle_comments"
-space.p =	"hover" ## Show documentation for item under cursor in a popup (LSP)
-space.e =	"diagnostics_picker" ## Open document diagnostics picker (LSP)
-space.E =	"workspace_diagnostics_picker" ## Open workspace diagnostics picker (LSP)
+space.C = "toggle_block_comments"
+space.p = "hover" ## Show documentation for item under cursor in a popup (LSP)
+space.e = "workspace_diagnostics_picker" ## Open workspace diagnostics picker (LSP)
+space.E = "diagnostics_picker" ## Open document diagnostics picker (LSP)
 space.d = "goto_definition" ## Go to definition (LSP)
 space.D = "goto_type_definition" ## Go to type definition (LSP)
-space.s =	"symbol_picker" ## Open document symbol picker (LSP)
-space.S =	"workspace_symbol_picker" ## Open workspace symbol picker (LSP)
-space.r =	"rename_symbol" ## Rename symbol (LSP)
-space.R =	"select_references_to_symbol_under_cursor" ## Select symbol references (LSP)
-space.a =	"code_action" ## Apply code action (LSP)
+space.s = "symbol_picker" ## Open document symbol picker (LSP)
+space.S = "workspace_symbol_picker" ## Open workspace symbol picker (LSP)
+space.r = "rename_symbol" ## Rename symbol (LSP)
+space.R = "select_references_to_symbol_under_cursor" ## Select symbol references (LSP)
+space.a = "code_action" ## Apply code action (LSP)
 # space.r = "goto_reference" ## Go to references (LSP)
 # space.R = "goto_implementation" ## Go to implementation (LSP)
 # space."=" = "format_selection" ## Format selection (currently nonfunctional/disabled) (LSP)
 # space.g	## Debug (experimental)
 # space.w	## Enter window mode
-space.T = "align_view_top"
-space.C = "align_view_center"
-space.B = "align_view_bottom"
-space.M = "align_view_middle"
-space.h.d = "goto_prev_diag"
-space.h.f = "goto_prev_function"
-space.h.a = "goto_prev_parameter"
-space.h.t = "goto_prev_class"
-space.h.c = "goto_prev_comment"
-space.h.x = "goto_prev_test"
-space.h.p = "goto_prev_paragraph"
-space.h.s = "select_prev_sibling"
-space.h.g = "goto_prev_change"
-space.h.G = "goto_first_change"
-space.n.d = "goto_next_diag"
-space.n.f = "goto_next_function"
-space.n.a = "goto_next_parameter"
-space.n.t = "goto_next_class"
-space.n.c = "goto_next_comment"
-space.n.x = "goto_next_test"
-space.n.p = "goto_next_paragraph"
-space.n.s = "select_next_sibling"
-space.n.g = "goto_next_change"
-space.n.G = "goto_last_change"
 
 # movement
 y = "move_visual_line_up"
@@ -137,7 +117,7 @@ Y = [ "goto_window_top", "move_visual_line_up", "align_view_center" ]
 E = "goto_first_nonwhitespace"
 I = [ "goto_window_bottom", "move_visual_line_down", "align_view_center" ]
 O = "goto_line_end"
-w	= "move_next_word_end"
+w = "move_next_word_end"
 W = "move_next_long_word_end"
 b = "move_prev_word_start"
 B = "move_prev_long_word_start"
@@ -169,9 +149,9 @@ G = [ "add_newline_below", "move_visual_line_down" ]
 "+" = "surround_add"
 "=" = "surround_replace"
 "minus" = "surround_delete"
-">" =	"switch_to_uppercase"
-"~"	= "switch_case"
-"<" =	"switch_to_lowercase"
+">" = "switch_to_uppercase"
+"~" = "switch_case"
+"<" = "switch_to_lowercase"
 
 # find & selection
 s = "search"
@@ -209,6 +189,8 @@ space."'" = "no_op"
 space.k = "no_op"
 space.Y = "no_op"
 space.P = "no_op"
+space.h = "no_op"
+space.A-c = "no_op"
 "C-i" = "no_op"
 "C-o" = "no_op"
 "C-s" = "no_op"
@@ -239,53 +221,33 @@ space.Q = ":quit!"
 space.l = ":lsp-restart"
 space.o = ":reload-all"
 space.O = ":config-reload"
+space.t = "align_view_top"
+space.m = "align_view_center"
+space.b = "align_view_bottom"
+space.M = "align_view_middle"
 space.f = "file_picker_in_current_directory"
 space.F = "goto_file"
-space.b = "buffer_picker"
 space."/" = "global_search"
 space.y = "goto_file_start"
 space.i = "goto_file_end"
 space."." = "goto_last_modification"
 space.c = "toggle_comments"
-space.p =	"hover" ## Show documentation for item under cursor in a popup (LSP)
-space.e =	"diagnostics_picker" ## Open document diagnostics picker (LSP)
-space.E =	"workspace_diagnostics_picker" ## Open workspace diagnostics picker (LSP)
+space.C = "toggle_block_comments"
+space.p = "hover" ## Show documentation for item under cursor in a popup (LSP)
+space.e = "workspace_diagnostics_picker" ## Open workspace diagnostics picker (LSP)
+space.E = "diagnostics_picker" ## Open document diagnostics picker (LSP)
 space.d = "goto_definition" ## Go to definition (LSP)
 space.D = "goto_type_definition" ## Go to type definition (LSP)
-space.s =	"symbol_picker" ## Open document symbol picker (LSP)
-space.S =	"workspace_symbol_picker" ## Open workspace symbol picker (LSP)
-space.r =	"rename_symbol" ## Rename symbol (LSP)
-space.R =	"select_references_to_symbol_under_cursor" ## Select symbol references (LSP)
-space.a =	"code_action" ## Apply code action (LSP)
+space.s = "symbol_picker" ## Open document symbol picker (LSP)
+space.S = "workspace_symbol_picker" ## Open workspace symbol picker (LSP)
+space.r = "rename_symbol" ## Rename symbol (LSP)
+space.R = "select_references_to_symbol_under_cursor" ## Select symbol references (LSP)
+space.a = "code_action" ## Apply code action (LSP)
 # space.r = "goto_reference" ## Go to references (LSP)
 # space.R = "goto_implementation" ## Go to implementation (LSP)
 # space."=" = "format_selection" ## Format selection (currently nonfunctional/disabled) (LSP)
 # space.g	## Debug (experimental)
 # space.w	## Enter window mode
-space.T = "align_view_top"
-space.C = "align_view_center"
-space.B = "align_view_bottom"
-space.M = "align_view_middle"
-space.h.d = "goto_prev_diag"
-space.h.f = "goto_prev_function"
-space.h.a = "goto_prev_parameter"
-space.h.t = "goto_prev_class"
-space.h.c = "goto_prev_comment"
-space.h.x = "goto_prev_test"
-space.h.p = "goto_prev_paragraph"
-space.h.s = "select_prev_sibling"
-space.h.g = "goto_prev_change"
-space.h.G = "goto_first_change"
-space.n.d = "goto_next_diag"
-space.n.f = "goto_next_function"
-space.n.a = "goto_next_parameter"
-space.n.t = "goto_next_class"
-space.n.c = "goto_next_comment"
-space.n.x = "goto_next_test"
-space.n.p = "goto_next_paragraph"
-space.n.s = "select_next_sibling"
-space.n.g = "goto_next_change"
-space.n.G = "goto_last_change"
 
 # movement
 y = "extend_visual_line_up"
@@ -296,7 +258,7 @@ Y = [ "goto_window_top", "extend_visual_line_up", "align_view_center" ]
 E = "goto_first_nonwhitespace"
 I = [ "goto_window_bottom", "extend_visual_line_down", "align_view_center" ]
 O = "goto_line_end"
-w	= "extend_next_word_end"
+w = "extend_next_word_end"
 W = "extend_next_long_word_end"
 b = "extend_prev_word_start"
 B = "extend_prev_long_word_start"
@@ -328,9 +290,9 @@ G = [ "add_newline_below", "move_visual_line_down" ]
 "+" = "surround_add"
 "=" = "surround_replace"
 "minus" = "surround_delete"
-">" =	"switch_to_uppercase"
-"~"	= "switch_case"
-"<" =	"switch_to_lowercase"
+">" = "switch_to_uppercase"
+"~" = "switch_case"
+"<" = "switch_to_lowercase"
 
 # find & selection
 s = "search"
@@ -368,6 +330,8 @@ space."'" = "no_op"
 space.k = "no_op"
 space.Y = "no_op"
 space.P = "no_op"
+space.h = "no_op"
+space.A-c = "no_op"
 "C-i" = "no_op"
 "C-o" = "no_op"
 "C-s" = "no_op"
@@ -376,6 +340,27 @@ space.P = "no_op"
 "C-u" = "no_op"
 "C-w" = "no_op"
 
+# "goto_prev_diag"
+# "goto_prev_function"
+# "goto_prev_parameter"
+# "goto_prev_class"
+# "goto_prev_comment"
+# "goto_prev_test"
+# "goto_prev_paragraph"
+# "select_prev_sibling"
+# "goto_prev_change"
+# "goto_first_change"
+# "goto_next_diag"
+# "goto_next_function"
+# "goto_next_parameter"
+# "goto_next_class"
+# "goto_next_comment"
+# "goto_next_test"
+# "goto_next_paragraph"
+# "select_next_sibling"
+# "goto_next_change"
+# "goto_last_change"
+# "buffer_picker"
 # "goto_last_accessed_file"
 # "goto_last_modified_file"
 # "half_page_up"
