@@ -121,6 +121,8 @@ youtube/
 .config/nushell/
 .config/wireshark/
 .config/zed/
+.config/mixapi/
+.config/rust-cli/
 .dbus/
 .local/share/RecentDocuments/
 .local/share/SpringToolSuite4/
