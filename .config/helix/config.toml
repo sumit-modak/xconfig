@@ -1,50 +1,17 @@
 # theme = "base24"
 theme = "my_dark_plus"
 
-# theme = "amberwood"
-# theme = "autumn_night"
-# theme = "ayu_dark"
-# theme = "ayu_evolve"
-# theme = "catppuccin_frappe"
-# theme = "catppuccin_macchiato"
-# theme = "catppuccin_mocha"
-# theme = "everblush"
-# theme = "fleet_dark"
-# theme = "github_dark"
-# theme = "github_dark_colorblind"
-# theme = "github_dark_dimmed"
-# theme = "github_dark_high_contrast"
-# theme = "github_dark_tritanopia"
-# theme = "gruvbox"
-# theme = "gruvbox_dark_hard"
-# theme = "jellybeans"
-# theme = "kanagawa"
-# theme = "kaolin-valley-dark"
-# theme = "material_deep_ocean"
-# theme = "mellow"
-# theme = "monokai"
-# theme = "monokai_aqua"
-# theme = "monokai_pro"
-# theme = "monokai_pro_machine"
-# theme = "monokai_pro_octagon"
-# theme = "monokai_pro_ristretto"
-# theme = "monokai_pro_spectrum"
-# theme = "new_moon"
-# theme = "nightfox"
-# theme = "nord-night"
-# theme = "nord"
-# theme = "onedark"
-# theme = "papercolor-dark"
-# theme = "penumbra+"
-# theme = "pop-dark"
-# theme = "rasmus"
-# theme = "snazzy"
-# theme = "solarized_dark"
-# theme = "sonokai"
-# theme = "tokyonight"
-# theme = "varua"
-# theme = "vim_dark_high_contrast"
-# theme = "zed_onedark"
+# "amberwood", "autumn_night", "ayu_dark", "ayu_evolve", "catppuccin_frappe",
+# "catppuccin_macchiato", "catppuccin_mocha", "everblush", "fleet_dark",
+# "github_dark", "github_dark_colorblind", "github_dark_dimmed",
+# "github_dark_high_contrast", "github_dark_tritanopia", "gruvbox",
+# "gruvbox_dark_hard", "jellybeans", "kanagawa", "kaolin-valley-dark",
+# "material_deep_ocean", "mellow", "monokai", "monokai_aqua", "monokai_pro",
+# "monokai_pro_machine", "monokai_pro_octagon", "monokai_pro_ristretto",
+# "monokai_pro_spectrum", "new_moon", "nightfox", "nord-night", "nord",
+# "onedark", "papercolor-dark", "penumbra+", "pop-dark", "rasmus", "snazzy",
+# "solarized_dark", "sonokai", "tokyonight", "varua", "vim_dark_high_contrast",
+# "zed_onedark"
 
 [editor]
 line-number = "relative"
@@ -196,6 +163,7 @@ space.A-c = "no_op"
 "C-s" = "no_op"
 "C-b" = "no_op"
 "C-f" = "no_op"
+"C-d" = "no_op"
 "C-u" = "no_op"
 "C-w" = "no_op"
 # window mode
@@ -337,6 +305,7 @@ space.A-c = "no_op"
 "C-s" = "no_op"
 "C-b" = "no_op"
 "C-f" = "no_op"
+"C-d" = "no_op"
 "C-u" = "no_op"
 "C-w" = "no_op"
 
