@@ -19,8 +19,8 @@ keymap = [
     { on = "i",                run = "arrow 1",              desc = "Move cursor down" },
     { on = "Y",                run = "arrow -50%",           desc = "Move cursor up half page" },
     { on = "I",                run = "arrow 50%",            desc = "Move cursor down half page" },
-    { on = [ "<space>", "y" ], run = "arrow -99999999",      desc = "Move cursor to the top" },
-    { on = [ "<space>", "i" ], run = "arrow 99999999",       desc = "Move cursor to the bottom" },
+    { on = [ "<space>", "y" ], run = "arrow top",            desc = "Move cursor to the top" },
+    { on = [ "<space>", "i" ], run = "arrow bot",            desc = "Move cursor to the bottom" },
 
 	  # Navigation
     { on = "e",                run = "leave",                desc = "Go back to the parent directory" },
@@ -33,10 +33,10 @@ keymap = [
     { on = "O",                run = "seek 8",               desc = "Seek down 8 units in the preview" },
 
     # Selection
-    { on = "l", run = [ "select --state=none", "arrow 1" ],  desc = "Toggle the current selection state" },
-    { on = "L", run = [ "select --state=none", "arrow -1" ], desc = "Toggle the current selection state" },
-    { on = "%", run = "select_all --state=true",             desc = "Select all files" },
-    #{ on = "", run = "select_all --state=none",             desc = "Inverse selection of all files" },
+    { on = "l", run = [ "toggle", "arrow 1" ],               desc = "Toggle the current selection state" },
+    { on = "L", run = [ "toggle", "arrow -1" ],              desc = "Toggle the current selection state" },
+    { on = "%", run = "toggle_all --state=on",               desc = "Select all files" },
+    #{ on = "", run = "toggle_all",                          desc = "Inverse selection of all files" },
     { on = "v", run = "visual_mode",                         desc = "Enter visual mode (selection mode)" },
     { on = "V", run = "visual_mode --unset",                 desc = "Enter visual mode (unset mode)" },
 
